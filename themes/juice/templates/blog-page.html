@@ -1,0 +1,13 @@
+{% import "_macros.html" as macros %}
+{% extends "base.html" %}
+
+{% block header %}
+<header class="box-shadow">
+    {{ macros::render_header() }}
+</header>
+{% endblock header %}
+
+{% block content %}
+<div class="heading-text">{{ page.description }}</div>
+{{ page.content | safe }}
+{% endblock content %}

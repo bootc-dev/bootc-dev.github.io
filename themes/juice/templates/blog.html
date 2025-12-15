@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block header %}
+<header class="box-shadow">
+    {{ macros::render_header() }}
+</header>
+{% endblock header %}
+
+{% block content %}
+<h1 class="title">
+    {{ section.title }}
+</h1>
+<ul>
+    <!-- If you are using pagination, section.pages will be empty. You need to use the paginator object -->
+    {% for page in section.pages %}
+    <li><a href="{{ page.permalink | safe }}">{{ page.date }} - {{ page.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock content %}
+
+{% block sidebar %}
+<div class="sidebar">
+    <h2 class="title is-2 is-block-fullhd is-skipped">Archive</h2>
+    <ul class="link-list archive">
+        {% set all_content = get_section(path="blog/_index.md") %}
+        {% for post in all_content.pages %}
+           <li><a href="{{ post.permalink }}" title="{{ post.title }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock sidebar %}
