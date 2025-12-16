@@ -61,3 +61,10 @@ favicon = "favicon.ico"
 meta_title = "Your OS, but Containers!"
 meta_description = "bootc builds operating systems using containerization principles"
 footer = ""
+
+# Author definitions for blog posts
+# Use the key (e.g., "jeckersb") as the author value in blog post frontmatter
+[extra.authors]
+
+[extra.authors.jeckersb]
+name = "John Eckersberg"
