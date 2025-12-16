@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbootc-dev%2Fbootc-dev.github.io.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbootc-dev%2Fbootc-dev.github.io?ref=badge_shield)
+
 # This is the main site!
 
 This site is built using [Zola](https://www.getzola.org/), a static site generator built with Rust. The theme is [Juice](https://www.getzola.org/themes/juice/).
@@ -24,3 +26,6 @@ zola serve
 Go to the URL for the webserver (likely `localhost:1111`) to explore the site.
 
 You can also use `zola build` to build it once to the `public` directory if you so choose.
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbootc-dev%2Fbootc-dev.github.io.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbootc-dev%2Fbootc-dev.github.io?ref=badge_large)
