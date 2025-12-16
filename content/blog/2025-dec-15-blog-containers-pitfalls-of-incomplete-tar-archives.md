@@ -2,6 +2,9 @@
 title = "Containers: pitfalls of incomplete tar archives"
 date = 2025-12-15
 slug = "2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives"
+
+[extra]
+author = "jeckersb"
 +++
 
 # Containers: pitfalls of incomplete tar archives
