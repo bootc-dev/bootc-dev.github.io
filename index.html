@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>bootc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="https://bootc-dev.github.io/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color-h: 288;
+        --primary-color-s: 57%;
+        --primary-color-l: 40%;
+        --primary-color: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+        --primary-color-10: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 10%));
+        --primary-color-20: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 20%));
+        --primary-color-30: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 30%));
+        --primary-color-40: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 40%));
+        --primary-color-50: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 50%));
+        --primary-color-60: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 60%));
+        --primary-color-70: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 70%));
+        --primary-color-80: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 80%));
+        --primary-color-90: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 90%));
+        /* Primary theme text color */
+        --primary-text-color: #000000;
+        --primary-text-color-over: #fcfaf6;
+        /* Primary theme link color */
+        --primary-link-color: #892ca0;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #892ca0;
+        --toc-background-color: white;
+        --code-color: #4a4a4a;
+        --code-background-color: white;
+        --shadow-color: #ddd;
+        /* Font used for headers (h1 & h2) */
+        --header-font-family: "Red Hat Display", sans-serif;
+        /* Font used for text */
+        --text-font-family: "Red Hat Text", sans-serif;
+    }
+    .zola-anchor {
+        margin-left: -2rem;
+        margin-right: .75rem;
+    }
+</style>
+    
+<link
+        href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+        rel="stylesheet"
+        crossorigin="anonymous"
+/>
+<link
+        href="https://fonts.googleapis.com/css2?family=Babylonica&display=swap"
+        rel="stylesheet"
+/>
+
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://bootc-dev.github.io/juice.css">
+    
+    
+</head>
+
+<body>
+    
+
+    <header class="pos-absolute" style="background-color: transparent">
+        
+
+<a href="https://bootc-dev.github.io/">
+    <div class="logo">
+        <img src="https://bootc-dev.github.io/logo.png" alt="logo">
+        bootc
+    </div>
+</a>
+
+<nav>
+    
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/about">About</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://bootc-dev.github.io/bootc/">Docs</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/news">News</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/blog">Blog</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://github.com/bootc-dev/bootc">GitHub</a>
+    
+    
+    
+</nav>
+
+    </header>
+
+    <div class="hero">
+        
+<section style="padding:10px">
+    <h1 class="text-center heading-text" style="font-size:50px;">
+        Your OS, but Containers!
+    </h1>
+    <h3 class="title-text text-center">
+        bootc builds operating systems using containerization principles
+    </h3>
+    <div style="height: 50px;"></div>
+    <div class="text-center">
+        <a href="https://github.com/bootc-dev/bootc/releases/">
+            <img src="https://img.shields.io/github/v/release/bootc-dev/bootc?logo=github&style=for-the-badge">
+        </a>
+    </div>
+    <div class="text-center" style="padding-top: 10px;">
+        <a href="https://matrix.to/#/#bootc:fedoraproject.org">
+            <img src="https://img.shields.io/matrix/bootc%3Afedoraproject.org?label=%23bootc%3Afedoraproject.org&style=for-the-badge&logo=matrix">
+        </a>
+        &nbsp;
+        <a href="https://cloud-native.slack.com/archives/C08SKSQKG1L">
+            <img src="https://img.shields.io/badge/bootc_on_CNCF_Slack-join_us-green?style=for-the-badge&logo=slack&logoColor=white&label=bootc%20on%20CNCF%20Slack">
+        </a>
+    </div>
+    <div class="explore-more-container">
+        <div class="explore-more text"
+             onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+            Explore More ⇩
+        </div>
+    </div>
+</section>
+
+
+    </div>
+
+    
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/#motivation">Motivation</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/#status">Status</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/#documentation">Documentation</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/#versioning">Versioning</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/#adopters-base-and-end-user-images">Adopters (base and end-user images)</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/#community-discussion">Community discussion</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/#developing-bootc">Developing bootc</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/#governance">Governance</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/#badges">Badges</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc-dev.github.io/#code-of-conduct"><small>- Code of Conduct</small></a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+            <div id="features" class="heading-text">Overview</div>
+            <p>Transactional, in-place operating system updates using OCI/Docker container images.</p>
+<h2 id="motivation">Motivation</h2>
+<p>The original Docker container model of using "layers" to model applications has been extremely successful. This project aims to apply the same technique for bootable host systems - using standard OCI/Docker containers as a transport and delivery format for base operating system updates.</p>
+<p>The container image includes a Linux kernel (in e.g. <code>/usr/lib/modules</code>), which is used to boot. At runtime on a target system, the base userspace is <em>not</em> itself running in a "container" by default. For example, assuming systemd is in use, systemd acts as pid1 as usual---there's no "outer" process. More about this in the docs; see below.</p>
+<h2 id="status">Status</h2>
+<p>The CLI and API are considered stable. We will ensure that every existing system can be upgraded in place seamlessly across any future changes.</p>
+<h2 id="documentation">Documentation</h2>
+<p>The project documentation is hosted on a different site: <a class="external" rel="noopener noreferrer" target="_blank" href="https://bootc-dev.github.io/bootc/">Docs</a></p>
+<h2 id="versioning">Versioning</h2>
+<p>Although bootc is not released to crates.io as a library, version numbers are expected to follow <a class="external" rel="noopener noreferrer" target="_blank" href="https://semver.org/">semantic versioning</a> standards. This practice began with the release of version 1.2.0; versions prior may not adhere strictly to semver standards.</p>
+<h2 id="adopters-base-and-end-user-images">Adopters (base and end-user images)</h2>
+<p>The bootc CLI is just a client system; it is not tied to any particular operating system or Linux distribution. You very likely want to actually start by looking at <a href="https://bootc-dev.github.io/about/adopters">ADOPTERS.md</a>.</p>
+<h2 id="community-discussion">Community discussion</h2>
+<ul>
+<li><a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/containers/bootc/discussions">Github discussion forum</a> for async discussion</li>
+<li><a class="external" rel="noopener noreferrer" target="_blank" href="https://cloud-native.slack.com/archives/C08SKSQKG1L">#bootc-dev on CNCF Slack</a> for live chat</li>
+<li>Recurring live meeting hosted on <a class="external" rel="noopener noreferrer" target="_blank" href="https://zoom-lfx.platform.linuxfoundation.org/meeting/96540875093?password=7889708d-c520-4565-90d3-ce9e253a1f65">CNCF Zoom</a> each Friday at 15:30 UTC.</li>
+<li><a class="external" rel="noopener noreferrer" target="_blank" href="https://hackmd.io/@cgwalters/HJk3Aj0ree/edit">Meeting notes on HackMD</a></li>
+</ul>
+<p>This project is also currently tightly related to the previously mentioned Fedora/CentOS bootc project, and many developers monitor the relevant discussion forums there. In particular, there's a Matrix channel and a weekly chat meeting; <a class="external" rel="noopener noreferrer" target="_blank" href="https://docs.fedoraproject.org/en-US/bootc/community/">learn more</a>.</p>
+<h2 id="developing-bootc">Developing bootc</h2>
+<p>Are you interested in working on bootc? Great! Reference our <a href="https://bootc-dev.github.io/about/contributing">contribution guide</a>.
+There is also a list of <a href="https://bootc-dev.github.io/about/maintainers">Maintainers</a>.</p>
+<h2 id="governance">Governance</h2>
+<p>Reference <a href="https://bootc-dev.github.io/about/governance">Governance</a> for project governance details.</p>
+<h2 id="badges">Badges</h2>
+<p><a class="external" rel="noopener noreferrer" target="_blank" href="https://www.bestpractices.dev/projects/10113"><img src="https://www.bestpractices.dev/projects/10113/badge" alt="OpenSSF Best Practices" /></a></p>
+<h3 id="code-of-conduct">Code of Conduct</h3>
+<p>The bootc project is a <a class="external" rel="noopener noreferrer" target="_blank" href="https://www.cncf.io/sandbox-projects/">Cloud Native Computing Foundation (CNCF) Sandbox project</a> and adheres to the <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/cncf/foundation/blob/main/code-of-conduct.md">CNCF Community Code of Conduct</a>.</p>
+<hr />
+<p>The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see <a class="external" rel="noopener noreferrer" target="_blank" href="https://www.linuxfoundation.org/legal/trademark-usage/">Trademark Usage</a>.</p>
+
+            
+        </div>
+
+        
+<div class="sidebar">
+</div>
+
+    </main>
+
+    
+<footer>
+    <p class="subtext">We are a Cloud Native Computing Foundation sandbox project.</p>
+    <p><a href="https://cncf.io"><img src="https://bootc-dev.github.io/img/cncf-color-bg.svg" height="75px" alt="CNCF logo"></a></p>
+<p class="subtext">
+    bootc, originally created by Red Hat and donated to open source with ❤<br/>
+    Copyright © bootc, a Series of LF Projects, LLC<br/>
+    For website terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/policies/">lfprojects.org/policies/</a>.
+</p>
+</footer>
+
+</body>
+<script>
+    const scrollHandler = entries => {
+        // Find the first entry which intersecting and ratio > 0.9 to highlight.
+        let entry = entries.find(entry => {
+            return entry.isIntersecting && entry.intersectionRatio > 0.9;
+        });
+        if (!entry) return;
+
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        // let url = new URL(`#${entry.target.id}`);
+        let link = document.querySelector(`.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`)
+        if (link) {
+            link.classList.add("active");
+            link.scrollIntoView({ behavior: "auto", block: "nearest" });
+        }
+    };
+    // Set -100px root margin to improve highlight experience.
+    const observer = new IntersectionObserver(scrollHandler, { threshold: 1 });
+    let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    items.forEach(item => observer.observe(item));
+</script>
+
+</html>
