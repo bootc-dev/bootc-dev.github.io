@@ -21,9 +21,9 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Check out repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
       - name: Build and deploy
-        uses: shalzz/zola-deploy-action@90cd842959b82e0c012601be18ae249d6cdb1669 # v0.21.0
+        uses: shalzz/zola-deploy-action@7b80b99bba8d761a6cad869bf20c64ee0ca1cc0e # v0.22.0
         env:
           PAGES_BRANCH: gh-pages
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -32,10 +32,10 @@ jobs:
     if: github.ref != 'refs/heads/main'
     steps:
       - name: Checkout
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
       - name: Install and build
         if: github.event.action != 'closed'
-        uses: shalzz/zola-deploy-action@90cd842959b82e0c012601be18ae249d6cdb1669 # v0.21.0
+        uses: shalzz/zola-deploy-action@7b80b99bba8d761a6cad869bf20c64ee0ca1cc0e # v0.22.0
         env:
           BUILD_ONLY: true
           BUILD_FLAGS: --drafts
