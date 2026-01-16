@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>bootc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="https://bootc-dev.github.io/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color-h: 288;
+        --primary-color-s: 57%;
+        --primary-color-l: 40%;
+        --primary-color: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+        --primary-color-10: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 10%));
+        --primary-color-20: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 20%));
+        --primary-color-30: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 30%));
+        --primary-color-40: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 40%));
+        --primary-color-50: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 50%));
+        --primary-color-60: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 60%));
+        --primary-color-70: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 70%));
+        --primary-color-80: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 80%));
+        --primary-color-90: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 90%));
+        /* Primary theme text color */
+        --primary-text-color: #000000;
+        --primary-text-color-over: #fcfaf6;
+        /* Primary theme link color */
+        --primary-link-color: #892ca0;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #892ca0;
+        --toc-background-color: white;
+        --code-color: #4a4a4a;
+        --code-background-color: white;
+        --shadow-color: #ddd;
+        /* Font used for headers (h1 & h2) */
+        --header-font-family: "Red Hat Display", sans-serif;
+        /* Font used for text */
+        --text-font-family: "Red Hat Text", sans-serif;
+    }
+    .zola-anchor {
+        margin-left: -2rem;
+        margin-right: .75rem;
+    }
+</style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://bootc-dev.github.io/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https://bootc-dev.github.io/">
+    <div class="logo">
+        <img src="https://bootc-dev.github.io/logo.png" alt="logo">
+        bootc
+    </div>
+</a>
+
+<nav>
+    
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/about">About</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://bootc-dev.github.io/bootc/">Docs</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/news">News</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/blog">Blog</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://github.com/bootc-dev/bootc">GitHub</a>
+    
+    
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/#containers-pitfalls-of-incomplete-tar-archives">Containers: pitfalls of incomplete tar archives</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc-dev.github.io/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/#a-refresher-on-tar"><small>- A refresher on tar</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc-dev.github.io/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/#oci-image-spec"><small>- OCI image spec</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc-dev.github.io/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/#rechunking-in-bootc-rpm-ostree"><small>- Rechunking in bootc &#x2F; rpm-ostree</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc-dev.github.io/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/#why-isn-t-this-a-more-widespread-problem"><small>- Why isn&#x27;t this a more widespread problem?</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc-dev.github.io/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/#overlayfs"><small>- Overlayfs</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc-dev.github.io/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/#where-do-we-go-from-here"><small>- Where do we go from here?</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc-dev.github.io/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/#conclusion"><small>- Conclusion</small></a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<div class="blog-meta">
+    <span class="blog-date">December 15, 2025</span>
+    
+    <span class="blog-author"> by 
+
+<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name">John Eckersberg</span>
+</span>
+
+</span>
+    
+</div>
+<h1 id="containers-pitfalls-of-incomplete-tar-archives">Containers: pitfalls of incomplete tar archives</h1>
+<p>As <a class="external" rel="noopener noreferrer" target="_blank" href="https://blog.verbum.org/">Colin Walters</a> likes to say, containers
+are just tarballs wrapped in JSON.  We'll mostly ignore the JSON part
+here, but there's a lot to unpack (pun and foreshadowing intended)
+with regards to tar and how it interacts with the various pieces that
+work in conjunction to make containers a reality.</p>
+<h2 id="a-refresher-on-tar">A refresher on <code>tar</code></h2>
+<p>Let's explore a key quirk of tar from which everything else we'll
+discuss follows.</p>
+<p>First, let's create a basic tar archive, which contains a directory
+with a file inside of the directory:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>⬢ [jeckersb@toolbx tmp]$ mkdir foo
+</span><span>⬢ [jeckersb@toolbx tmp]$ touch foo/bar
+</span><span>⬢ [jeckersb@toolbx tmp]$ tar cf foo.tar foo/
+</span></code></pre>
+<p>Now let's list the contents of the tar archive:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>⬢ [jeckersb@toolbx tmp]$ tar tvf foo.tar
+</span><span>drwxr-xr-x jeckersb/jeckersb 0 2025-12-10 11:09 foo/
+</span><span>-rw-r--r-- jeckersb/jeckersb 0 2025-12-10 11:09 foo/bar
+</span></code></pre>
+<p>Ok, that makes sense.  We see the directory and the file we added to
+the archive.</p>
+<p>But here's the key bit:  What happens if you add <em>only</em> the file to the archive?</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>⬢ [jeckersb@toolbx tmp]$ tar cf incomplete.tar foo/bar
+</span><span>⬢ [jeckersb@toolbx tmp]$ tar tvf incomplete.tar
+</span><span>-rw-r--r-- jeckersb/jeckersb 0 2025-12-10 11:09 foo/bar
+</span></code></pre>
+<p>Now the archive has metadata <em>only</em> for the file.  You can deduce from
+the path <code>foo/bar</code> that there is a directory <code>foo</code> involved, but you
+can't definitively know how <code>foo</code> is supposed to look.  What are the
+permissions, owner, group, mtime?  We don't know.  So what happens if
+you extract this tar archive?</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>⬢ [jeckersb@toolbx tmp]$ mkdir incomplete-unpacked &amp;&amp; tar xf incomplete.tar -C incomplete-unpacked
+</span><span>⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked/
+</span><span>total 0
+</span><span>drwxr-xr-x. 2 jeckersb jeckersb 60 Dec 10 11:19 foo
+</span><span>⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked/foo/
+</span><span>total 0
+</span><span>-rw-r--r--. 1 jeckersb jeckersb 0 Dec 10 11:09 bar
+</span></code></pre>
+<p>It implicitly creates the directory <code>foo</code> in order to put <code>bar</code> at the
+correct path.  This makes sense.  But notice <code>foo</code> gets created with
+metadata that is dependent on the environment in which the unpacking
+of the archive happened.  In the above example, you can see that the
+timestamp on the directory is 10 minutes later than the timestamp of
+the <code>bar</code> file inside.  This is because it took me 10 minutes of
+writing and editing this post before I did the unpack operation.  I
+can set my umask to something else and extract it a second time, and
+now we'll see a different timestamp <em>and</em> different permissions:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>⬢ [jeckersb@toolbx tmp]$ umask 0077
+</span><span>⬢ [jeckersb@toolbx tmp]$ mkdir incomplete-unpacked-with-umask &amp;&amp; tar xf incomplete.tar -C incomplete-unpacked-with-umask
+</span><span>⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked-with-umask/
+</span><span>total 0
+</span><span>drwx------. 2 jeckersb jeckersb 60 Dec 10 11:25 foo
+</span><span>⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked-with-umask/foo/
+</span><span>total 0
+</span><span>-rw-------. 1 jeckersb jeckersb 0 Dec 10 11:09 bar
+</span></code></pre>
+<h2 id="oci-image-spec">OCI image spec</h2>
+<p>OCI container images are serialized as a <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/opencontainers/image-spec/blob/main/layer.md">series of
+tarballs</a>
+that are applied on top of each other to create the complete
+filesystem.  We'll get back to the specifics of that operation a bit
+later.</p>
+<p>The entire layer specification is worth reading, but we'll focus on
+two parts.  First, how to determine changes:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>When two directories are compared, the relative root is the top-level directory.
+</span><span>The directories are compared, looking for files that have been [added, modified, or removed](#change-types).
+</span><span>
+</span><span>For this example, `rootfs-c9d-v1/` and `rootfs-c9d-v1.s1/` are recursively compared, each as relative root path.
+</span><span>
+</span><span>The following changeset is found:
+</span><span>
+</span><span>Added:      /etc/my-app.d/
+</span><span>Added:      /etc/my-app.d/default.cfg
+</span><span>Modified:   /bin/my-app-tools
+</span><span>Deleted:    /etc/my-app-config
+</span><span>
+</span><span>This reflects the removal of `/etc/my-app-config` and creation of a file and directory at `/etc/my-app.d/default.cfg`.
+</span><span>`/bin/my-app-tools` has also been replaced with an updated version.
+</span></code></pre>
+<p>And then the following section on representing changes:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>A [tar archive][tar-archive] is then created which contains _only_ this changeset:
+</span><span>
+</span><span>- Added and modified files and directories in their entirety
+</span><span>- Deleted files or directories marked with a [whiteout file](#whiteouts)
+</span><span>
+</span><span>The resulting tar archive for `rootfs-c9d-v1.s1` has the following entries:
+</span><span>
+</span><span>./etc/my-app.d/
+</span><span>./etc/my-app.d/default.cfg
+</span><span>./bin/my-app-tools
+</span><span>./etc/.wh.my-app-config
+</span><span>
+</span><span>To signify that the resource `./etc/my-app-config` MUST be removed when the changeset is applied, the basename of the entry is prefixed with `.wh.`.
+</span></code></pre>
+<p>But note that the changeset says nothing about the directories higher
+in the filesystem.  So in the above example, it would be perfectly
+valid (and more correct) to generate changeset tar archives which are
+incomplete in the same manner we described above.  Most notably, these
+changesets would <em>not</em> contain tar entries for the directories <code>/etc</code>
+and <code>/bin</code>.</p>
+<p>This oversight in the specification is not new or surprising.  There
+is an <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/opencontainers/image-spec/issues/737">open issue from
+2017</a> which
+describes exactly this problem.  There is a linked <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/opencontainers/image-spec/pull/970">pull
+request</a> which
+has been open since late 2022 with intermittent discussion, but no
+consensus or resolution has been reached yet.</p>
+<p>This has led to some projects implementing their own workarounds to
+deal with this behavior.  The <code>containerd</code> project as an example
+<a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/containerd/containerd/issues/1723">noted this
+issue</a> in 2017
+and <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/containerd/containerd/pull/1925">worked around
+it</a> by creating
+explicit archive directory entries for parents.</p>
+<h2 id="rechunking-in-bootc-rpm-ostree">Rechunking in bootc / rpm-ostree</h2>
+<p>Base images used via <code>bootc</code> are typically post-processed and
+finalized via the <a class="external" rel="noopener noreferrer" target="_blank" href="https://coreos.github.io/rpm-ostree/build-chunked-oci/">rpm-ostree
+rechunker</a>.
+The general idea (oversimplifying a bit for brevity) is that the tool
+can inspect the RPM database and map each file in the container to its
+associated RPM.  It then "rechunks" the container by creating a new
+layer for each RPM, where the layer contains the files for that RPM
+and only that RPM.  This ensures that when a new version of an RPM is
+released in the future, when it is integrated into a new base image,
+only the layer associated with that RPM will need to be re-downloaded
+by the end user.</p>
+<p>However, consider a directory like <code>/usr</code>.  This is owned by the
+<code>filesystem</code> package which contains all of the shared base directories
+in the system.  This directory will be included in the layer
+associated with the <code>filesystem</code> package with all of its related
+metadata.</p>
+<p>Now, almost every other package in the system is going to have some
+amount of content that is shipped under the <code>/usr</code> hierarchy.
+Originally, the <code>rpm-ostree</code> rechunker would omit the archive entry
+for <code>/usr</code> in each package layer.</p>
+<p>This however would cause the behavior of indeterminate tar archives
+discussed above to be manifest in the final container.  For example,
+it was noted in <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/containers/composefs-rs/issues/132">this composefs-rs
+issue</a>.</p>
+<p>We worked around this issue by <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/coreos/rpm-ostree/pull/5421">creating a new
+format-version</a> for
+the <code>rpm-ostree</code> rechunker, which creates all of the parent
+directories in each tar layer.  This is similar to the fix implemented
+as noted above by the <code>containerd</code> project.  This works, but it's not
+ideal.  It means that all of the parent directories and their
+respective metadata have to be duplicated across every layer in the
+image.  This is an unnecessary waste of disk space and bandwidth.</p>
+<h2 id="why-isn-t-this-a-more-widespread-problem">Why isn't this a more widespread problem?</h2>
+<p>When I first realized what was going on here, I thought I could
+trigger this behavior with a <code>Containerfile</code> like this:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>FROM quay.io/fedora/fedora:43
+</span><span>
+</span><span>RUN &lt;&lt;EORUN
+</span><span>
+</span><span># Create two levels of directories, because adding a file to a
+</span><span># directory alters the directory mtime.  This means adding a file
+</span><span># under /foo/bar in the next layer will cause the mtime for /foo/bar
+</span><span># to change, but /foo will remain unchanged.
+</span><span>mkdir -p /foo/bar
+</span><span>
+</span><span># zero the mtime on foo
+</span><span>touch -d @0 /foo
+</span><span>EORUN
+</span><span>
+</span><span># Add a file in a derived layer
+</span><span>#
+</span><span># In theory, this layer would not contain an entry for /foo, since it
+</span><span># is unchanged.
+</span><span>#
+</span><span># In practice... not so much.
+</span><span>RUN touch /foo/bar/baz
+</span></code></pre>
+<p>But alas:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>⬢ [jeckersb@toolbx example]$ podman build -f Containerfile -t localhost/example
+</span><span>STEP 1/3: FROM quay.io/fedora/fedora:43
+</span><span>STEP 2/3: RUN &lt;&lt;EORUN (# Create two levels of directories, because adding a file to a...)
+</span><span>--&gt; d3f72d4d7b90
+</span><span>STEP 3/3: RUN touch /foo/bar/baz
+</span><span>COMMIT localhost/example
+</span><span>--&gt; b730a7409a5a
+</span><span>Successfully tagged localhost/example:latest
+</span><span>b730a7409a5a5b5450f4f1d142415043aeac48f6ac0d1ac2a632d75071668a60
+</span><span>⬢ [jeckersb@toolbx example]$ podman run --rm -it localhost/example stat /foo
+</span><span>  File: /foo
+</span><span>  Size: 6               Blocks: 0          IO Block: 4096   directory
+</span><span>Device: 0,93    Inode: 64851509    Links: 1
+</span><span>Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+</span><span>Access: 2025-12-10 21:31:11.973931592 +0000
+</span><span>Modify: 1970-01-01 00:00:00.000000000 +0000
+</span><span>Change: 2025-12-10 21:31:11.973678196 +0000
+</span><span> Birth: 2025-12-10 21:31:11.973031361 +0000
+</span></code></pre>
+<p>But wait... the directory mtime is (correctly) still zeroed from the
+first layer.  So... everything up until now is a lie?</p>
+<p>No!  If we pull apart the last tar layer, we'll see that it actually
+<em>does</em> contain a directory entry for /foo, even though it's not
+modified in any way during the last <code>RUN</code> invocation.  I'll skip the
+part where I re-exported the image to an oci-dir just to make it
+easier to look through the layers.  Just trust me when I say this is
+the tarball that gets generated for the last layer:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>⬢ [jeckersb@toolbx sha256]$ tar tvf 9402e1d4a1daea10ff057116f7fc6858be340fd82204eb17db566bfec547a911.tar
+</span><span>drwxr-xr-x 0/0               0 1969-12-31 19:00 foo/
+</span><span>drwxr-xr-x 0/0               0 2025-12-10 16:31 foo/bar/
+</span><span>-rw-r--r-- 0/0               0 2025-12-10 16:31 foo/bar/baz
+</span></code></pre>
+<p>Ok, so <code>/foo</code> is there.  But... why?  We didn't modify it.  Deeper
+down the rabbit hole we go.</p>
+<h2 id="overlayfs">Overlayfs</h2>
+<p>Spoiler: the answer is
+<a class="external" rel="noopener noreferrer" target="_blank" href="https://docs.kernel.org/filesystems/overlayfs.html">overlayfs</a>.</p>
+<p>The OCI spec defines the image format, but notably it does <em>not</em>
+specify any particular implementation details on how to store, manage,
+and stitch together the final container image from its individual
+layers.</p>
+<p>In reality, container runtimes such as podman (via
+<a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/containers/container-libs/tree/main/storage">containers-libs</a>,
+formerly containers-storage) use the kernel filesystem overlayfs to
+stitch together the layers into the final realized view of the world.</p>
+<p>A <code>RUN</code> invocation in a <code>Containerfile</code> is in a nutshell this series
+of steps:</p>
+<ol>
+<li>Mount the previous layer (and recursively, layers prior to that)
+as a <code>lowerdir</code> in an overlayfs filesystem.</li>
+<li>Perform the <code>RUN</code> invocation in the mounted filesystem.</li>
+<li>Collect the contents of the resulting <code>upperdir</code> directory.  This
+becomes the tarball for that layer.</li>
+</ol>
+<p>This process is how we end up with our <code>/foo</code> directory duplicated
+into the final layer, even though we did not modify it.  We can mock
+this out just using an overlay mount and basic commands.</p>
+<p>First, mock our lower layer, and set the mtime:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>[root@burd tmp]# mkdir lower upper work merged
+</span><span>[root@burd tmp]# mkdir -p lower/foo/bar
+</span><span>[root@burd tmp]# touch -d @0 lower/foo
+</span><span>[root@burd tmp]# stat lower/foo
+</span><span>  File: lower/foo
+</span><span>  Size: 60        	Blocks: 0          IO Block: 4096   directory
+</span><span>Device: 0,45	Inode: 46858       Links: 3
+</span><span>Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+</span><span>Context: unconfined_u:object_r:user_tmp_t:s0
+</span><span>Access: 1969-12-31 19:00:00.000000000 -0500
+</span><span>Modify: 1969-12-31 19:00:00.000000000 -0500
+</span><span>Change: 2025-12-10 16:53:27.174443520 -0500
+</span><span> Birth: 2025-12-10 16:53:20.544455919 -0500
+</span></code></pre>
+<p>Next, mount it via overlayfs:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>[root@burd tmp]# mount -t overlay overlay -o lowerdir=lower,upperdir=upper,workdir=work merged
+</span><span>[root@burd tmp]# cd merged
+</span><span>[root@burd merged]# stat foo
+</span><span>  File: foo
+</span><span>  Size: 60        	Blocks: 0          IO Block: 4096   directory
+</span><span>Device: 0,90	Inode: 46858       Links: 3
+</span><span>Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+</span><span>Context: unconfined_u:object_r:user_tmp_t:s0
+</span><span>Access: 1969-12-31 19:00:00.000000000 -0500
+</span><span>Modify: 1969-12-31 19:00:00.000000000 -0500
+</span><span>Change: 2025-12-10 16:53:27.174443520 -0500
+</span><span> Birth: 2025-12-10 16:53:20.544455919 -0500
+</span></code></pre>
+<p>Now we simulate creating the new layer:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>[root@burd merged]# touch foo/bar/baz
+</span></code></pre>
+<p>Finally we can unmount the overlayfs mount and observe the contents of
+the <code>upper</code> dir:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>[root@burd merged]# cd ..
+</span><span>[root@burd tmp]# umount merged
+</span><span>[root@burd tmp]# find upper/
+</span><span>upper/
+</span><span>upper/foo
+</span><span>upper/foo/bar
+</span><span>upper/foo/bar/baz
+</span><span>[root@burd tmp]# stat upper/foo
+</span><span>  File: upper/foo
+</span><span>  Size: 60        	Blocks: 0          IO Block: 4096   directory
+</span><span>Device: 0,45	Inode: 46870       Links: 3
+</span><span>Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+</span><span>Context: unconfined_u:object_r:user_tmp_t:s0
+</span><span>Access: 2025-12-10 16:57:20.828001765 -0500
+</span><span>Modify: 1969-12-31 19:00:00.000000000 -0500
+</span><span>Change: 2025-12-10 16:56:16.746593313 -0500
+</span><span> Birth: 2025-12-10 16:56:16.745126092 -0500
+</span></code></pre>
+<p>So that's where our <code>/foo</code> entry comes from.  This behavior is
+explained in the <a class="external" rel="noopener noreferrer" target="_blank" href="https://docs.kernel.org/filesystems/overlayfs.html#non-directories">overlayfs
+documentation</a>:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>Objects that are not directories (files, symlinks, device-special
+</span><span>files etc.) are presented either from the upper or lower filesystem as
+</span><span>appropriate. When a file in the lower filesystem is accessed in a way
+</span><span>that requires write-access, such as opening for write access, changing
+</span><span>some metadata etc., the file is first copied from the lower filesystem
+</span><span>to the upper filesystem (copy_up). Note that creating a hard-link also
+</span><span>requires copy_up, though of course creation of a symlink does not.
+</span><span>
+</span><span>The copy_up may turn out to be unnecessary, for example if the file is
+</span><span>opened for read-write but the data is not modified.
+</span><span>
+</span><span>The copy_up process first makes sure that the containing directory
+</span><span>exists in the upper filesystem - creating it and any parents as
+</span><span>necessary. It then creates the object with the same metadata (owner,
+</span><span>mode, mtime, symlink-target etc.) and then if the object is a file,
+</span><span>the data is copied from the lower to the upper filesystem. Finally any
+</span><span>extended attributes are copied up.
+</span></code></pre>
+<p>Since the content of the layer tarball is taken directly from the
+<code>upper</code>, we end up getting a copy of <code>/foo</code> via this process.</p>
+<h2 id="where-do-we-go-from-here">Where do we go from here?</h2>
+<p>Hopefully I have explained the situation adequately and this all makes
+sense.  I have achieved some amount of inner peace that comes with
+reaching understanding.</p>
+<p>However... I still don't like it.  I think we can do better.</p>
+<p>Here's the thing for <code>bootc</code>: in our rechunked images, I don't want to
+include the same directories over and over again in every single
+layer.  It shouldn't be necessary, and by strict reading of the OCI
+spec we <em>shouldn't</em> do that if the directories are unchanged (which
+they aren't).</p>
+<p>But in the current state of the world, if we <em>don't</em> duplicate those
+entries into every layer, we end up with non-deterministic directory
+metadata when our OCI image is mounted and viewed through the lens of
+overlayfs.  This is fundamentally broken as we move bootc into a
+future where
+<a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/bootc-dev/bootc/issues/1190">composefs</a> and
+<a class="external" rel="noopener noreferrer" target="_blank" href="https://docs.kernel.org/filesystems/fsverity.html">fsverity</a> are used
+to harden and validate images.  Ideally a container image should be
+able to measure its own fsverity hash in a reproducible manner.  Today
+that is not possible.</p>
+<p>So the following is what I've done as a proof-of-concept (a huge
+motivation for writing this post in the first place was to
+exhaustively explain my justification for why this is needed).  I've
+written and tested a patch (still needs refining before submitting)
+for overlayfs which does the following:</p>
+<ul>
+<li>Adds a new feature <code>passthrough</code> (naming bikeshedable) which
+functions similarly to the <code>metacopy</code> feature.</li>
+<li>Uses the <code>trusted.overlay.passthrough</code> to flag directories as
+"structural-only".</li>
+<li>When encountering a directory with the xattr, searches through the
+lowerdirs until it finds a directory which does not have the xattr
+set.  The metadata for this layer is used.  (If no unflagged
+lowerdir is found, it falls back to the current behavior of using
+non-deterministic local metadata)</li>
+</ul>
+<p>Here's an example.  This is similar to our manual overlayfs example
+above, except this uses two lower layers to show how unpacking a tar
+layer with incomplete directory information might look.</p>
+<p>First, create our base layer again:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>[root@fedora ~]# mkdir upper merged work
+</span><span>[root@fedora ~]# mkdir -p base_layer/foo/bar
+</span><span>[root@fedora ~]# touch -d @0 base_layer/foo
+</span></code></pre>
+<p>Then, in our second layer we create the <code>baz</code> file.  This time we set
+the <code>passthrough</code> xattr on <code>/foo</code>, which is how I envision this all
+working when a container storage engine unpacks a <code>tar</code> archive with
+incomplete parent directory information.  Ideally this layer should
+include a tar entry for <code>foo/bar/baz</code> and (arguably) <code>foo/bar</code> since
+the directory metadata for <code>bar</code> should be updated to reflect the
+addition of <code>bar</code>.  But it definitely should <em>not</em> include an entry
+for <code>foo/</code>:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>[root@fedora ~]# mkdir -p second_layer/foo/bar
+</span><span>[root@fedora ~]# touch second_layer/foo/bar/baz
+</span><span>[root@fedora ~]# setfattr -n trusted.overlay.passthrough second_layer/foo
+</span></code></pre>
+<p>Now let's mount it with the patched overlayfs.  First, we'll specify
+<code>passthrough=off</code> to show the existing behavior:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>[root@fedora ~]# mount -t overlay overlay -o upperdir=upper,lowerdir=second_layer:base_layer,workdir=work,passthrough=off merged
+</span><span>[root@fedora ~]# stat merged/foo
+</span><span>  File: merged/foo
+</span><span>  Size: 6               Blocks: 0          IO Block: 4096   directory
+</span><span>Device: 0,59    Inode: 365132      Links: 1
+</span><span>Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+</span><span>Context: unconfined_u:object_r:admin_home_t:s0
+</span><span>Access: 2025-12-10 17:33:32.787147889 -0500
+</span><span>Modify: 2025-12-10 17:33:32.787147889 -0500
+</span><span>Change: 2025-12-10 17:34:01.701054010 -0500
+</span><span> Birth: 2025-12-10 17:33:32.787147889 -0500
+</span></code></pre>
+<p>Here the <code>foo</code> directory has whatever metadata we created for it when
+we "unpacked" it with the command <code>mkdir -p second_layer/foo/bar</code>
+above.  This is what we're trying to avoid.</p>
+<p>Now let's unmount and remount with <code>passthrough=on</code>:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>[root@fedora ~]# umount merged
+</span><span>[root@fedora ~]# mount -t overlay overlay -o upperdir=upper,lowerdir=second_layer:base_layer,workdir=work,passthrough=on merged
+</span><span>[root@fedora ~]# stat merged/foo
+</span><span>  File: merged/foo
+</span><span>  Size: 6               Blocks: 0          IO Block: 4096   directory
+</span><span>Device: 0,59    Inode: 365129      Links: 1
+</span><span>Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+</span><span>Context: unconfined_u:object_r:admin_home_t:s0
+</span><span>Access: 1969-12-31 19:00:00.000000000 -0500
+</span><span>Modify: 1969-12-31 19:00:00.000000000 -0500
+</span><span>Change: 2025-12-10 17:28:12.268740241 -0500
+</span><span> Birth: 2025-12-10 17:27:39.158847877 -0500
+</span></code></pre>
+<p>Now we have the metadata for <code>foo</code> being passed through the second
+layer and retrieved from the base layer, which is the behavior we
+want.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Ensuring that OCI image layers are able to only ship content that
+they've modified will aid reproducibility and help unlock
+optimizations by avoiding having derived layers always need to inherit
+metadata from their parent. At the current time, however, tooling
+creating OCI images should include their parent information in order
+to maximize compatibility. We are looking forward to a future where
+that's not necessary though!</p>
+
+
+        </div>
+
+        
+        <div class="sidebar">
+        </div>
+        
+    </main>
+
+    
+    <footer>
+        <p class="subtext">We are a Cloud Native Computing Foundation sandbox project.</p>
+        <p><a href="https://cncf.io"><img src="https://bootc-dev.github.io/img/cncf-color-bg.svg" height="75px" alt="CNCF logo"></a></p>
+        <p class="subtext">
+            bootc, originally created by Red Hat and donated to open source with ❤<br/>
+            Copyright © bootc, a Series of LF Projects, LLC<br/>
+            For website terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/policies/">lfprojects.org/policies/</a>.
+        </p>
+    </footer>
+    
+</body>
+<script>
+    const scrollHandler = entries => {
+        // Find the first entry which intersecting and ratio > 0.9 to highlight.
+        let entry = entries.find(entry => {
+            return entry.isIntersecting && entry.intersectionRatio > 0.9;
+        });
+        if (!entry) return;
+
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        // let url = new URL(`#${entry.target.id}`);
+        let link = document.querySelector(`.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`)
+        if (link) {
+            link.classList.add("active");
+            link.scrollIntoView({ behavior: "auto", block: "nearest" });
+        }
+    };
+    // Set -100px root margin to improve highlight experience.
+    const observer = new IntersectionObserver(scrollHandler, { threshold: 1 });
+    let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    items.forEach(item => observer.observe(item));
+</script>
+
+</html>
