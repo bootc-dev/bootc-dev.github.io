@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>bootc</title>
+      <link>https://bootc-dev.github.io</link>
+      <description>A tool to build operating systems like we build containers</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://bootc-dev.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Mon, 15 Dec 2025 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Containers: pitfalls of incomplete tar archives</title>
+          <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc-dev.github.io/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/</link>
+          <guid>https://bootc-dev.github.io/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/</guid>
+          <description xml:base="https://bootc-dev.github.io/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/">&lt;h1 id=&quot;containers-pitfalls-of-incomplete-tar-archives&quot;&gt;Containers: pitfalls of incomplete tar archives&lt;&#x2F;h1&gt;
+&lt;p&gt;As &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;blog.verbum.org&#x2F;&quot;&gt;Colin Walters&lt;&#x2F;a&gt; likes to say, containers
+are just tarballs wrapped in JSON.  We&#x27;ll mostly ignore the JSON part
+here, but there&#x27;s a lot to unpack (pun and foreshadowing intended)
+with regards to tar and how it interacts with the various pieces that
+work in conjunction to make containers a reality.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;a-refresher-on-tar&quot;&gt;A refresher on &lt;code&gt;tar&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Let&#x27;s explore a key quirk of tar from which everything else we&#x27;ll
+discuss follows.&lt;&#x2F;p&gt;
+&lt;p&gt;First, let&#x27;s create a basic tar archive, which contains a directory
+with a file inside of the directory:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ mkdir foo
+&lt;&#x2F;span&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ touch foo&#x2F;bar
+&lt;&#x2F;span&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ tar cf foo.tar foo&#x2F;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now let&#x27;s list the contents of the tar archive:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ tar tvf foo.tar
+&lt;&#x2F;span&gt;&lt;span&gt;drwxr-xr-x jeckersb&#x2F;jeckersb 0 2025-12-10 11:09 foo&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;-rw-r--r-- jeckersb&#x2F;jeckersb 0 2025-12-10 11:09 foo&#x2F;bar
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ok, that makes sense.  We see the directory and the file we added to
+the archive.&lt;&#x2F;p&gt;
+&lt;p&gt;But here&#x27;s the key bit:  What happens if you add &lt;em&gt;only&lt;&#x2F;em&gt; the file to the archive?&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ tar cf incomplete.tar foo&#x2F;bar
+&lt;&#x2F;span&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ tar tvf incomplete.tar
+&lt;&#x2F;span&gt;&lt;span&gt;-rw-r--r-- jeckersb&#x2F;jeckersb 0 2025-12-10 11:09 foo&#x2F;bar
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now the archive has metadata &lt;em&gt;only&lt;&#x2F;em&gt; for the file.  You can deduce from
+the path &lt;code&gt;foo&#x2F;bar&lt;&#x2F;code&gt; that there is a directory &lt;code&gt;foo&lt;&#x2F;code&gt; involved, but you
+can&#x27;t definitively know how &lt;code&gt;foo&lt;&#x2F;code&gt; is supposed to look.  What are the
+permissions, owner, group, mtime?  We don&#x27;t know.  So what happens if
+you extract this tar archive?&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ mkdir incomplete-unpacked &amp;amp;&amp;amp; tar xf incomplete.tar -C incomplete-unpacked
+&lt;&#x2F;span&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;total 0
+&lt;&#x2F;span&gt;&lt;span&gt;drwxr-xr-x. 2 jeckersb jeckersb 60 Dec 10 11:19 foo
+&lt;&#x2F;span&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked&#x2F;foo&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;total 0
+&lt;&#x2F;span&gt;&lt;span&gt;-rw-r--r--. 1 jeckersb jeckersb 0 Dec 10 11:09 bar
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It implicitly creates the directory &lt;code&gt;foo&lt;&#x2F;code&gt; in order to put &lt;code&gt;bar&lt;&#x2F;code&gt; at the
+correct path.  This makes sense.  But notice &lt;code&gt;foo&lt;&#x2F;code&gt; gets created with
+metadata that is dependent on the environment in which the unpacking
+of the archive happened.  In the above example, you can see that the
+timestamp on the directory is 10 minutes later than the timestamp of
+the &lt;code&gt;bar&lt;&#x2F;code&gt; file inside.  This is because it took me 10 minutes of
+writing and editing this post before I did the unpack operation.  I
+can set my umask to something else and extract it a second time, and
+now we&#x27;ll see a different timestamp &lt;em&gt;and&lt;&#x2F;em&gt; different permissions:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ umask 0077
+&lt;&#x2F;span&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ mkdir incomplete-unpacked-with-umask &amp;amp;&amp;amp; tar xf incomplete.tar -C incomplete-unpacked-with-umask
+&lt;&#x2F;span&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked-with-umask&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;total 0
+&lt;&#x2F;span&gt;&lt;span&gt;drwx------. 2 jeckersb jeckersb 60 Dec 10 11:25 foo
+&lt;&#x2F;span&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked-with-umask&#x2F;foo&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;total 0
+&lt;&#x2F;span&gt;&lt;span&gt;-rw-------. 1 jeckersb jeckersb 0 Dec 10 11:09 bar
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;oci-image-spec&quot;&gt;OCI image spec&lt;&#x2F;h2&gt;
+&lt;p&gt;OCI container images are serialized as a &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;opencontainers&#x2F;image-spec&#x2F;blob&#x2F;main&#x2F;layer.md&quot;&gt;series of
+tarballs&lt;&#x2F;a&gt;
+that are applied on top of each other to create the complete
+filesystem.  We&#x27;ll get back to the specifics of that operation a bit
+later.&lt;&#x2F;p&gt;
+&lt;p&gt;The entire layer specification is worth reading, but we&#x27;ll focus on
+two parts.  First, how to determine changes:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;When two directories are compared, the relative root is the top-level directory.
+&lt;&#x2F;span&gt;&lt;span&gt;The directories are compared, looking for files that have been [added, modified, or removed](#change-types).
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;For this example, `rootfs-c9d-v1&#x2F;` and `rootfs-c9d-v1.s1&#x2F;` are recursively compared, each as relative root path.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;The following changeset is found:
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Added:      &#x2F;etc&#x2F;my-app.d&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;Added:      &#x2F;etc&#x2F;my-app.d&#x2F;default.cfg
+&lt;&#x2F;span&gt;&lt;span&gt;Modified:   &#x2F;bin&#x2F;my-app-tools
+&lt;&#x2F;span&gt;&lt;span&gt;Deleted:    &#x2F;etc&#x2F;my-app-config
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;This reflects the removal of `&#x2F;etc&#x2F;my-app-config` and creation of a file and directory at `&#x2F;etc&#x2F;my-app.d&#x2F;default.cfg`.
+&lt;&#x2F;span&gt;&lt;span&gt;`&#x2F;bin&#x2F;my-app-tools` has also been replaced with an updated version.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And then the following section on representing changes:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;A [tar archive][tar-archive] is then created which contains _only_ this changeset:
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;- Added and modified files and directories in their entirety
+&lt;&#x2F;span&gt;&lt;span&gt;- Deleted files or directories marked with a [whiteout file](#whiteouts)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;The resulting tar archive for `rootfs-c9d-v1.s1` has the following entries:
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;.&#x2F;etc&#x2F;my-app.d&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;.&#x2F;etc&#x2F;my-app.d&#x2F;default.cfg
+&lt;&#x2F;span&gt;&lt;span&gt;.&#x2F;bin&#x2F;my-app-tools
+&lt;&#x2F;span&gt;&lt;span&gt;.&#x2F;etc&#x2F;.wh.my-app-config
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;To signify that the resource `.&#x2F;etc&#x2F;my-app-config` MUST be removed when the changeset is applied, the basename of the entry is prefixed with `.wh.`.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But note that the changeset says nothing about the directories higher
+in the filesystem.  So in the above example, it would be perfectly
+valid (and more correct) to generate changeset tar archives which are
+incomplete in the same manner we described above.  Most notably, these
+changesets would &lt;em&gt;not&lt;&#x2F;em&gt; contain tar entries for the directories &lt;code&gt;&#x2F;etc&lt;&#x2F;code&gt;
+and &lt;code&gt;&#x2F;bin&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;This oversight in the specification is not new or surprising.  There
+is an &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;opencontainers&#x2F;image-spec&#x2F;issues&#x2F;737&quot;&gt;open issue from
+2017&lt;&#x2F;a&gt; which
+describes exactly this problem.  There is a linked &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;opencontainers&#x2F;image-spec&#x2F;pull&#x2F;970&quot;&gt;pull
+request&lt;&#x2F;a&gt; which
+has been open since late 2022 with intermittent discussion, but no
+consensus or resolution has been reached yet.&lt;&#x2F;p&gt;
+&lt;p&gt;This has led to some projects implementing their own workarounds to
+deal with this behavior.  The &lt;code&gt;containerd&lt;&#x2F;code&gt; project as an example
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;containerd&#x2F;containerd&#x2F;issues&#x2F;1723&quot;&gt;noted this
+issue&lt;&#x2F;a&gt; in 2017
+and &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;containerd&#x2F;containerd&#x2F;pull&#x2F;1925&quot;&gt;worked around
+it&lt;&#x2F;a&gt; by creating
+explicit archive directory entries for parents.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;rechunking-in-bootc-rpm-ostree&quot;&gt;Rechunking in bootc &#x2F; rpm-ostree&lt;&#x2F;h2&gt;
+&lt;p&gt;Base images used via &lt;code&gt;bootc&lt;&#x2F;code&gt; are typically post-processed and
+finalized via the &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;coreos.github.io&#x2F;rpm-ostree&#x2F;build-chunked-oci&#x2F;&quot;&gt;rpm-ostree
+rechunker&lt;&#x2F;a&gt;.
+The general idea (oversimplifying a bit for brevity) is that the tool
+can inspect the RPM database and map each file in the container to its
+associated RPM.  It then &quot;rechunks&quot; the container by creating a new
+layer for each RPM, where the layer contains the files for that RPM
+and only that RPM.  This ensures that when a new version of an RPM is
+released in the future, when it is integrated into a new base image,
+only the layer associated with that RPM will need to be re-downloaded
+by the end user.&lt;&#x2F;p&gt;
+&lt;p&gt;However, consider a directory like &lt;code&gt;&#x2F;usr&lt;&#x2F;code&gt;.  This is owned by the
+&lt;code&gt;filesystem&lt;&#x2F;code&gt; package which contains all of the shared base directories
+in the system.  This directory will be included in the layer
+associated with the &lt;code&gt;filesystem&lt;&#x2F;code&gt; package with all of its related
+metadata.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, almost every other package in the system is going to have some
+amount of content that is shipped under the &lt;code&gt;&#x2F;usr&lt;&#x2F;code&gt; hierarchy.
+Originally, the &lt;code&gt;rpm-ostree&lt;&#x2F;code&gt; rechunker would omit the archive entry
+for &lt;code&gt;&#x2F;usr&lt;&#x2F;code&gt; in each package layer.&lt;&#x2F;p&gt;
+&lt;p&gt;This however would cause the behavior of indeterminate tar archives
+discussed above to be manifest in the final container.  For example,
+it was noted in &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;containers&#x2F;composefs-rs&#x2F;issues&#x2F;132&quot;&gt;this composefs-rs
+issue&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;We worked around this issue by &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;coreos&#x2F;rpm-ostree&#x2F;pull&#x2F;5421&quot;&gt;creating a new
+format-version&lt;&#x2F;a&gt; for
+the &lt;code&gt;rpm-ostree&lt;&#x2F;code&gt; rechunker, which creates all of the parent
+directories in each tar layer.  This is similar to the fix implemented
+as noted above by the &lt;code&gt;containerd&lt;&#x2F;code&gt; project.  This works, but it&#x27;s not
+ideal.  It means that all of the parent directories and their
+respective metadata have to be duplicated across every layer in the
+image.  This is an unnecessary waste of disk space and bandwidth.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;why-isn-t-this-a-more-widespread-problem&quot;&gt;Why isn&#x27;t this a more widespread problem?&lt;&#x2F;h2&gt;
+&lt;p&gt;When I first realized what was going on here, I thought I could
+trigger this behavior with a &lt;code&gt;Containerfile&lt;&#x2F;code&gt; like this:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;FROM quay.io&#x2F;fedora&#x2F;fedora:43
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;RUN &amp;lt;&amp;lt;EORUN
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;# Create two levels of directories, because adding a file to a
+&lt;&#x2F;span&gt;&lt;span&gt;# directory alters the directory mtime.  This means adding a file
+&lt;&#x2F;span&gt;&lt;span&gt;# under &#x2F;foo&#x2F;bar in the next layer will cause the mtime for &#x2F;foo&#x2F;bar
+&lt;&#x2F;span&gt;&lt;span&gt;# to change, but &#x2F;foo will remain unchanged.
+&lt;&#x2F;span&gt;&lt;span&gt;mkdir -p &#x2F;foo&#x2F;bar
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;# zero the mtime on foo
+&lt;&#x2F;span&gt;&lt;span&gt;touch -d @0 &#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;EORUN
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;# Add a file in a derived layer
+&lt;&#x2F;span&gt;&lt;span&gt;#
+&lt;&#x2F;span&gt;&lt;span&gt;# In theory, this layer would not contain an entry for &#x2F;foo, since it
+&lt;&#x2F;span&gt;&lt;span&gt;# is unchanged.
+&lt;&#x2F;span&gt;&lt;span&gt;#
+&lt;&#x2F;span&gt;&lt;span&gt;# In practice... not so much.
+&lt;&#x2F;span&gt;&lt;span&gt;RUN touch &#x2F;foo&#x2F;bar&#x2F;baz
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But alas:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;⬢ [jeckersb@toolbx example]$ podman build -f Containerfile -t localhost&#x2F;example
+&lt;&#x2F;span&gt;&lt;span&gt;STEP 1&#x2F;3: FROM quay.io&#x2F;fedora&#x2F;fedora:43
+&lt;&#x2F;span&gt;&lt;span&gt;STEP 2&#x2F;3: RUN &amp;lt;&amp;lt;EORUN (# Create two levels of directories, because adding a file to a...)
+&lt;&#x2F;span&gt;&lt;span&gt;--&amp;gt; d3f72d4d7b90
+&lt;&#x2F;span&gt;&lt;span&gt;STEP 3&#x2F;3: RUN touch &#x2F;foo&#x2F;bar&#x2F;baz
+&lt;&#x2F;span&gt;&lt;span&gt;COMMIT localhost&#x2F;example
+&lt;&#x2F;span&gt;&lt;span&gt;--&amp;gt; b730a7409a5a
+&lt;&#x2F;span&gt;&lt;span&gt;Successfully tagged localhost&#x2F;example:latest
+&lt;&#x2F;span&gt;&lt;span&gt;b730a7409a5a5b5450f4f1d142415043aeac48f6ac0d1ac2a632d75071668a60
+&lt;&#x2F;span&gt;&lt;span&gt;⬢ [jeckersb@toolbx example]$ podman run --rm -it localhost&#x2F;example stat &#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;  File: &#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;  Size: 6               Blocks: 0          IO Block: 4096   directory
+&lt;&#x2F;span&gt;&lt;span&gt;Device: 0,93    Inode: 64851509    Links: 1
+&lt;&#x2F;span&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)
+&lt;&#x2F;span&gt;&lt;span&gt;Access: 2025-12-10 21:31:11.973931592 +0000
+&lt;&#x2F;span&gt;&lt;span&gt;Modify: 1970-01-01 00:00:00.000000000 +0000
+&lt;&#x2F;span&gt;&lt;span&gt;Change: 2025-12-10 21:31:11.973678196 +0000
+&lt;&#x2F;span&gt;&lt;span&gt; Birth: 2025-12-10 21:31:11.973031361 +0000
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But wait... the directory mtime is (correctly) still zeroed from the
+first layer.  So... everything up until now is a lie?&lt;&#x2F;p&gt;
+&lt;p&gt;No!  If we pull apart the last tar layer, we&#x27;ll see that it actually
+&lt;em&gt;does&lt;&#x2F;em&gt; contain a directory entry for &#x2F;foo, even though it&#x27;s not
+modified in any way during the last &lt;code&gt;RUN&lt;&#x2F;code&gt; invocation.  I&#x27;ll skip the
+part where I re-exported the image to an oci-dir just to make it
+easier to look through the layers.  Just trust me when I say this is
+the tarball that gets generated for the last layer:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;⬢ [jeckersb@toolbx sha256]$ tar tvf 9402e1d4a1daea10ff057116f7fc6858be340fd82204eb17db566bfec547a911.tar
+&lt;&#x2F;span&gt;&lt;span&gt;drwxr-xr-x 0&#x2F;0               0 1969-12-31 19:00 foo&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;drwxr-xr-x 0&#x2F;0               0 2025-12-10 16:31 foo&#x2F;bar&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;-rw-r--r-- 0&#x2F;0               0 2025-12-10 16:31 foo&#x2F;bar&#x2F;baz
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ok, so &lt;code&gt;&#x2F;foo&lt;&#x2F;code&gt; is there.  But... why?  We didn&#x27;t modify it.  Deeper
+down the rabbit hole we go.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;overlayfs&quot;&gt;Overlayfs&lt;&#x2F;h2&gt;
+&lt;p&gt;Spoiler: the answer is
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.kernel.org&#x2F;filesystems&#x2F;overlayfs.html&quot;&gt;overlayfs&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The OCI spec defines the image format, but notably it does &lt;em&gt;not&lt;&#x2F;em&gt;
+specify any particular implementation details on how to store, manage,
+and stitch together the final container image from its individual
+layers.&lt;&#x2F;p&gt;
+&lt;p&gt;In reality, container runtimes such as podman (via
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;containers&#x2F;container-libs&#x2F;tree&#x2F;main&#x2F;storage&quot;&gt;containers-libs&lt;&#x2F;a&gt;,
+formerly containers-storage) use the kernel filesystem overlayfs to
+stitch together the layers into the final realized view of the world.&lt;&#x2F;p&gt;
+&lt;p&gt;A &lt;code&gt;RUN&lt;&#x2F;code&gt; invocation in a &lt;code&gt;Containerfile&lt;&#x2F;code&gt; is in a nutshell this series
+of steps:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Mount the previous layer (and recursively, layers prior to that)
+as a &lt;code&gt;lowerdir&lt;&#x2F;code&gt; in an overlayfs filesystem.&lt;&#x2F;li&gt;
+&lt;li&gt;Perform the &lt;code&gt;RUN&lt;&#x2F;code&gt; invocation in the mounted filesystem.&lt;&#x2F;li&gt;
+&lt;li&gt;Collect the contents of the resulting &lt;code&gt;upperdir&lt;&#x2F;code&gt; directory.  This
+becomes the tarball for that layer.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;This process is how we end up with our &lt;code&gt;&#x2F;foo&lt;&#x2F;code&gt; directory duplicated
+into the final layer, even though we did not modify it.  We can mock
+this out just using an overlay mount and basic commands.&lt;&#x2F;p&gt;
+&lt;p&gt;First, mock our lower layer, and set the mtime:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;[root@burd tmp]# mkdir lower upper work merged
+&lt;&#x2F;span&gt;&lt;span&gt;[root@burd tmp]# mkdir -p lower&#x2F;foo&#x2F;bar
+&lt;&#x2F;span&gt;&lt;span&gt;[root@burd tmp]# touch -d @0 lower&#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;[root@burd tmp]# stat lower&#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;  File: lower&#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;  Size: 60        	Blocks: 0          IO Block: 4096   directory
+&lt;&#x2F;span&gt;&lt;span&gt;Device: 0,45	Inode: 46858       Links: 3
+&lt;&#x2F;span&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)
+&lt;&#x2F;span&gt;&lt;span&gt;Context: unconfined_u:object_r:user_tmp_t:s0
+&lt;&#x2F;span&gt;&lt;span&gt;Access: 1969-12-31 19:00:00.000000000 -0500
+&lt;&#x2F;span&gt;&lt;span&gt;Modify: 1969-12-31 19:00:00.000000000 -0500
+&lt;&#x2F;span&gt;&lt;span&gt;Change: 2025-12-10 16:53:27.174443520 -0500
+&lt;&#x2F;span&gt;&lt;span&gt; Birth: 2025-12-10 16:53:20.544455919 -0500
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Next, mount it via overlayfs:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;[root@burd tmp]# mount -t overlay overlay -o lowerdir=lower,upperdir=upper,workdir=work merged
+&lt;&#x2F;span&gt;&lt;span&gt;[root@burd tmp]# cd merged
+&lt;&#x2F;span&gt;&lt;span&gt;[root@burd merged]# stat foo
+&lt;&#x2F;span&gt;&lt;span&gt;  File: foo
+&lt;&#x2F;span&gt;&lt;span&gt;  Size: 60        	Blocks: 0          IO Block: 4096   directory
+&lt;&#x2F;span&gt;&lt;span&gt;Device: 0,90	Inode: 46858       Links: 3
+&lt;&#x2F;span&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)
+&lt;&#x2F;span&gt;&lt;span&gt;Context: unconfined_u:object_r:user_tmp_t:s0
+&lt;&#x2F;span&gt;&lt;span&gt;Access: 1969-12-31 19:00:00.000000000 -0500
+&lt;&#x2F;span&gt;&lt;span&gt;Modify: 1969-12-31 19:00:00.000000000 -0500
+&lt;&#x2F;span&gt;&lt;span&gt;Change: 2025-12-10 16:53:27.174443520 -0500
+&lt;&#x2F;span&gt;&lt;span&gt; Birth: 2025-12-10 16:53:20.544455919 -0500
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now we simulate creating the new layer:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;[root@burd merged]# touch foo&#x2F;bar&#x2F;baz
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally we can unmount the overlayfs mount and observe the contents of
+the &lt;code&gt;upper&lt;&#x2F;code&gt; dir:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;[root@burd merged]# cd ..
+&lt;&#x2F;span&gt;&lt;span&gt;[root@burd tmp]# umount merged
+&lt;&#x2F;span&gt;&lt;span&gt;[root@burd tmp]# find upper&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;upper&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;upper&#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;upper&#x2F;foo&#x2F;bar
+&lt;&#x2F;span&gt;&lt;span&gt;upper&#x2F;foo&#x2F;bar&#x2F;baz
+&lt;&#x2F;span&gt;&lt;span&gt;[root@burd tmp]# stat upper&#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;  File: upper&#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;  Size: 60        	Blocks: 0          IO Block: 4096   directory
+&lt;&#x2F;span&gt;&lt;span&gt;Device: 0,45	Inode: 46870       Links: 3
+&lt;&#x2F;span&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)
+&lt;&#x2F;span&gt;&lt;span&gt;Context: unconfined_u:object_r:user_tmp_t:s0
+&lt;&#x2F;span&gt;&lt;span&gt;Access: 2025-12-10 16:57:20.828001765 -0500
+&lt;&#x2F;span&gt;&lt;span&gt;Modify: 1969-12-31 19:00:00.000000000 -0500
+&lt;&#x2F;span&gt;&lt;span&gt;Change: 2025-12-10 16:56:16.746593313 -0500
+&lt;&#x2F;span&gt;&lt;span&gt; Birth: 2025-12-10 16:56:16.745126092 -0500
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So that&#x27;s where our &lt;code&gt;&#x2F;foo&lt;&#x2F;code&gt; entry comes from.  This behavior is
+explained in the &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.kernel.org&#x2F;filesystems&#x2F;overlayfs.html#non-directories&quot;&gt;overlayfs
+documentation&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;Objects that are not directories (files, symlinks, device-special
+&lt;&#x2F;span&gt;&lt;span&gt;files etc.) are presented either from the upper or lower filesystem as
+&lt;&#x2F;span&gt;&lt;span&gt;appropriate. When a file in the lower filesystem is accessed in a way
+&lt;&#x2F;span&gt;&lt;span&gt;that requires write-access, such as opening for write access, changing
+&lt;&#x2F;span&gt;&lt;span&gt;some metadata etc., the file is first copied from the lower filesystem
+&lt;&#x2F;span&gt;&lt;span&gt;to the upper filesystem (copy_up). Note that creating a hard-link also
+&lt;&#x2F;span&gt;&lt;span&gt;requires copy_up, though of course creation of a symlink does not.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;The copy_up may turn out to be unnecessary, for example if the file is
+&lt;&#x2F;span&gt;&lt;span&gt;opened for read-write but the data is not modified.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;The copy_up process first makes sure that the containing directory
+&lt;&#x2F;span&gt;&lt;span&gt;exists in the upper filesystem - creating it and any parents as
+&lt;&#x2F;span&gt;&lt;span&gt;necessary. It then creates the object with the same metadata (owner,
+&lt;&#x2F;span&gt;&lt;span&gt;mode, mtime, symlink-target etc.) and then if the object is a file,
+&lt;&#x2F;span&gt;&lt;span&gt;the data is copied from the lower to the upper filesystem. Finally any
+&lt;&#x2F;span&gt;&lt;span&gt;extended attributes are copied up.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Since the content of the layer tarball is taken directly from the
+&lt;code&gt;upper&lt;&#x2F;code&gt;, we end up getting a copy of &lt;code&gt;&#x2F;foo&lt;&#x2F;code&gt; via this process.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;where-do-we-go-from-here&quot;&gt;Where do we go from here?&lt;&#x2F;h2&gt;
+&lt;p&gt;Hopefully I have explained the situation adequately and this all makes
+sense.  I have achieved some amount of inner peace that comes with
+reaching understanding.&lt;&#x2F;p&gt;
+&lt;p&gt;However... I still don&#x27;t like it.  I think we can do better.&lt;&#x2F;p&gt;
+&lt;p&gt;Here&#x27;s the thing for &lt;code&gt;bootc&lt;&#x2F;code&gt;: in our rechunked images, I don&#x27;t want to
+include the same directories over and over again in every single
+layer.  It shouldn&#x27;t be necessary, and by strict reading of the OCI
+spec we &lt;em&gt;shouldn&#x27;t&lt;&#x2F;em&gt; do that if the directories are unchanged (which
+they aren&#x27;t).&lt;&#x2F;p&gt;
+&lt;p&gt;But in the current state of the world, if we &lt;em&gt;don&#x27;t&lt;&#x2F;em&gt; duplicate those
+entries into every layer, we end up with non-deterministic directory
+metadata when our OCI image is mounted and viewed through the lens of
+overlayfs.  This is fundamentally broken as we move bootc into a
+future where
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc&#x2F;issues&#x2F;1190&quot;&gt;composefs&lt;&#x2F;a&gt; and
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.kernel.org&#x2F;filesystems&#x2F;fsverity.html&quot;&gt;fsverity&lt;&#x2F;a&gt; are used
+to harden and validate images.  Ideally a container image should be
+able to measure its own fsverity hash in a reproducible manner.  Today
+that is not possible.&lt;&#x2F;p&gt;
+&lt;p&gt;So the following is what I&#x27;ve done as a proof-of-concept (a huge
+motivation for writing this post in the first place was to
+exhaustively explain my justification for why this is needed).  I&#x27;ve
+written and tested a patch (still needs refining before submitting)
+for overlayfs which does the following:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Adds a new feature &lt;code&gt;passthrough&lt;&#x2F;code&gt; (naming bikeshedable) which
+functions similarly to the &lt;code&gt;metacopy&lt;&#x2F;code&gt; feature.&lt;&#x2F;li&gt;
+&lt;li&gt;Uses the &lt;code&gt;trusted.overlay.passthrough&lt;&#x2F;code&gt; to flag directories as
+&quot;structural-only&quot;.&lt;&#x2F;li&gt;
+&lt;li&gt;When encountering a directory with the xattr, searches through the
+lowerdirs until it finds a directory which does not have the xattr
+set.  The metadata for this layer is used.  (If no unflagged
+lowerdir is found, it falls back to the current behavior of using
+non-deterministic local metadata)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Here&#x27;s an example.  This is similar to our manual overlayfs example
+above, except this uses two lower layers to show how unpacking a tar
+layer with incomplete directory information might look.&lt;&#x2F;p&gt;
+&lt;p&gt;First, create our base layer again:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;[root@fedora ~]# mkdir upper merged work
+&lt;&#x2F;span&gt;&lt;span&gt;[root@fedora ~]# mkdir -p base_layer&#x2F;foo&#x2F;bar
+&lt;&#x2F;span&gt;&lt;span&gt;[root@fedora ~]# touch -d @0 base_layer&#x2F;foo
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then, in our second layer we create the &lt;code&gt;baz&lt;&#x2F;code&gt; file.  This time we set
+the &lt;code&gt;passthrough&lt;&#x2F;code&gt; xattr on &lt;code&gt;&#x2F;foo&lt;&#x2F;code&gt;, which is how I envision this all
+working when a container storage engine unpacks a &lt;code&gt;tar&lt;&#x2F;code&gt; archive with
+incomplete parent directory information.  Ideally this layer should
+include a tar entry for &lt;code&gt;foo&#x2F;bar&#x2F;baz&lt;&#x2F;code&gt; and (arguably) &lt;code&gt;foo&#x2F;bar&lt;&#x2F;code&gt; since
+the directory metadata for &lt;code&gt;bar&lt;&#x2F;code&gt; should be updated to reflect the
+addition of &lt;code&gt;bar&lt;&#x2F;code&gt;.  But it definitely should &lt;em&gt;not&lt;&#x2F;em&gt; include an entry
+for &lt;code&gt;foo&#x2F;&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;[root@fedora ~]# mkdir -p second_layer&#x2F;foo&#x2F;bar
+&lt;&#x2F;span&gt;&lt;span&gt;[root@fedora ~]# touch second_layer&#x2F;foo&#x2F;bar&#x2F;baz
+&lt;&#x2F;span&gt;&lt;span&gt;[root@fedora ~]# setfattr -n trusted.overlay.passthrough second_layer&#x2F;foo
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now let&#x27;s mount it with the patched overlayfs.  First, we&#x27;ll specify
+&lt;code&gt;passthrough=off&lt;&#x2F;code&gt; to show the existing behavior:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;[root@fedora ~]# mount -t overlay overlay -o upperdir=upper,lowerdir=second_layer:base_layer,workdir=work,passthrough=off merged
+&lt;&#x2F;span&gt;&lt;span&gt;[root@fedora ~]# stat merged&#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;  File: merged&#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;  Size: 6               Blocks: 0          IO Block: 4096   directory
+&lt;&#x2F;span&gt;&lt;span&gt;Device: 0,59    Inode: 365132      Links: 1
+&lt;&#x2F;span&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)
+&lt;&#x2F;span&gt;&lt;span&gt;Context: unconfined_u:object_r:admin_home_t:s0
+&lt;&#x2F;span&gt;&lt;span&gt;Access: 2025-12-10 17:33:32.787147889 -0500
+&lt;&#x2F;span&gt;&lt;span&gt;Modify: 2025-12-10 17:33:32.787147889 -0500
+&lt;&#x2F;span&gt;&lt;span&gt;Change: 2025-12-10 17:34:01.701054010 -0500
+&lt;&#x2F;span&gt;&lt;span&gt; Birth: 2025-12-10 17:33:32.787147889 -0500
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here the &lt;code&gt;foo&lt;&#x2F;code&gt; directory has whatever metadata we created for it when
+we &quot;unpacked&quot; it with the command &lt;code&gt;mkdir -p second_layer&#x2F;foo&#x2F;bar&lt;&#x2F;code&gt;
+above.  This is what we&#x27;re trying to avoid.&lt;&#x2F;p&gt;
+&lt;p&gt;Now let&#x27;s unmount and remount with &lt;code&gt;passthrough=on&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;color:#323232;&quot;&gt;&lt;code&gt;&lt;span&gt;[root@fedora ~]# umount merged
+&lt;&#x2F;span&gt;&lt;span&gt;[root@fedora ~]# mount -t overlay overlay -o upperdir=upper,lowerdir=second_layer:base_layer,workdir=work,passthrough=on merged
+&lt;&#x2F;span&gt;&lt;span&gt;[root@fedora ~]# stat merged&#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;  File: merged&#x2F;foo
+&lt;&#x2F;span&gt;&lt;span&gt;  Size: 6               Blocks: 0          IO Block: 4096   directory
+&lt;&#x2F;span&gt;&lt;span&gt;Device: 0,59    Inode: 365129      Links: 1
+&lt;&#x2F;span&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)
+&lt;&#x2F;span&gt;&lt;span&gt;Context: unconfined_u:object_r:admin_home_t:s0
+&lt;&#x2F;span&gt;&lt;span&gt;Access: 1969-12-31 19:00:00.000000000 -0500
+&lt;&#x2F;span&gt;&lt;span&gt;Modify: 1969-12-31 19:00:00.000000000 -0500
+&lt;&#x2F;span&gt;&lt;span&gt;Change: 2025-12-10 17:28:12.268740241 -0500
+&lt;&#x2F;span&gt;&lt;span&gt; Birth: 2025-12-10 17:27:39.158847877 -0500
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now we have the metadata for &lt;code&gt;foo&lt;&#x2F;code&gt; being passed through the second
+layer and retrieved from the base layer, which is the behavior we
+want.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;Ensuring that OCI image layers are able to only ship content that
+they&#x27;ve modified will aid reproducibility and help unlock
+optimizations by avoiding having derived layers always need to inherit
+metadata from their parent. At the current time, however, tooling
+creating OCI images should include their parent information in order
+to maximize compatibility. We are looking forward to a future where
+that&#x27;s not necessary though!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Bootc Community Meeting Notes - 18 July 2025</title>
+          <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc-dev.github.io/news/2025-july-18-community-meeting/</link>
+          <guid>https://bootc-dev.github.io/news/2025-july-18-community-meeting/</guid>
+          <description xml:base="https://bootc-dev.github.io/news/2025-july-18-community-meeting/">&lt;h3 id=&quot;attendees&quot;&gt;Attendees:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Laura Santamaria (she&#x2F;her; Red Hat)&lt;&#x2F;li&gt;
+&lt;li&gt;Hristo Marinov&lt;&#x2F;li&gt;
+&lt;li&gt;Fernando Lozano&lt;&#x2F;li&gt;
+&lt;li&gt;Colin Walters (he&#x2F;him; Red Hat)&lt;&#x2F;li&gt;
+&lt;li&gt;Joseph Marrero Corchado (Red Hat, Inc.)&lt;&#x2F;li&gt;
+&lt;li&gt;Matteo Piccinini (n&#x2F;a)&lt;&#x2F;li&gt;
+&lt;li&gt;Robert Sturla (Tesco Bank)&lt;&#x2F;li&gt;
+&lt;li&gt;Dusty Mabe&lt;&#x2F;li&gt;
+&lt;li&gt;Chris Kyrouac&lt;&#x2F;li&gt;
+&lt;li&gt;Gursewak Mangat&lt;&#x2F;li&gt;
+&lt;li&gt;John Eckersberg (Red Hat, Inc.)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;agenda&quot;&gt;Agenda:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc&#x2F;pull&#x2F;1422&quot;&gt;Release 1.5.1&lt;&#x2F;a&gt;
+&lt;ul&gt;
+&lt;li&gt;Thanks @robert!&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Laura] project pavilion update?
+&lt;ul&gt;
+&lt;li&gt;Request form due Monday, shouldn&#x27;t block on travel&lt;&#x2F;li&gt;
+&lt;li&gt;Let&#x27;s do it live&lt;&#x2F;li&gt;
+&lt;li&gt;✅&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Laura] Static site generation for landing page
+&lt;ul&gt;
+&lt;li&gt;Review!&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc-dev.github.io&#x2F;pull&#x2F;3&quot;&gt;bootc-dev&#x2F;bootc-dev.github.io#3&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;adding logos as examples: &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fedoraproject.org&#x2F;coreos&#x2F;&quot;&gt;CoreOS site&lt;&#x2F;a&gt;; &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;projectbluefin.io&#x2F;&quot;&gt;BluefinOS&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Colin] QMU banned contributions from AI. Want to talk about it. Contribution policy?
+&lt;ul&gt;
+&lt;li&gt;Thoughts?&lt;&#x2F;li&gt;
+&lt;li&gt;Require use of &lt;code&gt;&amp;lt;Assisted-by&amp;gt;&lt;&#x2F;code&gt; tag to identify model&#x2F;tool&lt;&#x2F;li&gt;
+&lt;li&gt;Errant AI comment contributed to recent bug&lt;&#x2F;li&gt;
+&lt;li&gt;[John] +1 on attribution&lt;&#x2F;li&gt;
+&lt;li&gt;[Dusty] do we want to limit, or allow?
+&lt;ul&gt;
+&lt;li&gt;[Colin] has a pretty big impact, so want to know what folks think&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Joseph] note in readme or contributing section makes sense. Maybe have a bot that highlights that on PR? People probably won&#x27;t say anything because part of workflow&lt;&#x2F;li&gt;
+&lt;li&gt;[Dusty] Can&#x27;t prevent, but policy. Any examples of wasted time on clearly generated by AI PR
+&lt;ul&gt;
+&lt;li&gt;[Colin] Can tell 90% of the time. Most modern foundational models love bulleted lists, so it&#x27;s obvious. Kinda wacky to put md doc in top level of repo for PR&lt;&#x2F;li&gt;
+&lt;li&gt;[Laura] gave overview from OSPO and the other container group discussion&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Colin] Will open a discussion&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;todo&quot;&gt;TODO:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Laura to explore adding logos to PR.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Laura to add GitHub Actions for publication&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Look for info on domain handling for static site&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Colin to open a discussion about the AI assisted PRs&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Laura to find and share the public Containers Cabal recording&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+      <item>
+          <title>Bootc Community Meeting Notes - 11 July 2025</title>
+          <pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc-dev.github.io/news/2025-july-11-community-meeting/</link>
+          <guid>https://bootc-dev.github.io/news/2025-july-11-community-meeting/</guid>
+          <description xml:base="https://bootc-dev.github.io/news/2025-july-11-community-meeting/">&lt;h3 id=&quot;attendees&quot;&gt;Attendees:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Joseph Marrero Corchado (Red Hat, Inc.)&lt;&#x2F;li&gt;
+&lt;li&gt;Colin Walters&lt;&#x2F;li&gt;
+&lt;li&gt;Robert Sturla (Tesco Bank&#x2F;Universal Blue)&lt;&#x2F;li&gt;
+&lt;li&gt;Laura Santamaria (she&#x2F;her)&lt;&#x2F;li&gt;
+&lt;li&gt;Hristo Marinov&lt;&#x2F;li&gt;
+&lt;li&gt;John Eckersberg (Red Hat, Inc.)&lt;&#x2F;li&gt;
+&lt;li&gt;Dusty (he&#x2F;him)&lt;&#x2F;li&gt;
+&lt;li&gt;Antheas Kapenekakis (Bazzite)&lt;&#x2F;li&gt;
+&lt;li&gt;Mohan&lt;&#x2F;li&gt;
+&lt;li&gt;Chris Kyrouac&lt;&#x2F;li&gt;
+&lt;li&gt;Gursewak Mangat&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;agenda&quot;&gt;Agenda:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;New release status: &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc&#x2F;issues&#x2F;1390&quot;&gt;bootc-dev&#x2F;bootc#1390&lt;&#x2F;a&gt;
+&lt;ul&gt;
+&lt;li&gt;folks agreed on this&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Laura] &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;events.linuxfoundation.org&#x2F;kubecon-cloudnativecon-north-america&#x2F;&quot;&gt;KubeCon NA 2025&lt;&#x2F;a&gt; &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;events.linuxfoundation.org&#x2F;kubecon-cloudnativecon-north-america&#x2F;features-add-ons&#x2F;project-opportunities&#x2F;#description-of-opportunities&quot;&gt;Project Pavilion application&lt;&#x2F;a&gt;
+&lt;ul&gt;
+&lt;li&gt;November 10-13 - Atlanta, Georgia&lt;&#x2F;li&gt;
+&lt;li&gt;Who is going to KubeCon NA 2025 already?
+&lt;ul&gt;
+&lt;li&gt;Laura&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;We&#x27;ll get a project pavilion submission scheduled (probably from Joseph or Colin who already submitted a talk)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Ublue - Collaboration
+&lt;ul&gt;
+&lt;li&gt;Folks are joining :)&lt;&#x2F;li&gt;
+&lt;li&gt;Robert, Antheas from the Ublue community&lt;&#x2F;li&gt;
+&lt;li&gt;Colin would like to do 1:1s
+&lt;ul&gt;
+&lt;li&gt;dustymabe: an office hours like set time could help facilitate this (+1 - Laura)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;hhd-dev&#x2F;rechunk&quot;&gt;rechunker alignment&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc&#x2F;issues&#x2F;1016&quot;&gt;progress-fd&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc&#x2F;issues&#x2F;7&quot;&gt;systemd-sysext frontend&lt;&#x2F;a&gt;
+&lt;ul&gt;
+&lt;li&gt;Motivated by combinatorial explosion of gnome|kde * nvidia|amd * surface|framework|lenovo&lt;&#x2F;li&gt;
+&lt;li&gt;discussion of downsides of systemd-sysext as defined today, vs&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;todo&quot;&gt;TODO:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Put project pavilion application&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Keep smaller, more focused meetings&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+    </channel>
+</rss>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bootc Community Meeting Notes - 18 July 2025 | bootc </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="https://bootc-dev.github.io/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color-h: 288;
+        --primary-color-s: 57%;
+        --primary-color-l: 40%;
+        --primary-color: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+        --primary-color-10: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 10%));
+        --primary-color-20: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 20%));
+        --primary-color-30: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 30%));
+        --primary-color-40: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 40%));
+        --primary-color-50: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 50%));
+        --primary-color-60: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 60%));
+        --primary-color-70: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 70%));
+        --primary-color-80: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 80%));
+        --primary-color-90: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 90%));
+        /* Primary theme text color */
+        --primary-text-color: #000000;
+        --primary-text-color-over: #fcfaf6;
+        /* Primary theme link color */
+        --primary-link-color: #892ca0;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #892ca0;
+        --toc-background-color: white;
+        --code-color: #4a4a4a;
+        --code-background-color: white;
+        --shadow-color: #ddd;
+        /* Font used for headers (h1 & h2) */
+        --header-font-family: "Red Hat Display", sans-serif;
+        /* Font used for text */
+        --text-font-family: "Red Hat Text", sans-serif;
+    }
+    .zola-anchor {
+        margin-left: -2rem;
+        margin-right: .75rem;
+    }
+</style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://bootc-dev.github.io/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https://bootc-dev.github.io/">
+    <div class="logo">
+        <img src="https://bootc-dev.github.io/logo.png" alt="logo">
+        bootc
+    </div>
+</a>
+
+<nav>
+    
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/about">About</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://bootc-dev.github.io/bootc/">Docs</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/news">News</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/blog">Blog</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://github.com/bootc-dev/bootc">GitHub</a>
+    
+    
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/news/2025-july-18-community-meeting/#attendees">Attendees:</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/news/2025-july-18-community-meeting/#agenda">Agenda:</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc-dev.github.io/news/2025-july-18-community-meeting/#todo">TODO:</a>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<h3 id="attendees">Attendees:</h3>
+<ul>
+<li>Laura Santamaria (she/her; Red Hat)</li>
+<li>Hristo Marinov</li>
+<li>Fernando Lozano</li>
+<li>Colin Walters (he/him; Red Hat)</li>
+<li>Joseph Marrero Corchado (Red Hat, Inc.)</li>
+<li>Matteo Piccinini (n/a)</li>
+<li>Robert Sturla (Tesco Bank)</li>
+<li>Dusty Mabe</li>
+<li>Chris Kyrouac</li>
+<li>Gursewak Mangat</li>
+<li>John Eckersberg (Red Hat, Inc.)</li>
+</ul>
+<h3 id="agenda">Agenda:</h3>
+<ul>
+<li><a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/bootc-dev/bootc/pull/1422">Release 1.5.1</a>
+<ul>
+<li>Thanks @robert!</li>
+</ul>
+</li>
+<li>[Laura] project pavilion update?
+<ul>
+<li>Request form due Monday, shouldn't block on travel</li>
+<li>Let's do it live</li>
+<li>✅</li>
+</ul>
+</li>
+<li>[Laura] Static site generation for landing page
+<ul>
+<li>Review!</li>
+<li><a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/bootc-dev/bootc-dev.github.io/pull/3">bootc-dev/bootc-dev.github.io#3</a></li>
+<li>adding logos as examples: <a class="external" rel="noopener noreferrer" target="_blank" href="https://fedoraproject.org/coreos/">CoreOS site</a>; <a class="external" rel="noopener noreferrer" target="_blank" href="https://projectbluefin.io/">BluefinOS</a></li>
+</ul>
+</li>
+<li>[Colin] QMU banned contributions from AI. Want to talk about it. Contribution policy?
+<ul>
+<li>Thoughts?</li>
+<li>Require use of <code>&lt;Assisted-by&gt;</code> tag to identify model/tool</li>
+<li>Errant AI comment contributed to recent bug</li>
+<li>[John] +1 on attribution</li>
+<li>[Dusty] do we want to limit, or allow?
+<ul>
+<li>[Colin] has a pretty big impact, so want to know what folks think</li>
+</ul>
+</li>
+<li>[Joseph] note in readme or contributing section makes sense. Maybe have a bot that highlights that on PR? People probably won't say anything because part of workflow</li>
+<li>[Dusty] Can't prevent, but policy. Any examples of wasted time on clearly generated by AI PR
+<ul>
+<li>[Colin] Can tell 90% of the time. Most modern foundational models love bulleted lists, so it's obvious. Kinda wacky to put md doc in top level of repo for PR</li>
+<li>[Laura] gave overview from OSPO and the other container group discussion</li>
+</ul>
+</li>
+<li>[Colin] Will open a discussion</li>
+</ul>
+</li>
+</ul>
+<h3 id="todo">TODO:</h3>
+<ul>
+<li><input disabled="" type="checkbox"/>
+Laura to explore adding logos to PR.</li>
+<li><input disabled="" type="checkbox"/>
+Laura to add GitHub Actions for publication</li>
+<li><input disabled="" type="checkbox"/>
+Look for info on domain handling for static site</li>
+<li><input disabled="" type="checkbox"/>
+Colin to open a discussion about the AI assisted PRs</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Laura to find and share the public Containers Cabal recording</li>
+</ul>
+
+
+        </div>
+
+        
+<div class="sidebar">
+    <h2 class="title is-2 is-block-fullhd is-skipped">Archive</h2>
+    <ul class="link-list archive">
+        
+        
+        <li><a href="https:&#x2F;&#x2F;bootc-dev.github.io&#x2F;news&#x2F;2025-july-18-community-meeting&#x2F;" title="Bootc Community Meeting Notes - 18 July 2025">Bootc Community Meeting Notes - 18 July 2025</a></li>
+        
+        <li><a href="https:&#x2F;&#x2F;bootc-dev.github.io&#x2F;news&#x2F;2025-july-11-community-meeting&#x2F;" title="Bootc Community Meeting Notes - 11 July 2025">Bootc Community Meeting Notes - 11 July 2025</a></li>
+        
+    </ul>
+</div>
+
+    </main>
+
+    
+    <footer>
+        <p class="subtext">We are a Cloud Native Computing Foundation sandbox project.</p>
+        <p><a href="https://cncf.io"><img src="https://bootc-dev.github.io/img/cncf-color-bg.svg" height="75px" alt="CNCF logo"></a></p>
+        <p class="subtext">
+            bootc, originally created by Red Hat and donated to open source with ❤<br/>
+            Copyright © bootc, a Series of LF Projects, LLC<br/>
+            For website terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/policies/">lfprojects.org/policies/</a>.
+        </p>
+    </footer>
+    
+</body>
+<script>
+    const scrollHandler = entries => {
+        // Find the first entry which intersecting and ratio > 0.9 to highlight.
+        let entry = entries.find(entry => {
+            return entry.isIntersecting && entry.intersectionRatio > 0.9;
+        });
+        if (!entry) return;
+
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        // let url = new URL(`#${entry.target.id}`);
+        let link = document.querySelector(`.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`)
+        if (link) {
+            link.classList.add("active");
+            link.scrollIntoView({ behavior: "auto", block: "nearest" });
+        }
+    };
+    // Set -100px root margin to improve highlight experience.
+    const observer = new IntersectionObserver(scrollHandler, { threshold: 1 });
+    let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    items.forEach(item => observer.observe(item));
+</script>
+
+</html>

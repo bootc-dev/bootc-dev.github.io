@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contributing | bootc </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="https://bootc-dev.github.io/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color-h: 288;
+        --primary-color-s: 57%;
+        --primary-color-l: 40%;
+        --primary-color: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+        --primary-color-10: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 10%));
+        --primary-color-20: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 20%));
+        --primary-color-30: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 30%));
+        --primary-color-40: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 40%));
+        --primary-color-50: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 50%));
+        --primary-color-60: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 60%));
+        --primary-color-70: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 70%));
+        --primary-color-80: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 80%));
+        --primary-color-90: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 90%));
+        /* Primary theme text color */
+        --primary-text-color: #000000;
+        --primary-text-color-over: #fcfaf6;
+        /* Primary theme link color */
+        --primary-link-color: #892ca0;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #892ca0;
+        --toc-background-color: white;
+        --code-color: #4a4a4a;
+        --code-background-color: white;
+        --shadow-color: #ddd;
+        /* Font used for headers (h1 & h2) */
+        --header-font-family: "Red Hat Display", sans-serif;
+        /* Font used for text */
+        --text-font-family: "Red Hat Text", sans-serif;
+    }
+    .zola-anchor {
+        margin-left: -2rem;
+        margin-right: .75rem;
+    }
+</style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://bootc-dev.github.io/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https://bootc-dev.github.io/">
+    <div class="logo">
+        <img src="https://bootc-dev.github.io/logo.png" alt="logo">
+        bootc
+    </div>
+</a>
+
+<nav>
+    
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/about">About</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://bootc-dev.github.io/bootc/">Docs</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/news">News</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/blog">Blog</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://github.com/bootc-dev/bootc">GitHub</a>
+    
+    
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+<div class="toc">
+    <div class="toc-sticky"><div class="toc-item">
+                    <a href="#contributing-to-bootc" class="subtext">Contributing to bootc</a>
+                </div><div class="toc-item-child">
+                    <a href="#note-before-writing-a-big-patch" class="subtext">
+                        <small>- Note: Before writing a big patch</small>
+                    </a>
+                </div><div class="toc-item-child">
+                    <a href="#development-environment" class="subtext">
+                        <small>- Development environment</small>
+                    </a>
+                </div><div class="toc-item-child">
+                    <a href="#key-recommended-ingredients" class="subtext">
+                        <small>- Key recommended ingredients:</small>
+                    </a>
+                </div><div class="toc-item-child">
+                    <a href="#ensure-you-re-familiar-with-a-bootc-system" class="subtext">
+                        <small>- Ensure you&#x27;re familiar with a bootc system</small>
+                    </a>
+                </div><div class="toc-item-child">
+                    <a href="#the-justfile" class="subtext">
+                        <small>- The Justfile</small>
+                    </a>
+                </div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="toc-item-child">
+                    <a href="#code-linting" class="subtext">
+                        <small>- Code linting</small>
+                    </a>
+                </div><div class="toc-item-child">
+                    <a href="#running-the-tests" class="subtext">
+                        <small>- Running the tests</small>
+                    </a>
+                </div><div></div><div class="toc-item-child">
+                    <a href="#submitting-a-patch" class="subtext">
+                        <small>- Submitting a patch</small>
+                    </a>
+                </div><div></div><div></div></div>
+</div>
+
+
+        <div class="content text">
+            
+
+<div class="heading-text">Contributing</div>
+<h1 id="contributing-to-bootc">Contributing to bootc</h1>
+<p>Thanks for your interest in contributing!  At the current time,
+bootc is implemented in Rust, and calls out to important components
+which are written in Go (e.g. https://github.com/containers/image)
+as well as C (e.g. https://github.com/ostreedev/ostree/).  Depending
+on what area you want to work on, you'll need to be familiar with
+the relevant language.</p>
+<h2 id="note-before-writing-a-big-patch">Note: Before writing a big patch</h2>
+<p>If you plan to contribute a large change, please get in touch <em>before</em>
+submitting a pull request by e.g. filing an issue describing your proposed
+change. This will help ensure alignment.</p>
+<h2 id="development-environment">Development environment</h2>
+<p>There isn't a single approach to working on bootc; however
+the primary developers tend to use Linux host systems,
+and test in Linux VMs.  One specifically recommended
+approach is to use <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/containers/toolbox/">toolbox</a>
+to create a containerized development environment
+(it's possible, though not necessary to create the toolbox
+dev environment using a bootc image as well).</p>
+<p>At the current time most upstream developers use a Fedora derivative
+as a base, and the <a href="hack/Containerfile">hack/Containerfile</a> defaults
+to Fedora.  However, bootc itself is not intended to strongly tie to a particular
+OS or distribution, and patches to handle others are gratefully
+accepted!</p>
+<h2 id="key-recommended-ingredients">Key recommended ingredients:</h2>
+<ul>
+<li>A development environment (toolbox or a host) with a Rust and C compiler, etc.
+While this isn't specific to bootc, you will find the experience of working on Rust
+is greatly aided with use of e.g. <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/rust-lang/rust-analyzer/">rust-analyzer</a>.</li>
+<li>Install <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/bootc-dev/bcvk">bcvk</a>.</li>
+</ul>
+<h2 id="ensure-you-re-familiar-with-a-bootc-system">Ensure you're familiar with a bootc system</h2>
+<p>Worth stating: before you start diving into the code you should understand using
+the system as a user and how it works.  See the user documentation for that.</p>
+<h2 id="the-justfile">The Justfile</h2>
+<p>The <a href="Justfile">Justfile</a> is the primary interface for building and testing bootc.</p>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>just --list           </span><span style="font-style:italic;color:#969896;"># Show all targets organized by group
+</span><span>just list-variants    </span><span style="font-style:italic;color:#969896;"># Show available build variants and current config
+</span></code></pre>
+<h3 id="building-from-source">Building from source</h3>
+<p>Edit the source code; a simple thing to do is add e.g.
+<code>eprintln!("hello world");</code> into <code>run_from_opt</code> in <a href="crates/lib/src/cli.rs">crates/lib/src/cli.rs</a>.
+You can run <code>make</code> or <code>cargo build</code> to build that locally. However, a key
+next step is to get that binary into a bootc container image.</p>
+<p>Running <code>just</code> defaults to <code>just build</code> which will build a container
+from the current source code; the result will be named <code>localhost/bootc</code>.</p>
+<h3 id="running-an-interactive-shell-in-an-environment-from-the-container">Running an interactive shell in an environment from the container</h3>
+<p>You can of course <code>podman run --rm -ti localhost/bootc bash</code> to get a shell,
+and try running <code>bootc</code>.</p>
+<h3 id="running-container-oriented-integration-tests">Running container-oriented integration tests</h3>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>just test-container
+</span></code></pre>
+<h3 id="running-tmt-integration-tests">Running (TMT) integration tests</h3>
+<p>A common cycle here is you'll edit e.g. <code>deploy.rs</code> and want to run the
+tests that perform an upgrade:</p>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>just test-tmt local-upgrade-reboot
+</span></code></pre>
+<p>To run a specific test:</p>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>just test-tmt readonly
+</span></code></pre>
+<h3 id="faster-iteration-cycles">Faster iteration cycles</h3>
+<p>The test cycle currently builds a disk image and creates a new ephemeral
+VM for each test run.</p>
+<p>You can shortcut some iteration cycles by having a more persistent
+environment where you run bootc.</p>
+<h4 id="upgrading-from-the-container-image">Upgrading from the container image</h4>
+<p>One good approach is to create a persistent target virtual machine via e.g.
+<code>bcvk libvirt run</code> (or a cloud VM), and then after doing a <code>just build</code> and getting
+a container image, you can directly upgrade to that image.</p>
+<p>For the local case, check out <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/cgwalters/cstor-dist">cstor-dist</a>.
+Another alternative is mounting via virtiofs (see e.g. <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/bootc-dev/bcvk/pull/16">this PR to bcvk</a>).
+If you're using libvirt, see <a class="external" rel="noopener noreferrer" target="_blank" href="https://libvirt.org/kbase/virtiofs.html">this document</a>.</p>
+<h4 id="running-bootc-against-a-live-environment">Running bootc against a live environment</h4>
+<p>If your development environment host is also a bootc system (e.g. a
+workstation or a virtual server) one way to shortcut some cycles is just
+to directly run the output of the built binary against your host.</p>
+<p>Say for example your host is a Fedora 42 workstation (based on bootc),
+then you can <code>cargo b --release</code> directly in a Fedora 42 container
+or even on your host system, and then directly run e.g. <code>./target/release/bootc upgrade</code>
+etc.</p>
+<h3 id="testing-with-composefs-sealed-images">Testing with composefs (sealed images)</h3>
+<p>To build and test with the experimental composefs backend:</p>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="font-style:italic;color:#969896;"># Build a sealed image with auto-generated test Secure Boot keys
+</span><span>just build-sealed
+</span><span>
+</span><span style="font-style:italic;color:#969896;"># Run composefs-specific tests
+</span><span>just test-composefs
+</span><span>
+</span><span style="font-style:italic;color:#969896;"># Validate that composefs digests match between build and install views
+</span><span style="font-style:italic;color:#969896;"># (useful for debugging mtime/metadata issues)
+</span><span>just validate-composefs-digest
+</span></code></pre>
+<p>The <code>build-sealed</code> target generates test Secure Boot keys in <code>target/test-secureboot/</code>
+and builds a complete sealed image with UKI. See <a href="docs/src/experimental-composefs.md">experimental-composefs.md</a>
+for more information on sealed images.</p>
+<h3 id="debugging-via-lldb">Debugging via lldb</h3>
+<p>The <code>hack/lldb</code> directory contains an example of how to use lldb to debug bootc code.
+<code>hack/lldb/deploy.sh</code> can be used to build and deploy a bootc VM in libvirt with an lldb-server
+running as a systemd service. Depending on your editor, you can then connect to the lldb server
+to use an interactive debugger, and set up the editor to build and push the new binary to the VM.
+<code>hack/lldb/dap-example-vim.lua</code> is an example for neovim.</p>
+<p>The VM can be connected to via <code>ssh test@bootc-lldb</code> if you have <a class="external" rel="noopener noreferrer" target="_blank" href="https://libvirt.org/nss.html">nss</a>
+enabled.</p>
+<p>For some bootc install commands, it's simpler to run the lldb-server in a container, e.g.</p>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>sudo podman run --pid</span><span style="font-weight:bold;color:#a71d5d;">=</span><span>host --network</span><span style="font-weight:bold;color:#a71d5d;">=</span><span>host --privileged --security-opt label=type:unconfined_t -v /var/lib/containers:/var/lib/containers -v /dev:/dev -v .:/output localhost/bootc-lldb lldb-server platform --listen </span><span style="color:#183691;">&quot;*:1234&quot;</span><span> --server
+</span></code></pre>
+<h2 id="code-linting">Code linting</h2>
+<p>The <code>make validate</code> target runs checks locally that we gate on
+in CI, currently around <code>cargo fmt</code> and <code>cargo clippy</code>.</p>
+<h2 id="running-the-tests">Running the tests</h2>
+<p>First, you can run many unit tests with <code>cargo test</code>.</p>
+<h3 id="container-tests">container tests</h3>
+<p>There's a small set of tests which are designed to run inside a bootc container
+and are built into the default container image:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>$ just test-container
+</span></code></pre>
+<h2 id="submitting-a-patch">Submitting a patch</h2>
+<p>The podman project has some <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/containers/podman/blob/main/CONTRIBUTING.md#submitting-pull-requests">generic useful guidance</a>;
+like that project, a "Developer Certificate of Origin" is required.</p>
+<h3 id="sign-your-prs">Sign your PRs</h3>
+<p>The sign-off is a line at the end of the explanation for the patch. Your
+signature certifies that you wrote the patch or otherwise have the right to pass
+it on as an open-source patch. The rules are simple: if you can certify
+the below (from <a class="external" rel="noopener noreferrer" target="_blank" href="https://developercertificate.org/">developercertificate.org</a>):</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>Developer Certificate of Origin
+</span><span>Version 1.1
+</span><span>
+</span><span>Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
+</span><span>660 York Street, Suite 102,
+</span><span>San Francisco, CA 94110 USA
+</span><span>
+</span><span>Everyone is permitted to copy and distribute verbatim copies of this
+</span><span>license document, but changing it is not allowed.
+</span><span>
+</span><span>Developer&#39;s Certificate of Origin 1.1
+</span><span>
+</span><span>By making a contribution to this project, I certify that:
+</span><span>
+</span><span>(a) The contribution was created in whole or in part by me and I
+</span><span>    have the right to submit it under the open source license
+</span><span>    indicated in the file; or
+</span><span>
+</span><span>(b) The contribution is based upon previous work that, to the best
+</span><span>    of my knowledge, is covered under an appropriate open source
+</span><span>    license and I have the right under that license to submit that
+</span><span>    work with modifications, whether created in whole or in part
+</span><span>    by me, under the same open source license (unless I am
+</span><span>    permitted to submit under a different license), as indicated
+</span><span>    in the file; or
+</span><span>
+</span><span>(c) The contribution was provided directly to me by some other
+</span><span>    person who certified (a), (b) or (c) and I have not modified
+</span><span>    it.
+</span><span>
+</span><span>(d) I understand and agree that this project and the contribution
+</span><span>    are public and that a record of the contribution (including all
+</span><span>    personal information I submit with it, including my sign-off) is
+</span><span>    maintained indefinitely and may be redistributed consistent with
+</span><span>    this project or the open source license(s) involved.
+</span></code></pre>
+<p>Then you just add a line to every git commit message:</p>
+<pre style="background-color:#ffffff;color:#323232;"><code><span>Signed-off-by: Joe Smith &lt;joe.smith@email.com&gt;
+</span></code></pre>
+<p>Use your real name (sorry, no pseudonyms or anonymous contributions.)</p>
+<p>If you set your <code>user.name</code> and <code>user.email</code> git configs, you can sign your
+commit automatically with <code>git commit -s</code>.</p>
+<h3 id="git-commit-style">Git commit style</h3>
+<p>Please look at <code>git log</code> and match the commit log style, which is very
+similar to the
+<a class="external" rel="noopener noreferrer" target="_blank" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git">Linux kernel</a>.</p>
+<p>You may use <code>Signed-off-by</code>, but we're not requiring it.</p>
+<p><strong>General Commit Message Guidelines</strong>:</p>
+<ol>
+<li>Title
+<ul>
+<li>Specify the context or category of the changes e.g. <code>lib</code> for library changes, <code>docs</code> for document changes, <code>bin/&lt;command-name&gt;</code> for command changes, etc.</li>
+<li>Begin the title with the first letter of the first word capitalized.</li>
+<li>Aim for less than 50 characters, otherwise 72 characters max.</li>
+<li>Do not end the title with a period.</li>
+<li>Use an <a class="external" rel="noopener noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Imperative_mood">imperative tone</a>.</li>
+</ul>
+</li>
+<li>Body
+<ul>
+<li>Separate the body with a blank line after the title.</li>
+<li>Begin a paragraph with the first letter of the first word capitalized.</li>
+<li>Each paragraph should be formatted within 72 characters.</li>
+<li>Content should be about what was changed and why this change was made.</li>
+<li>If your commit fixes an issue, the commit message should end with <code>Closes: #&lt;number&gt;</code>.</li>
+</ul>
+</li>
+</ol>
+<p>Commit Message example:</p>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="font-weight:bold;color:#a71d5d;">&lt;</span><span>context</span><span style="font-weight:bold;color:#a71d5d;">&gt;</span><span>: Less than 50 characters for subject title
+</span><span>
+</span><span>A paragraph of the body should be within 72 characters.
+</span><span>
+</span><span>This paragraph is also less than 72 characters.
+</span></code></pre>
+<p>For more information see <a class="external" rel="noopener noreferrer" target="_blank" href="https://chris.beams.io/posts/git-commit/">How to Write a Git Commit Message</a></p>
+
+
+        </div>
+
+        
+<div class="sidebar">
+</div>
+
+    </main>
+
+    
+    <footer>
+        <p class="subtext">We are a Cloud Native Computing Foundation sandbox project.</p>
+        <p><a href="https://cncf.io"><img src="https://bootc-dev.github.io/img/cncf-color-bg.svg" height="75px" alt="CNCF logo"></a></p>
+        <p class="subtext">
+            bootc, originally created by Red Hat and donated to open source with ❤<br/>
+            Copyright © bootc, a Series of LF Projects, LLC<br/>
+            For website terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/policies/">lfprojects.org/policies/</a>.
+        </p>
+    </footer>
+    
+</body>
+<script>
+    const scrollHandler = entries => {
+        // Find the first entry which intersecting and ratio > 0.9 to highlight.
+        let entry = entries.find(entry => {
+            return entry.isIntersecting && entry.intersectionRatio > 0.9;
+        });
+        if (!entry) return;
+
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        // let url = new URL(`#${entry.target.id}`);
+        let link = document.querySelector(`.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`)
+        if (link) {
+            link.classList.add("active");
+            link.scrollIntoView({ behavior: "auto", block: "nearest" });
+        }
+    };
+    // Set -100px root margin to improve highlight experience.
+    const observer = new IntersectionObserver(scrollHandler, { threshold: 1 });
+    let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    items.forEach(item => observer.observe(item));
+</script>
+
+</html>
