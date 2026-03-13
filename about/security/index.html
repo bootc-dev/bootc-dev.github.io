@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Security | bootc </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="https://bootc-dev.github.io/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color-h: 288;
+        --primary-color-s: 57%;
+        --primary-color-l: 40%;
+        --primary-color: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+        --primary-color-10: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 10%));
+        --primary-color-20: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 20%));
+        --primary-color-30: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 30%));
+        --primary-color-40: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 40%));
+        --primary-color-50: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 50%));
+        --primary-color-60: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 60%));
+        --primary-color-70: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 70%));
+        --primary-color-80: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 80%));
+        --primary-color-90: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 90%));
+        /* Primary theme text color */
+        --primary-text-color: #000000;
+        --primary-text-color-over: #fcfaf6;
+        /* Primary theme link color */
+        --primary-link-color: #892ca0;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #892ca0;
+        --toc-background-color: white;
+        --code-color: #4a4a4a;
+        --code-background-color: white;
+        --shadow-color: #ddd;
+        /* Font used for headers (h1 & h2) */
+        --header-font-family: "Red Hat Display", sans-serif;
+        /* Font used for text */
+        --text-font-family: "Red Hat Text", sans-serif;
+    }
+    .zola-anchor {
+        margin-left: -2rem;
+        margin-right: .75rem;
+    }
+</style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://bootc-dev.github.io/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https://bootc-dev.github.io/">
+    <div class="logo">
+        <img src="https://bootc-dev.github.io/logo.png" alt="logo">
+        bootc
+    </div>
+</a>
+
+<nav>
+    
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/about">About</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://bootc-dev.github.io/bootc/">Docs</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/news">News</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/blog">Blog</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://github.com/bootc-dev/bootc">GitHub</a>
+    
+    
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+
+
+
+        
+        
+        
+        
+<div class="toc">
+    <div class="toc-sticky"><div class="toc-item">
+                    <a href="#security-policy" class="subtext">Security Policy</a>
+                </div><div class="toc-item-child">
+                    <a href="#reporting-a-vulnerability" class="subtext">
+                        <small>- Reporting a Vulnerability</small>
+                    </a>
+                </div><div></div><div></div></div>
+</div>
+
+
+        <div class="content text">
+            
+
+<div class="heading-text">Security</div>
+<h1 id="security-policy">Security Policy</h1>
+<h2 id="reporting-a-vulnerability">Reporting a Vulnerability</h2>
+<p>If you find a potential security vulnerability in bootc, please report it by following these steps:</p>
+<h3 id="1-use-the-github-security-tab">1. <strong>Use the GitHub Security Tab</strong></h3>
+<p>This repository is set up to allow vulnerability reports through GitHub's Security Advisories feature. To report a vulnerability:</p>
+<ol>
+<li>Navigate to the repository's main page.</li>
+<li>Select the <a class="external" rel="noopener noreferrer" target="_blank" href="https://github.com/bootc-dev/bootc/security"><strong>Security</strong></a> tab.</li>
+<li>Select <strong>Advisories</strong> from the left-hand sidebar.</li>
+<li>Click on <strong>Report a vulnerability</strong>.</li>
+<li>Fill in the required details and submit the report.</li>
+</ol>
+<p>Following this process will create a private advisory for our maintainers to review.</p>
+<h3 id="2-do-not-open-public-pull-requests-issues-or-discussions">2. <strong>Do Not Open Public Pull Requests, Issues, or Discussions</strong></h3>
+<p>Please <strong>do not</strong> discuss the issue, create PRs, or start discussions about the vulnerability. This ensures the vulnerability is not widely exploited before a fix is provided.</p>
+
+
+        </div>
+
+        
+<div class="sidebar">
+</div>
+
+    </main>
+
+    
+    <footer>
+        <p class="subtext">We are a Cloud Native Computing Foundation sandbox project.</p>
+        <p><a href="https://cncf.io"><img src="https://bootc-dev.github.io/img/cncf-color-bg.svg" height="75px" alt="CNCF logo"></a></p>
+        <p class="subtext">
+            bootc, originally created by Red Hat and donated to open source with ❤<br/>
+            Copyright © bootc, a Series of LF Projects, LLC<br/>
+            For website terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/policies/">lfprojects.org/policies/</a>.
+        </p>
+    </footer>
+    
+</body>
+<script>
+    const scrollHandler = entries => {
+        // Find the first entry which intersecting and ratio > 0.9 to highlight.
+        let entry = entries.find(entry => {
+            return entry.isIntersecting && entry.intersectionRatio > 0.9;
+        });
+        if (!entry) return;
+
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        // let url = new URL(`#${entry.target.id}`);
+        let link = document.querySelector(`.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`)
+        if (link) {
+            link.classList.add("active");
+            link.scrollIntoView({ behavior: "auto", block: "nearest" });
+        }
+    };
+    // Set -100px root margin to improve highlight experience.
+    const observer = new IntersectionObserver(scrollHandler, { threshold: 1 });
+    let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    items.forEach(item => observer.observe(item));
+</script>
+
+</html>
