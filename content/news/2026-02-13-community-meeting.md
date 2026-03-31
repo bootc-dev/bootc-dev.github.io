@@ -8,7 +8,7 @@ slug = "2026-feb-13-community-meeting"
 
 [Meeting Link/info](https://zoom-lfx.platform.linuxfoundation.org/meeting/96540875093?password=7889708d-c520-4565-90d3-ce9e253a1f65)
 
-Feel free to add yourself to the attendee list and to add to the agenda! This is an open community meeting, and our [Code of Conduct](https://github.com/bootc-dev/bootc?tab=readme-ov-file#code-of-conduct) applies.
+Feel free to add yourself to the attendee list and to add to the agenda! This is an open community meeting, and our [Code of Conduct](https://github.com/bootc-dev/bootc?tab=readme-ov-file#user-content-code-of-conduct) applies.
 
 ## 13 Feb 2026
 [Zoom summary](https://zoom-lfx.platform.linuxfoundation.org/meeting/96540875093-1770996600000/summaries?password=6752942e-2973-46c7-b306-af3b819dc939)
