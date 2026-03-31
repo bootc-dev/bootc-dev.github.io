@@ -1,3 +1,9 @@
++++
+title = "Bootc Community Meeting Notes - 11 July 2025"
+date = 2025-07-11
+slug = "2025-july-11-community-meeting"
++++
+
 # bootc community meeting
 
 [Meeting Link/info](https://zoom-lfx.platform.linuxfoundation.org/meeting/96540875093?password=7889708d-c520-4565-90d3-ce9e253a1f65)
