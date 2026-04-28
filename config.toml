@@ -1,4 +1,4 @@
-base_url = "https://bootc-dev.github.io"
+base_url = "https://bootc.dev"
 #base_url = "http://localhost"
 theme = "juice"
 title = "bootc"
