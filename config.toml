@@ -28,7 +28,11 @@ feed_filenames = ["rss.xml"]
 #mode
 #output_dir
 #preserve_dotfiles_in_output
-#link_checker
+[link_checker]
+# freedesktop.org returns 418 to bots but works fine in browsers
+skip_prefixes = [
+    "https://www.freedesktop.org/",
+]
 #slugify
 #search
 generate_sitemap = true
