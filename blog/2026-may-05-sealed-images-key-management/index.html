@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>bootc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="https://bootc.dev/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color-h: 288;
+        --primary-color-s: 57%;
+        --primary-color-l: 40%;
+        --primary-color: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+        --primary-color-10: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 10%));
+        --primary-color-20: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 20%));
+        --primary-color-30: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 30%));
+        --primary-color-40: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 40%));
+        --primary-color-50: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 50%));
+        --primary-color-60: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 60%));
+        --primary-color-70: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 70%));
+        --primary-color-80: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 80%));
+        --primary-color-90: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 90%));
+        /* Primary theme text color */
+        --primary-text-color: #000000;
+        --primary-text-color-over: #fcfaf6;
+        /* Primary theme link color */
+        --primary-link-color: #892ca0;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #892ca0;
+        --toc-background-color: white;
+        --code-color: #4a4a4a;
+        --code-background-color: white;
+        --shadow-color: #ddd;
+        /* Font used for headers (h1 & h2) */
+        --header-font-family: "Red Hat Display", sans-serif;
+        /* Font used for text */
+        --text-font-family: "Red Hat Text", sans-serif;
+    }
+    .zola-anchor {
+        margin-left: -2rem;
+        margin-right: .75rem;
+    }
+</style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://bootc.dev/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https://bootc.dev/">
+    <div class="logo">
+        <img src="https://bootc.dev/logo.png" alt="logo">
+        bootc
+    </div>
+</a>
+
+<nav>
+    
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/about">About</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://bootc-dev.github.io/bootc/">Docs</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/news">News</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/blog">Blog</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://github.com/bootc-dev/bootc">GitHub</a>
+    
+    
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-05-sealed-images-key-management/#sealed-images-key-management-for-secure-boot">Sealed images: key management for Secure Boot</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-05-sealed-images-key-management/#the-uefi-secure-boot-key-hierarchy"><small>- The UEFI Secure Boot key hierarchy</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-05-sealed-images-key-management/#generating-keys"><small>- Generating keys</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-05-sealed-images-key-management/#signing-boot-artifacts"><small>- Signing boot artifacts</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-05-sealed-images-key-management/#enrolling-keys-into-firmware"><small>- Enrolling keys into firmware</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-05-sealed-images-key-management/#key-security-considerations"><small>- Key security considerations</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-05-sealed-images-key-management/#what-s-next"><small>- What&#x27;s next</small></a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<div class="blog-meta">
+    <span class="blog-date">May 05, 2026</span>
+    
+    <span class="blog-author"> by 
+
+<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name">John Eckersberg</span>
+</span>
+
+</span>
+    
+</div>
+<h1 id="sealed-images-key-management-for-secure-boot">Sealed images: key management for Secure Boot</h1>
+<p>In the <a href="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/">previous post</a>,
+we walked through the security chain that sealed images provide, from
+firmware through runtime file verification.  That chain depends on
+cryptographic keys at every step.  In this post, we'll cover the keys
+involved, how to generate them, and how they get enrolled into your
+system's firmware.</p>
+<h2 id="the-uefi-secure-boot-key-hierarchy">The UEFI Secure Boot key hierarchy</h2>
+<p>UEFI Secure Boot uses a hierarchy of three key types, each serving a
+distinct role:</p>
+<p><strong>Platform Key (PK)</strong> -- The root of the Secure Boot trust hierarchy.
+There is exactly one PK.  The PK controls who can modify the Secure
+Boot key databases.  It is used to sign updates to the KEK database.
+When the PK is enrolled, the firmware transitions from Setup Mode to
+User Mode, enabling Secure Boot enforcement.</p>
+<p><strong>Key Exchange Key (KEK)</strong> -- One or more KEKs can be enrolled.  A KEK
+is authorized to sign updates to the signature database (db).  The
+KEK exists to allow delegation: the PK owner can authorize other
+parties to manage the set of trusted signing keys without giving them
+full control over the Secure Boot configuration.</p>
+<p><strong>Signature Database (db)</strong> -- The db contains the keys or hashes
+that the firmware uses to verify boot binaries.  When the firmware
+loads a bootloader or UKI, it checks the binary's signature against
+the keys in the db.  If the signature matches a db entry, the binary
+is allowed to execute.</p>
+<p>In practice, many organizations will only need to generate a single
+set of these keys.  The db key is the one that does the day-to-day
+work: it signs your UKIs and bootloader.  The PK and KEK exist
+primarily to control who can modify the db.</p>
+<p>If you already have Secure Boot keys provisioned in your
+infrastructure, you don't need to generate new ones.  You only need
+access to a db key (or the ability to add your signing key to the
+existing db) in order to sign your UKIs.  The rest of this post
+assumes you're starting from scratch, but the signing steps apply
+regardless of where your keys came from.</p>
+<h2 id="generating-keys">Generating keys</h2>
+<p>The following commands generate a complete set of Secure Boot keys.
+These examples use <code>openssl</code> directly, but you should use whatever
+key management practices are appropriate for your organization.
+Hardware security modules (HSMs), vault systems, or other key
+management infrastructure may be more appropriate for production
+use.</p>
+<p>First, generate a GUID to identify the key owner.  This is embedded
+in the key enrollment data and can be any unique identifier:</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ uuidgen --random &gt; GUID.txt</span></span></code></pre>
+<p>Generate the Platform Key:</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ openssl req -newkey rsa:2048 -nodes -keyout PK.key \</span></span>
+<span class="giallo-l"><span>    -new -x509 -sha256 -days 3650 \</span></span>
+<span class="giallo-l"><span>    -subj &#39;/CN=My Platform Key/&#39; -out PK.crt</span></span>
+<span class="giallo-l"><span>$ openssl x509 -outform DER -in PK.crt -out PK.cer</span></span></code></pre>
+<p>Generate the Key Exchange Key:</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ openssl req -newkey rsa:2048 -nodes -keyout KEK.key \</span></span>
+<span class="giallo-l"><span>    -new -x509 -sha256 -days 3650 \</span></span>
+<span class="giallo-l"><span>    -subj &#39;/CN=My Key Exchange Key/&#39; -out KEK.crt</span></span>
+<span class="giallo-l"><span>$ openssl x509 -outform DER -in KEK.crt -out KEK.cer</span></span></code></pre>
+<p>Generate the Signature Database key:</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ openssl req -newkey rsa:2048 -nodes -keyout db.key \</span></span>
+<span class="giallo-l"><span>    -new -x509 -sha256 -days 3650 \</span></span>
+<span class="giallo-l"><span>    -subj &#39;/CN=My Signature Database Key/&#39; -out db.crt</span></span>
+<span class="giallo-l"><span>$ openssl x509 -outform DER -in db.crt -out db.cer</span></span></code></pre>
+<p>Each command produces three files: a private key (<code>.key</code>), a PEM
+certificate (<code>.crt</code>), and a DER-encoded certificate (<code>.cer</code>).  The
+private keys are what you need to protect.  The certificates are
+public and are what gets enrolled into the firmware.</p>
+<h2 id="signing-boot-artifacts">Signing boot artifacts</h2>
+<p>With a db key in hand, you can sign the two boot binaries that need
+Secure Boot verification: the bootloader (systemd-boot) and the
+Unified Kernel Image.</p>
+<p>Signing systemd-boot:</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ sbsign --key db.key --cert db.crt \</span></span>
+<span class="giallo-l"><span>    --output systemd-bootx64.efi.signed \</span></span>
+<span class="giallo-l"><span>    /usr/lib/systemd/boot/efi/systemd-bootx64.efi</span></span></code></pre>
+<p>The UKI signing process is more involved because the UKI embeds the
+composefs digest, which must be computed from the filesystem first.
+We'll cover building sealed images (including UKI generation and
+signing) in detail in the next post.  For now, the important thing
+to know is that <code>ukify</code> (the tool that assembles UKIs) accepts the
+same <code>--secureboot-private-key</code> and <code>--secureboot-certificate</code>
+options and uses <code>sbsign</code> under the hood to sign the final EFI
+binary.</p>
+<h2 id="enrolling-keys-into-firmware">Enrolling keys into firmware</h2>
+<p>The keys need to be enrolled into the UEFI firmware's Secure Boot
+database before the firmware will use them for verification.  There
+are several ways to do this depending on your environment.</p>
+<h3 id="manual-enrollment-via-firmware-setup">Manual enrollment via firmware setup</h3>
+<p>Most UEFI firmware implementations provide a setup menu (accessed
+during early boot, typically via a key like F2 or Del) where Secure
+Boot keys can be managed.  The DER-encoded certificates (<code>.cer</code>
+files) can be enrolled from a USB drive or the EFI System Partition.
+This is straightforward for individual systems but does not scale
+well.</p>
+<h3 id="programmatic-enrollment-for-virtual-machines">Programmatic enrollment for virtual machines</h3>
+<p>For virtual machines using OVMF (the open source UEFI firmware for
+QEMU/KVM), keys can be enrolled directly into the firmware variable
+store using the <code>virt-fw-vars</code> tool from the
+<a class="external" rel="noopener noreferrer external" target="_blank" href="https://gitlab.com/kraxel/virt-firmware">virt-firmware</a> project:</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ GUID=$(cat GUID.txt)</span></span>
+<span class="giallo-l"><span>$ virt-fw-vars \</span></span>
+<span class="giallo-l"><span>    --input /usr/share/edk2/ovmf/OVMF_VARS.fd \</span></span>
+<span class="giallo-l"><span>    --secure-boot \</span></span>
+<span class="giallo-l"><span>    --set-pk  $GUID PK.crt \</span></span>
+<span class="giallo-l"><span>    --add-kek $GUID KEK.crt \</span></span>
+<span class="giallo-l"><span>    --add-db  $GUID db.crt \</span></span>
+<span class="giallo-l"><span>    -o OVMF_VARS_ENROLLED.fd</span></span></code></pre>
+<p>This produces a firmware variable store with your keys pre-enrolled.
+When QEMU starts with this variable store, Secure Boot is active and
+will only accept binaries signed with your db key.  This is
+particularly useful for testing and for VM-based deployments where
+you control the firmware image.</p>
+<h3 id="auto-enrollment-via-systemd-boot">Auto-enrollment via systemd-boot</h3>
+<p>systemd-boot supports automatic key enrollment when the firmware is
+in Setup Mode (no Platform Key enrolled).  This works by placing
+signed UEFI authenticated variable files (<code>.auth</code> files) on the EFI
+System Partition.</p>
+<p>Creating <code>.auth</code> files requires converting your certificates into
+UEFI signature lists and signing them with the appropriate parent
+key:</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ GUID=$(cat GUID.txt)</span></span>
+<span class="giallo-l"><span>$ attr=NON_VOLATILE,RUNTIME_ACCESS,BOOTSERVICE_ACCESS,TIME_BASED_AUTHENTICATED_WRITE_ACCESS</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span># Create EFI signature lists</span></span>
+<span class="giallo-l"><span>$ sbsiglist --owner $GUID --type x509 --output PK.esl PK.cer</span></span>
+<span class="giallo-l"><span>$ sbsiglist --owner $GUID --type x509 --output KEK.esl KEK.cer</span></span>
+<span class="giallo-l"><span>$ sbsiglist --owner $GUID --type x509 --output db.esl db.cer</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span># Sign the variables (PK and KEK signed by PK, db signed by KEK)</span></span>
+<span class="giallo-l"><span>$ sbvarsign --attr $attr --key PK.key --cert PK.crt --output PK.auth PK PK.esl</span></span>
+<span class="giallo-l"><span>$ sbvarsign --attr $attr --key PK.key --cert PK.crt --output KEK.auth KEK KEK.esl</span></span>
+<span class="giallo-l"><span>$ sbvarsign --attr $attr --key KEK.key --cert KEK.crt --output db.auth db db.esl</span></span></code></pre>
+<p>These <code>.auth</code> files can then be placed on the ESP where systemd-boot
+expects them.  bootc can automate this: if you place the <code>.auth</code>
+files in your container image at
+<code>/usr/lib/bootc/install/secureboot-keys/&lt;name&gt;/</code>, bootc will copy
+them to the ESP during installation.  On the next boot, systemd-boot
+can enroll them into the firmware.</p>
+<p>The enrollment behavior is controlled by the <code>secure-boot-enroll</code>
+setting in <code>loader.conf</code>.  See the
+<a class="external" rel="noopener noreferrer external" target="_blank" href="https://www.freedesktop.org/software/systemd/man/latest/loader.conf.html">systemd-boot documentation</a>
+for details on the available modes.</p>
+<h2 id="key-security-considerations">Key security considerations</h2>
+<p>A few things worth keeping in mind:</p>
+<p><strong>Protect your private keys.</strong>  The <code>.key</code> files are what allow
+signing boot artifacts.  Anyone with access to your db private key
+can sign binaries that your firmware will trust.  Store private keys
+with appropriate access controls, and consider using an HSM or key
+management system for production deployments.</p>
+<p><strong>Key rotation.</strong>  The examples above use 10-year expiry (<code>-days 3650</code>), which is generous.  Plan for key rotation before your
+certificates expire.  The UEFI key hierarchy makes this manageable:
+you can use your KEK to authorize a new db key without needing to
+re-enroll the PK.</p>
+<p><strong>Separation of concerns.</strong>  In a CI/CD pipeline, the signing step
+should ideally be isolated from the build step.  The build process
+produces an unsigned UKI, and a separate signing service (with access
+to the private key) signs it.  This limits the blast radius if the
+build environment is compromised.</p>
+<h2 id="what-s-next">What's next</h2>
+<p>With keys generated and an understanding of how they fit into the
+trust chain, the next post will walk through building a sealed image
+end-to-end: writing a Containerfile, computing the composefs digest,
+generating and signing the UKI, and producing a deployable container
+image.</p>
+
+
+        </div>
+
+        
+        <div class="sidebar">
+        </div>
+        
+    </main>
+
+    
+    <footer>
+        <p class="subtext">We are a Cloud Native Computing Foundation sandbox project.</p>
+        <p><a href="https://cncf.io"><img src="https://bootc.dev/img/cncf-color-bg.svg" height="75px" alt="CNCF logo"></a></p>
+        <p class="subtext">
+            bootc, originally created by Red Hat and donated to open source with ❤<br/>
+            Copyright © bootc, a Series of LF Projects, LLC<br/>
+            For website terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/policies/">lfprojects.org/policies/</a>.
+        </p>
+    </footer>
+    
+</body>
+<script>
+    const scrollHandler = entries => {
+        // Find the first entry which intersecting and ratio > 0.9 to highlight.
+        let entry = entries.find(entry => {
+            return entry.isIntersecting && entry.intersectionRatio > 0.9;
+        });
+        if (!entry) return;
+
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        // let url = new URL(`#${entry.target.id}`);
+        let link = document.querySelector(`.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`)
+        if (link) {
+            link.classList.add("active");
+            link.scrollIntoView({ behavior: "auto", block: "nearest" });
+        }
+    };
+    // Set -100px root margin to improve highlight experience.
+    const observer = new IntersectionObserver(scrollHandler, { threshold: 1 });
+    let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    items.forEach(item => observer.observe(item));
+</script>
+
+</html>
