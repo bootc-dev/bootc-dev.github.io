@@ -180,8 +180,7 @@ $ just build    # build the sealed image
 
 ## Secret handling in CI
 
-The examples repository includes a
-[GitHub Actions workflow](https://github.com/redhat-cop/rhel-bootc-examples/blob/main/sealing/.github/workflows/build-sealed.yml)
+The examples repository includes a GitHub Actions workflow
 that demonstrates how to handle key material in CI.  The db private
 key is stored as a GitHub Actions secret and written to a temporary
 file during the build.

@@ -71,3 +71,6 @@ footer = ""
 
 [extra.authors.jeckersb]
 name = "John Eckersberg"
+
+[extra.authors.cgwalters]
+name = "Colin Walters"
