@@ -4,7 +4,14 @@ date = 2025-07-18
 slug = "2025-july-18-community-meeting"
 +++
 
-### Attendees:
+# bootc community meeting
+
+[Meeting Link/info](https://zoom-lfx.platform.linuxfoundation.org/meeting/96540875093?password=7889708d-c520-4565-90d3-ce9e253a1f65)
+
+Feel free to add yourself to the attendee list and to add to the agenda! This is an open community meeting, and our [Code of Conduct](https://github.com/bootc-dev/bootc?tab=readme-ov-file#user-content-code-of-conduct) applies.
+
+## 18 July 2025
+### Attendees
 - Laura Santamaria (she/her; Red Hat)
 - Hristo Marinov
 - Fernando Lozano
@@ -17,7 +24,7 @@ slug = "2025-july-18-community-meeting"
 - Gursewak Mangat
 - John Eckersberg (Red Hat, Inc.)
 
-### Agenda:
+### Agenda
 - [Release 1.5.1](https://github.com/bootc-dev/bootc/pull/1422)
   - Thanks @robert!
 - [Laura] project pavilion update?
@@ -41,7 +48,7 @@ slug = "2025-july-18-community-meeting"
     - [Laura] gave overview from OSPO and the other container group discussion
   - [Colin] Will open a discussion
 
-### TODO:
+### TODO
 - [ ] Laura to explore adding logos to PR.
 - [ ] Laura to add GitHub Actions for publication
 - [ ] Look for info on domain handling for static site
