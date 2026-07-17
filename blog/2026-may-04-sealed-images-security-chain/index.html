@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>bootc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="https://bootc.dev/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color-h: 288;
+        --primary-color-s: 57%;
+        --primary-color-l: 40%;
+        --primary-color: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+        --primary-color-10: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 10%));
+        --primary-color-20: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 20%));
+        --primary-color-30: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 30%));
+        --primary-color-40: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 40%));
+        --primary-color-50: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 50%));
+        --primary-color-60: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 60%));
+        --primary-color-70: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 70%));
+        --primary-color-80: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 80%));
+        --primary-color-90: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 90%));
+        /* Primary theme text color */
+        --primary-text-color: #000000;
+        --primary-text-color-over: #fcfaf6;
+        /* Primary theme link color */
+        --primary-link-color: #892ca0;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #892ca0;
+        --toc-background-color: white;
+        --code-color: #4a4a4a;
+        --code-background-color: white;
+        --shadow-color: #ddd;
+        /* Font used for headers (h1 & h2) */
+        --header-font-family: "Red Hat Display", sans-serif;
+        /* Font used for text */
+        --text-font-family: "Red Hat Text", sans-serif;
+    }
+    .zola-anchor {
+        margin-left: -2rem;
+        margin-right: .75rem;
+    }
+</style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://bootc.dev/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https://bootc.dev/">
+    <div class="logo">
+        <img src="https://bootc.dev/logo.png" alt="logo">
+        bootc
+    </div>
+</a>
+
+<nav>
+    
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/about">About</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://bootc-dev.github.io/bootc/">Docs</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/blog">Blog</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://github.com/bootc-dev/bootc">GitHub</a>
+    
+    
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/#sealed-images-the-security-chain-from-firmware-to-filesystem">Sealed images: the security chain from firmware to filesystem</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/#the-gap"><small>- The gap</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/#secure-boot"><small>- Secure Boot</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/#unified-kernel-images"><small>- Unified Kernel Images</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/#composefs-erofs-overlayfs-fs-verity"><small>- composefs: EROFS + overlayfs + fs-verity</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/#putting-it-all-together"><small>- Putting it all together</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/#what-sealed-images-cover"><small>- What sealed images cover</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/#what-s-next"><small>- What&#x27;s next</small></a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<div class="blog-meta">
+    <span class="blog-date">May 04, 2026</span>
+    
+    <span class="blog-author"> by 
+
+<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name">John Eckersberg</span>
+</span>
+
+</span>
+    
+</div>
+<h1 id="sealed-images-the-security-chain-from-firmware-to-filesystem">Sealed images: the security chain from firmware to filesystem</h1>
+<p>This is the first in a series of posts about bootc sealed images.  In
+this post we'll take a tour through the full security chain that makes
+sealed images work, from the moment your system powers on through
+every file read at runtime.  Future posts will cover key management,
+building sealed images, and deploying them to various environments.</p>
+<h2 id="the-gap">The gap</h2>
+<p>Typically a default Linux install comes "unlocked", allowing you to be
+root and make persistent changes.  While many distributions support
+Secure Boot, it's typically only the kernel that's signed.  The
+cryptographic chain of trust from firmware doesn't cover the root
+filesystem or applications - i.e. effectively everything you care
+about.</p>
+<p>Sealed images help close this gap by extending cryptographic
+verification from the firmware all the way through every file in the
+operating system.  Not as a one-time check at boot, but continuously,
+at every file read, for the entire lifetime of the system.</p>
+<p>Let's walk through how each piece fits together.</p>
+<h2 id="secure-boot">Secure Boot</h2>
+<p>Secure Boot is the foundation of the chain.  It's a UEFI firmware
+feature that ensures only signed code runs during the boot process.</p>
+<p>The firmware maintains a database of trusted keys.  When the system
+powers on, the firmware loads the bootloader and checks its signature
+against those keys.  If the signature is valid, the bootloader runs.
+If not, the system refuses to boot.</p>
+<p>This is well-established technology and not new to sealed images.
+What matters for our purposes is that Secure Boot gives us a root of
+trust: a guarantee that the first piece of software to execute after
+the firmware is something we explicitly chose to trust.</p>
+<h2 id="unified-kernel-images">Unified Kernel Images</h2>
+<p>Traditionally, the boot chain after Secure Boot looks something like
+this: the signed bootloader loads a kernel, an initramfs, and a kernel
+command line, often from separate files on a boot partition.  The
+bootloader may verify the kernel's signature, but the initramfs and
+command line are typically not covered by any signature.</p>
+<p>A <a class="external" rel="noopener noreferrer external" target="_blank" href="https://uapi-group.org/specifications/specs/unified_kernel_image/">Unified Kernel Image (UKI)</a>
+changes this by bundling the kernel, the initramfs, and the kernel
+command line into a single EFI binary.  The entire bundle is signed
+as one unit.  This means the firmware (or a signed bootloader like
+systemd-boot) can verify the whole thing in one step.</p>
+<p>This is important for sealed images because the kernel command line
+is no longer an unverified input.  Anything embedded in the command
+line is covered by the same signature that covers the kernel itself.
+As we'll see next, this is where the composefs digest lives.</p>
+<h2 id="composefs-erofs-overlayfs-fs-verity">composefs: EROFS + overlayfs + fs-verity</h2>
+<p>Here's where things get interesting.  composefs brings together
+three kernel technologies to provide cryptographic verification of
+the entire filesystem.</p>
+<p>When a sealed image is built, the operating system filesystem is
+processed into an
+<a class="external" rel="noopener noreferrer external" target="_blank" href="https://docs.kernel.org/filesystems/erofs.html">EROFS</a> metadata
+image.  This image describes every file, directory, symlink, and
+permission in the tree, but it does not contain the actual file
+contents.  Instead, each file entry in the EROFS image records the
+<a class="external" rel="noopener noreferrer external" target="_blank" href="https://docs.kernel.org/filesystems/fsverity.html">fs-verity</a>
+digest of that file's contents.  The actual file data is stored
+separately in a content-addressed object store, where each file has
+fs-verity enabled by the kernel.</p>
+<p>At mount time, the kernel stitches these pieces together using
+<a class="external" rel="noopener noreferrer external" target="_blank" href="https://docs.kernel.org/filesystems/overlayfs.html">overlayfs</a>.
+The EROFS image serves as a metadata layer, and the object store
+provides the file data.  The overlayfs <code>verity=require</code> mount option
+tells the kernel to enforce that every file served through the mount
+has an fs-verity digest matching what the EROFS metadata expects.</p>
+<p>fs-verity itself is a kernel feature that provides per-file integrity
+verification.  When fs-verity is enabled on a file, the kernel
+computes a cryptographic hash of the file's contents and stores a
+hash tree alongside the file on disk.  From that point on, every
+read is verified at the block level -- the kernel checks only the
+blocks being read, not the entire file, and caches the results so
+repeated reads don't pay the cost again.</p>
+<p>A key behavior to understand is what happens when verification
+fails: the kernel returns an I/O error.  The corrupted or tampered
+data is never served to any process.  The <code>open()</code> call on the file
+succeeds (the file exists, after all), but <code>read()</code> on the corrupted
+portion returns <code>EIO</code>.  The data is simply unreadable.</p>
+<p>The EROFS metadata image itself also has an fs-verity digest: a
+single cryptographic hash that covers the complete filesystem
+description.  This is the composefs digest.  It is embedded in the
+UKI's kernel command line:</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>composefs=abc123def456...  (128-character SHA-512 hex digest)</span></span></code></pre>
+<p>Because the UKI is signed, this digest is now part of the verified
+boot chain.  The firmware verifies the UKI signature, and the UKI
+carries within it a cryptographic commitment to the exact filesystem
+that should be mounted as the operating system.</p>
+<h2 id="putting-it-all-together">Putting it all together</h2>
+<p>The full chain looks like this.  Each step must succeed before the
+next can proceed:</p>
+<ol>
+<li>The firmware verifies the signed bootloader.</li>
+<li>The bootloader verifies the signed Unified Kernel Image (UKI).</li>
+<li>The initramfs (inside the verified UKI) reads the composefs
+digest from the kernel command line (also inside the verified UKI).</li>
+<li>The initramfs mounts the composefs image and verifies the EROFS
+image's fs-verity digest matches the digest from the command line.</li>
+<li>Every subsequent file read from the operating system is
+individually verified by the kernel against the fs-verity digest
+recorded in the EROFS metadata.</li>
+</ol>
+<p>There is no point after firmware where unverified code executes or
+unverified data is served.  The chain is continuous.</p>
+<h2 id="what-sealed-images-cover">What sealed images cover</h2>
+<p>It's worth being precise about scope.  The seal covers every file in
+the immutable operating system image: the base OS, any packages you
+added, your monitoring agents, security tools, application binaries.
+Everything that was part of the image when it was built is sealed.</p>
+<p>By default, <code>/etc</code> and <code>/var</code> are mutable and persistent.  It is
+possible to make <code>/etc</code> transient today, and this is a good idea if
+it matches your use case.  More suggestions on this will be in the
+documentation.</p>
+<h2 id="what-s-next">What's next</h2>
+<p>This post covered the architecture.  In the next posts, we'll get
+hands-on:</p>
+<ul>
+<li><strong>Key management</strong>: generating Secure Boot keys, enrolling them,
+and understanding the signing chain</li>
+<li><strong>Building sealed images</strong>: writing a Containerfile, producing a
+signed UKI, and verifying the result</li>
+<li><strong>Deploying sealed images</strong>: installing to bare metal, virtual
+machines, and cloud environments</li>
+</ul>
+<p>The signing chain is fully under your control.  You generate the keys,
+you sign the images, you decide what your systems trust.  The next
+post will show you how.</p>
+
+
+        </div>
+
+        
+        <div class="sidebar">
+        </div>
+        
+    </main>
+
+    
+    <footer>
+        <p class="subtext">We are a Cloud Native Computing Foundation sandbox project.</p>
+        <p><a href="https://cncf.io"><img src="https://bootc.dev/img/cncf-color-bg.svg" height="75px" alt="CNCF logo"></a></p>
+        <p class="subtext">
+            bootc, originally created by Red Hat and donated to open source with ❤<br/>
+            Copyright © bootc, a Series of LF Projects, LLC<br/>
+            For website terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/policies/">lfprojects.org/policies/</a>.
+        </p>
+    </footer>
+    
+</body>
+<script>
+    const scrollHandler = entries => {
+        // Find the first entry which intersecting and ratio > 0.9 to highlight.
+        let entry = entries.find(entry => {
+            return entry.isIntersecting && entry.intersectionRatio > 0.9;
+        });
+        if (!entry) return;
+
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        // let url = new URL(`#${entry.target.id}`);
+        let link = document.querySelector(`.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`)
+        if (link) {
+            link.classList.add("active");
+            link.scrollIntoView({ behavior: "auto", block: "nearest" });
+        }
+    };
+    // Set -100px root margin to improve highlight experience.
+    const observer = new IntersectionObserver(scrollHandler, { threshold: 1 });
+    let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    items.forEach(item => observer.observe(item));
+</script>
+
+</html>
