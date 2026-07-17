@@ -29,9 +29,14 @@ feed_filenames = ["rss.xml"]
 #output_dir
 #preserve_dotfiles_in_output
 [link_checker]
-# freedesktop.org returns 418 to bots but works fine in browsers
+# freedesktop.org returns 418 to bots but works fine in browsers.
+# YouTube aggressively rate-limits (429) Zola's link checker once a page
+# links to more than a couple of videos, even though the links work fine
+# in a browser - skip it rather than have that fail CI.
 skip_prefixes = [
     "https://www.freedesktop.org/",
+    "https://www.youtube.com/",
+    "https://youtu.be/",
 ]
 #slugify
 #search
