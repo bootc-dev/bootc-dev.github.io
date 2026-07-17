@@ -2,6 +2,7 @@
 title = "Bootc Community Meeting Notes - 18 July 2025"
 date = 2025-07-18
 slug = "2025-july-18-community-meeting"
+aliases = ["/news/2025-july-18-community-meeting/"]
 +++
 
 ### Attendees:

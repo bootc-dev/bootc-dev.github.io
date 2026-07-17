@@ -45,6 +45,27 @@
 />
 {% endblock fonts %}
 
+{% block content %}
+<div id="features" class="heading-text">Overview</div>
+{{ section.content | safe }}
+
+<div class="heading-text">Latest from the Blog</div>
+<ul>
+    {% set blog = get_section(path="blog/_index.md") %}
+    {% for post in blog.pages | slice(end=3) %}
+    <li>
+        <a href="{{ post.permalink | safe }}">
+            <strong class="title article-title">{{ post.title }}</strong>
+        </a>
+        <div>
+            <span class="subtext">{{ post.date | date(format="%B %d, %Y") }}</span>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+<p><a href="{{ get_url(path="blog") }}">See all posts&nbsp;&raquo;</a></p>
+{% endblock content %}
+
 {% block sidebar %}
 <div class="sidebar">
 </div>
