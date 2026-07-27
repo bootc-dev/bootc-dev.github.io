@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>bootc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="https://bootc.dev/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color-h: 288;
+        --primary-color-s: 57%;
+        --primary-color-l: 40%;
+        --primary-color: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+        --primary-color-10: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 10%));
+        --primary-color-20: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 20%));
+        --primary-color-30: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 30%));
+        --primary-color-40: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 40%));
+        --primary-color-50: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 50%));
+        --primary-color-60: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 60%));
+        --primary-color-70: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 70%));
+        --primary-color-80: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 80%));
+        --primary-color-90: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) + 90%));
+        /* Primary theme text color */
+        --primary-text-color: #000000;
+        --primary-text-color-over: #fcfaf6;
+        /* Primary theme link color */
+        --primary-link-color: #892ca0;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #892ca0;
+        --toc-background-color: white;
+        --code-color: #4a4a4a;
+        --code-background-color: white;
+        --shadow-color: #ddd;
+        /* Font used for headers (h1 & h2) */
+        --header-font-family: "Red Hat Display", sans-serif;
+        /* Font used for text */
+        --text-font-family: "Red Hat Text", sans-serif;
+    }
+    .zola-anchor {
+        margin-left: -2rem;
+        margin-right: .75rem;
+    }
+</style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://bootc.dev/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https://bootc.dev/">
+    <div class="logo">
+        <img src="https://bootc.dev/logo.png" alt="logo">
+        bootc
+    </div>
+</a>
+
+<nav>
+    
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/about">About</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://bootc-dev.github.io/bootc/">Docs</a>
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/blog">Blog</a>
+    
+    
+    
+    <a class="nav-item subtitle-text external" href="https://github.com/bootc-dev/bootc">GitHub</a>
+    
+    
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-07-sealed-images-deploying/#sealed-images-deploying-and-verifying-a-sealed-image">Sealed images: deploying and verifying a sealed image</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-07-sealed-images-deploying/#bcvk-a-tool-for-running-bootc-vms"><small>- bcvk: a tool for running bootc VMs</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-07-sealed-images-deploying/#deploying-the-image"><small>- Deploying the image</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-07-sealed-images-deploying/#verifying-the-seal"><small>- Verifying the seal</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-07-sealed-images-deploying/#what-happens-if-something-is-tampered-with"><small>- What happens if something is tampered with?</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://bootc.dev/blog/2026-may-07-sealed-images-deploying/#conclusion"><small>- Conclusion</small></a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<div class="blog-meta">
+    <span class="blog-date">May 07, 2026</span>
+    
+    <span class="blog-author"> by 
+
+<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name">John Eckersberg</span>
+</span>
+
+</span>
+    
+</div>
+<h1 id="sealed-images-deploying-and-verifying-a-sealed-image">Sealed images: deploying and verifying a sealed image</h1>
+<p>In the <a href="https://bootc.dev/blog/2026-may-06-sealed-images-building/">previous post</a>
+we built a sealed, signed container image.  Now it's time to deploy
+it to a virtual machine and verify that the full security chain is
+active.</p>
+<h2 id="bcvk-a-tool-for-running-bootc-vms">bcvk: a tool for running bootc VMs</h2>
+<p><a class="external" rel="noopener noreferrer external" target="_blank" href="https://github.com/bootc-dev/bcvk">bcvk</a> (bootc virtualization kit)
+is a tool that makes it easy to run bootc container images as virtual
+machines.  Under the hood, it calls <code>bootc install to-disk</code> to create
+a bootable disk image, then manages the VM lifecycle via libvirt.
+For sealed images, bcvk also handles Secure Boot key enrollment into
+the VM's UEFI firmware automatically using
+<a class="external" rel="noopener noreferrer external" target="_blank" href="https://gitlab.com/kraxel/virt-firmware">virt-firmware</a>.</p>
+<p>bcvk is available as a package on Fedora and EPEL:</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ dnf install bcvk</span></span></code></pre><h2 id="deploying-the-image">Deploying the image</h2>
+<p>With the sealed image built from the previous post and keys generated
+from the key management post, deploying is a single command:</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ bcvk libvirt run \</span></span>
+<span class="giallo-l"><span>    --ssh-wait \</span></span>
+<span class="giallo-l"><span>    --name sealed-demo \</span></span>
+<span class="giallo-l"><span>    --filesystem=ext4 \</span></span>
+<span class="giallo-l"><span>    --secure-boot-keys target/keys \</span></span>
+<span class="giallo-l"><span>    localhost/sealed-host:latest</span></span></code></pre>
+<p>Let's break down what's happening here:</p>
+<ul>
+<li><code>--filesystem=ext4</code> tells <code>bootc install</code> to use ext4 for the root
+filesystem.  The default root filesystem may be XFS, which does not
+support fs-verity, so we explicitly select ext4 here.  (fs-verity
+is supported on ext4 and btrfs.)</li>
+<li><code>--secure-boot-keys target/keys</code> points bcvk to the directory
+containing our PK, KEK, and db certificates.  bcvk uses
+<code>virt-fw-vars</code> to enroll these keys into a copy of the OVMF
+firmware variable store, so the VM boots with Secure Boot enabled
+and configured to trust our signing key.</li>
+<li><code>--ssh-wait</code> tells bcvk to wait until SSH is available before
+returning, so we know the system has fully booted.</li>
+</ul>
+<p>If you're using the
+<a class="external" rel="noopener noreferrer external" target="_blank" href="https://github.com/redhat-cop/rhel-bootc-examples/tree/main/sealing">examples repository</a>,
+this is wrapped up in a convenient <code>just</code> recipe:</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ just bcvk-ssh</span></span></code></pre>
+<p>This builds the image, boots the VM, waits for it to reach
+<code>multi-user.target</code>, and opens an interactive SSH session.</p>
+<h2 id="verifying-the-seal">Verifying the seal</h2>
+<p>Once the system is booted and we have an SSH session, we can verify
+that the full security chain is active.</p>
+<h3 id="check-the-kernel-command-line">Check the kernel command line</h3>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ cat /proc/cmdline</span></span>
+<span class="giallo-l"><span>composefs=3a7f... (128-character SHA-512 hex digest) rw</span></span></code></pre>
+<p>The presence of <code>composefs=&lt;digest&gt;</code> in the kernel command line
+confirms that the initramfs received the composefs digest from the
+signed UKI.  This is the digest that was computed during the build
+and embedded in the UKI's command line section.</p>
+<h3 id="check-the-root-mount">Check the root mount</h3>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ findmnt -t overlay /</span></span>
+<span class="giallo-l"><span>TARGET SOURCE                    FSTYPE  OPTIONS</span></span>
+<span class="giallo-l"><span>/      overlay[/sysroot/state..] overlay ro,relatime,...,verity=require,...</span></span></code></pre>
+<p>The key thing to look for is <code>verity=require</code> in the mount options.
+This confirms that the kernel is enforcing fs-verity verification
+on every file access through the composefs mount.  Any file in the
+operating system whose content doesn't match its expected fs-verity
+digest will produce an I/O error when read.</p>
+<h3 id="check-secure-boot-status">Check Secure Boot status</h3>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>$ mokutil --sb-state</span></span>
+<span class="giallo-l"><span>SecureBoot enabled</span></span></code></pre>
+<p>This confirms that the firmware verified the bootloader and UKI
+signatures before allowing them to execute.</p>
+<h3 id="what-this-tells-us">What this tells us</h3>
+<p>These three checks together confirm the full chain from the
+<a href="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/">first post</a>:</p>
+<ol>
+<li>Secure Boot verified the bootloader and UKI (<code>mokutil --sb-state</code>)</li>
+<li>The UKI delivered the composefs digest to the initramfs
+(<code>/proc/cmdline</code>)</li>
+<li>The kernel is enforcing per-file verification against that digest
+(<code>verity=require</code>)</li>
+</ol>
+<h2 id="what-happens-if-something-is-tampered-with">What happens if something is tampered with?</h2>
+<p>It's worth understanding why tampering with a sealed system is
+difficult in practice.</p>
+<p>The operating system files are stored in a content-addressed object
+store on disk.  Each object has fs-verity enabled, which means the
+kernel has recorded a cryptographic hash of its contents.  The files
+are immutable: you cannot write to an fs-verity protected file.  Any
+attempt to open a verity-protected file for writing will fail.</p>
+<p>Even if an attacker were to bypass the filesystem and corrupt data
+directly on the underlying block device, the kernel would detect
+the corruption.  When a process attempts to read the tampered file,
+the kernel verifies the data against the stored hash before
+returning it.  If the data doesn't match, the read fails with
+<code>EIO</code>.  The corrupted data is never served to any process.</p>
+<p>This is a meaningful distinction from a system where tampered files
+are silently served.  On a sealed system, corruption doesn't go
+unnoticed -- it causes an immediate, visible failure.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Over the course of this series, we've walked through the complete
+lifecycle of a sealed image:</p>
+<ol>
+<li><a href="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/">The security chain</a>
+from firmware to filesystem that makes sealed images possible</li>
+<li><a href="https://bootc.dev/blog/2026-may-05-sealed-images-key-management/">Key management</a>
+for generating and enrolling Secure Boot keys</li>
+<li><a href="https://bootc.dev/blog/2026-may-06-sealed-images-building/">Building a sealed image</a>
+with a multi-stage container build</li>
+<li>Deploying and verifying the seal (this post)</li>
+</ol>
+<p>The complete working example is available in the
+<a class="external" rel="noopener noreferrer external" target="_blank" href="https://github.com/redhat-cop/rhel-bootc-examples">rhel-bootc-examples</a>
+repository under the
+<a class="external" rel="noopener noreferrer external" target="_blank" href="https://github.com/redhat-cop/rhel-bootc-examples/tree/main/sealing">sealing</a>
+directory.</p>
+
+
+        </div>
+
+        
+        <div class="sidebar">
+        </div>
+        
+    </main>
+
+    
+    <footer>
+        <p class="subtext">We are a Cloud Native Computing Foundation sandbox project.</p>
+        <p><a href="https://cncf.io"><img src="https://bootc.dev/img/cncf-color-bg.svg" height="75px" alt="CNCF logo"></a></p>
+        <p class="subtext">
+            bootc, originally created by Red Hat and donated to open source with ❤<br/>
+            Copyright © bootc, a Series of LF Projects, LLC<br/>
+            For website terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/policies/">lfprojects.org/policies/</a>.
+        </p>
+    </footer>
+    
+</body>
+<script>
+    const scrollHandler = entries => {
+        // Find the first entry which intersecting and ratio > 0.9 to highlight.
+        let entry = entries.find(entry => {
+            return entry.isIntersecting && entry.intersectionRatio > 0.9;
+        });
+        if (!entry) return;
+
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        // let url = new URL(`#${entry.target.id}`);
+        let link = document.querySelector(`.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`)
+        if (link) {
+            link.classList.add("active");
+            link.scrollIntoView({ behavior: "auto", block: "nearest" });
+        }
+    };
+    // Set -100px root margin to improve highlight experience.
+    const observer = new IntersectionObserver(scrollHandler, { threshold: 1 });
+    let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    items.forEach(item => observer.observe(item));
+</script>
+
+</html>

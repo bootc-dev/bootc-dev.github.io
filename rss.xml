@@ -1,0 +1,1219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>bootc</title>
+      <link>https://bootc.dev</link>
+      <description>A tool to build operating systems like we build containers</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://bootc.dev/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>bootc ecosystem at DevConf.CZ and Flock to Fedora 2026</title>
+          <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc.dev/blog/2026-jul-07-conference-talks-devconf-flock-2026/</link>
+          <guid>https://bootc.dev/blog/2026-jul-07-conference-talks-devconf-flock-2026/</guid>
+          <description xml:base="https://bootc.dev/blog/2026-jul-07-conference-talks-devconf-flock-2026/">&lt;h1 id=&quot;bootc-ecosystem-at-devconf-cz-and-flock-to-fedora-2026&quot;&gt;bootc ecosystem at DevConf.CZ and Flock to Fedora 2026&lt;&#x2F;h1&gt;
+&lt;p&gt;June was a busy month for the bootc community, with back-to-back
+conferences in the Czech Republic: &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fedoraproject.org&#x2F;flock&#x2F;2026&#x2F;&quot;&gt;Flock to
+Fedora&lt;&#x2F;a&gt; (June 14-16, Prague)
+and &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.devconf.info&#x2F;cz&#x2F;&quot;&gt;DevConf.CZ&lt;&#x2F;a&gt; (June 18-19, Brno).
+Both featured a strong presence of talks covering bootc, image-mode
+systems, and the broader ecosystem.  Here&#x27;s a roundup of the
+recordings and resources.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;devconf-cz-2026&quot;&gt;DevConf.CZ 2026&lt;&#x2F;h2&gt;
+&lt;p&gt;The &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;pretalx.devconf.info&#x2F;devconf-cz-2026&#x2F;schedule&#x2F;&quot;&gt;full DevConf.CZ 2026 schedule&lt;&#x2F;a&gt;
+(including slides) is available on pretalx.  Individual talk recordings
+are on the &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCmYAQDZIQGm_kPvemBc_qwg&quot;&gt;DevConf YouTube channel&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=voB5oUDQ3FE&quot;&gt;&lt;strong&gt;Hardening OS Distribution: Verifiable and sealed OS with bootc and composefs&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;
+(Colin Walters, 35 min) — Covers the shift toward OCI-native OS
+delivery using bootc and composefs, including a demo of deploying a
+sealed UKI composefs-backed system on RHEL 10.2.  Related to the
+&lt;a href=&quot;https:&#x2F;&#x2F;bootc.dev&#x2F;blog&#x2F;2026-may-04-sealed-images-security-chain&#x2F;&quot;&gt;sealed images blog series&lt;&#x2F;a&gt;
+here on bootc.dev.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=zfXQViQpS3s&quot;&gt;&lt;strong&gt;These bootc are made for mailin&#x27;&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;
+(Michael Scherer, 36 min) — A practical walkthrough of combining bootc
+and Fedora Image Mode with the Stalwart mail server for a low-maintenance,
+self-hosted email stack running on the cheapest possible VM.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=0eNZOVVTkEI&quot;&gt;&lt;strong&gt;Local package layering on bootc systems with DNF5&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;
+(Evan Goode, 26 min) — Explores the challenge of making &lt;code&gt;dnf install&lt;&#x2F;code&gt;
+work on immutable bootc systems, introducing &lt;code&gt;dnf rebuild&lt;&#x2F;code&gt;, a new DNF5
+plugin that reconciles imperative package management with declarative
+container workflows.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=2MIor88lO8M&quot;&gt;&lt;strong&gt;Foreman, Katello and bootable containers&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;
+(Adam Růžička, 35 min) — How Foreman and Katello enable fleet
+management across both traditional package-mode and the new image-mode
+approach, from image building through operational management.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=htpPxxaHeXY&quot;&gt;&lt;strong&gt;Applying CI&#x2F;CD Patterns to Image Mode for RHEL&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;
+(Alessandro Rossi, 27 min) — Practical examples of applying CI&#x2F;CD
+practices to Image Mode for RHEL using Tekton, GitHub Actions, GitLab
+CI, Jenkins, and Ansible Automation Platform.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;flock-to-fedora-2026&quot;&gt;Flock to Fedora 2026&lt;&#x2F;h2&gt;
+&lt;p&gt;Flock sessions were recorded as room-level livestreams on the
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@fedora&quot;&gt;Fedora Project YouTube channel&lt;&#x2F;a&gt;.
+Individual talk pages on the
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;cfp.fedoraproject.org&#x2F;flock-to-fedora-2026&#x2F;schedule&#x2F;&quot;&gt;Flock schedule&lt;&#x2F;a&gt;
+link to slides and other resources.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;cfp.fedoraproject.org&#x2F;flock-to-fedora-2026&#x2F;talk&#x2F;M87M8M&#x2F;&quot;&gt;&lt;strong&gt;The Future of Fedora Atomic: Unifying on Bootc and Shared Infrastructure&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;
+(Hristo Marinov, BoF, 1h40) — A collaborative session discussing the
+roadmap for migrating Fedora Atomic deliverables (Silverblue, CoreOS,
+etc.) to a bootc-based workflow, covering architectural shifts and
+build infrastructure changes.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;cfp.fedoraproject.org&#x2F;flock-to-fedora-2026&#x2F;talk&#x2F;3PHYFQ&#x2F;&quot;&gt;&lt;strong&gt;Fedora bootc: Building and Operating Image-Based Systems&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;
+(Gursewak Mangat, 25 min;
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fedoraproject.org&#x2F;w&#x2F;uploads&#x2F;f&#x2F;f6&#x2F;BootcInFedoraSlides.pdf&quot;&gt;slides&lt;&#x2F;a&gt;)
+— A practical introduction to bootc for Fedora contributors,
+demonstrating how bootc&#x27;s container-native approach makes it easy to
+test OS images in CI using standard container tooling (BCVK) before
+deploying to production.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;cfp.fedoraproject.org&#x2F;flock-to-fedora-2026&#x2F;talk&#x2F;GMFYQH&#x2F;&quot;&gt;&lt;strong&gt;From Compliance to Containers: Managing Fedora Fleets in the Atomic Era&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;
+(Adam Baali and Jonathan Billings, 55 min) — Bridging compliance
+requirements with immutable image-based systems like Silverblue,
+Kinoite, and bootc, demonstrating transparent tooling for NIST
+controls.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;cfp.fedoraproject.org&#x2F;flock-to-fedora-2026&#x2F;talk&#x2F;JLKXBS&#x2F;&quot;&gt;&lt;strong&gt;What&#x27;s new in Fedora CoreOS in 2026?&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;
+(Jean-Baptiste Trystram and Joel Capitao, 25 min) — Highlights from
+the past year of Fedora CoreOS development, including OCI distribution
+migration, bootc integration progress, and the move to
+bootc-image-builder.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Video: sealed bootc with transient &#x2F;etc and &#x2F;var</title>
+          <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc.dev/blog/2026-jun-05-transient-root-etc-var/</link>
+          <guid>https://bootc.dev/blog/2026-jun-05-transient-root-etc-var/</guid>
+          <description xml:base="https://bootc.dev/blog/2026-jun-05-transient-root-etc-var/">&lt;h1 id=&quot;video-sealed-bootc-with-transient-etc-and-var&quot;&gt;Video: sealed bootc with transient &#x2F;etc and &#x2F;var&lt;&#x2F;h1&gt;
+&lt;p&gt;I recorded a short demo of the new composefs mount configuration
+support that landed in &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc&#x2F;pull&#x2F;2201&quot;&gt;bootc#2201&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;youtu.be&#x2F;VJYLtUOCqgA&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;img.youtube.com&#x2F;vi&#x2F;VJYLtUOCqgA&#x2F;0.jpg&quot; alt=&quot;Video: sealed bootc with transient &#x2F;etc and &#x2F;var&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The PR adds a &lt;code&gt;&#x2F;usr&#x2F;lib&#x2F;bootc&#x2F;setup-root-conf.toml&lt;&#x2F;code&gt; file that image
+authors can ship in their container image to control how the
+composefs-backed root filesystem is mounted at boot:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[root] transient = true&lt;&#x2F;code&gt; wraps the composefs lower in a tmpfs
+overlay, so all writes to &lt;code&gt;&#x2F;&lt;&#x2F;code&gt; are discarded on reboot.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;[etc] mount = &quot;transient&quot;|&quot;overlay&quot;|&quot;bind&quot;|&quot;none&quot;&lt;&#x2F;code&gt; controls how
+&lt;code&gt;&#x2F;etc&lt;&#x2F;code&gt; is mounted from the deployment state directory.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;[var] mount = &quot;none&quot;|&quot;bind&quot;&lt;&#x2F;code&gt; controls whether &lt;code&gt;&#x2F;var&lt;&#x2F;code&gt; is
+bind-mounted from persistent state.  When set to &lt;code&gt;none&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;var&lt;&#x2F;code&gt; is left as an
+empty composefs directory, and &lt;code&gt;systemd.volatile=state&lt;&#x2F;code&gt; on the
+kernel command line causes bootc to automatically skip the bind-mount
+so systemd can place a fresh tmpfs there.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This builds directly on the
+&lt;a href=&quot;https:&#x2F;&#x2F;bootc.dev&#x2F;blog&#x2F;2026-may-04-sealed-images-security-chain&#x2F;&quot;&gt;sealed images series&lt;&#x2F;a&gt;:
+with a transient root and &lt;code&gt;&#x2F;etc&lt;&#x2F;code&gt;, each boot starts from a clean,
+verified image with no persistent mutation to the OS layer.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sealed images: deploying and verifying a sealed image</title>
+          <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc.dev/blog/2026-may-07-sealed-images-deploying/</link>
+          <guid>https://bootc.dev/blog/2026-may-07-sealed-images-deploying/</guid>
+          <description xml:base="https://bootc.dev/blog/2026-may-07-sealed-images-deploying/">&lt;h1 id=&quot;sealed-images-deploying-and-verifying-a-sealed-image&quot;&gt;Sealed images: deploying and verifying a sealed image&lt;&#x2F;h1&gt;
+&lt;p&gt;In the &lt;a href=&quot;https:&#x2F;&#x2F;bootc.dev&#x2F;blog&#x2F;2026-may-06-sealed-images-building&#x2F;&quot;&gt;previous post&lt;&#x2F;a&gt;
+we built a sealed, signed container image.  Now it&#x27;s time to deploy
+it to a virtual machine and verify that the full security chain is
+active.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;bcvk-a-tool-for-running-bootc-vms&quot;&gt;bcvk: a tool for running bootc VMs&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bcvk&quot;&gt;bcvk&lt;&#x2F;a&gt; (bootc virtualization kit)
+is a tool that makes it easy to run bootc container images as virtual
+machines.  Under the hood, it calls &lt;code&gt;bootc install to-disk&lt;&#x2F;code&gt; to create
+a bootable disk image, then manages the VM lifecycle via libvirt.
+For sealed images, bcvk also handles Secure Boot key enrollment into
+the VM&#x27;s UEFI firmware automatically using
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;gitlab.com&#x2F;kraxel&#x2F;virt-firmware&quot;&gt;virt-firmware&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;bcvk is available as a package on Fedora and EPEL:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ dnf install bcvk&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;deploying-the-image&quot;&gt;Deploying the image&lt;&#x2F;h2&gt;
+&lt;p&gt;With the sealed image built from the previous post and keys generated
+from the key management post, deploying is a single command:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ bcvk libvirt run \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --ssh-wait \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --name sealed-demo \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --filesystem=ext4 \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --secure-boot-keys target&#x2F;keys \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    localhost&#x2F;sealed-host:latest&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Let&#x27;s break down what&#x27;s happening here:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--filesystem=ext4&lt;&#x2F;code&gt; tells &lt;code&gt;bootc install&lt;&#x2F;code&gt; to use ext4 for the root
+filesystem.  The default root filesystem may be XFS, which does not
+support fs-verity, so we explicitly select ext4 here.  (fs-verity
+is supported on ext4 and btrfs.)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--secure-boot-keys target&#x2F;keys&lt;&#x2F;code&gt; points bcvk to the directory
+containing our PK, KEK, and db certificates.  bcvk uses
+&lt;code&gt;virt-fw-vars&lt;&#x2F;code&gt; to enroll these keys into a copy of the OVMF
+firmware variable store, so the VM boots with Secure Boot enabled
+and configured to trust our signing key.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--ssh-wait&lt;&#x2F;code&gt; tells bcvk to wait until SSH is available before
+returning, so we know the system has fully booted.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;If you&#x27;re using the
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;redhat-cop&#x2F;rhel-bootc-examples&#x2F;tree&#x2F;main&#x2F;sealing&quot;&gt;examples repository&lt;&#x2F;a&gt;,
+this is wrapped up in a convenient &lt;code&gt;just&lt;&#x2F;code&gt; recipe:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ just bcvk-ssh&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This builds the image, boots the VM, waits for it to reach
+&lt;code&gt;multi-user.target&lt;&#x2F;code&gt;, and opens an interactive SSH session.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;verifying-the-seal&quot;&gt;Verifying the seal&lt;&#x2F;h2&gt;
+&lt;p&gt;Once the system is booted and we have an SSH session, we can verify
+that the full security chain is active.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;check-the-kernel-command-line&quot;&gt;Check the kernel command line&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ cat &#x2F;proc&#x2F;cmdline&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;composefs=3a7f... (128-character SHA-512 hex digest) rw&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The presence of &lt;code&gt;composefs=&amp;lt;digest&amp;gt;&lt;&#x2F;code&gt; in the kernel command line
+confirms that the initramfs received the composefs digest from the
+signed UKI.  This is the digest that was computed during the build
+and embedded in the UKI&#x27;s command line section.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;check-the-root-mount&quot;&gt;Check the root mount&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ findmnt -t overlay &#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;TARGET SOURCE                    FSTYPE  OPTIONS&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;&#x2F;      overlay[&#x2F;sysroot&#x2F;state..] overlay ro,relatime,...,verity=require,...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The key thing to look for is &lt;code&gt;verity=require&lt;&#x2F;code&gt; in the mount options.
+This confirms that the kernel is enforcing fs-verity verification
+on every file access through the composefs mount.  Any file in the
+operating system whose content doesn&#x27;t match its expected fs-verity
+digest will produce an I&#x2F;O error when read.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;check-secure-boot-status&quot;&gt;Check Secure Boot status&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ mokutil --sb-state&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;SecureBoot enabled&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This confirms that the firmware verified the bootloader and UKI
+signatures before allowing them to execute.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;what-this-tells-us&quot;&gt;What this tells us&lt;&#x2F;h3&gt;
+&lt;p&gt;These three checks together confirm the full chain from the
+&lt;a href=&quot;https:&#x2F;&#x2F;bootc.dev&#x2F;blog&#x2F;2026-may-04-sealed-images-security-chain&#x2F;&quot;&gt;first post&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Secure Boot verified the bootloader and UKI (&lt;code&gt;mokutil --sb-state&lt;&#x2F;code&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;The UKI delivered the composefs digest to the initramfs
+(&lt;code&gt;&#x2F;proc&#x2F;cmdline&lt;&#x2F;code&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;The kernel is enforcing per-file verification against that digest
+(&lt;code&gt;verity=require&lt;&#x2F;code&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;what-happens-if-something-is-tampered-with&quot;&gt;What happens if something is tampered with?&lt;&#x2F;h2&gt;
+&lt;p&gt;It&#x27;s worth understanding why tampering with a sealed system is
+difficult in practice.&lt;&#x2F;p&gt;
+&lt;p&gt;The operating system files are stored in a content-addressed object
+store on disk.  Each object has fs-verity enabled, which means the
+kernel has recorded a cryptographic hash of its contents.  The files
+are immutable: you cannot write to an fs-verity protected file.  Any
+attempt to open a verity-protected file for writing will fail.&lt;&#x2F;p&gt;
+&lt;p&gt;Even if an attacker were to bypass the filesystem and corrupt data
+directly on the underlying block device, the kernel would detect
+the corruption.  When a process attempts to read the tampered file,
+the kernel verifies the data against the stored hash before
+returning it.  If the data doesn&#x27;t match, the read fails with
+&lt;code&gt;EIO&lt;&#x2F;code&gt;.  The corrupted data is never served to any process.&lt;&#x2F;p&gt;
+&lt;p&gt;This is a meaningful distinction from a system where tampered files
+are silently served.  On a sealed system, corruption doesn&#x27;t go
+unnoticed -- it causes an immediate, visible failure.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;Over the course of this series, we&#x27;ve walked through the complete
+lifecycle of a sealed image:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bootc.dev&#x2F;blog&#x2F;2026-may-04-sealed-images-security-chain&#x2F;&quot;&gt;The security chain&lt;&#x2F;a&gt;
+from firmware to filesystem that makes sealed images possible&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bootc.dev&#x2F;blog&#x2F;2026-may-05-sealed-images-key-management&#x2F;&quot;&gt;Key management&lt;&#x2F;a&gt;
+for generating and enrolling Secure Boot keys&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bootc.dev&#x2F;blog&#x2F;2026-may-06-sealed-images-building&#x2F;&quot;&gt;Building a sealed image&lt;&#x2F;a&gt;
+with a multi-stage container build&lt;&#x2F;li&gt;
+&lt;li&gt;Deploying and verifying the seal (this post)&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;The complete working example is available in the
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;redhat-cop&#x2F;rhel-bootc-examples&quot;&gt;rhel-bootc-examples&lt;&#x2F;a&gt;
+repository under the
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;redhat-cop&#x2F;rhel-bootc-examples&#x2F;tree&#x2F;main&#x2F;sealing&quot;&gt;sealing&lt;&#x2F;a&gt;
+directory.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sealed images: building a sealed image</title>
+          <pubDate>Wed, 06 May 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc.dev/blog/2026-may-06-sealed-images-building/</link>
+          <guid>https://bootc.dev/blog/2026-may-06-sealed-images-building/</guid>
+          <description xml:base="https://bootc.dev/blog/2026-may-06-sealed-images-building/">&lt;h1 id=&quot;sealed-images-building-a-sealed-image&quot;&gt;Sealed images: building a sealed image&lt;&#x2F;h1&gt;
+&lt;p&gt;In the &lt;a href=&quot;https:&#x2F;&#x2F;bootc.dev&#x2F;blog&#x2F;2026-may-04-sealed-images-security-chain&#x2F;&quot;&gt;first post&lt;&#x2F;a&gt;
+we covered the security chain behind sealed images, and in the
+&lt;a href=&quot;https:&#x2F;&#x2F;bootc.dev&#x2F;blog&#x2F;2026-may-05-sealed-images-key-management&#x2F;&quot;&gt;second post&lt;&#x2F;a&gt; we
+generated the Secure Boot keys needed to sign our boot artifacts.
+Now it&#x27;s time to put it all together and build a sealed image.&lt;&#x2F;p&gt;
+&lt;p&gt;A complete working example is available in the
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;redhat-cop&#x2F;rhel-bootc-examples&quot;&gt;rhel-bootc-examples&lt;&#x2F;a&gt;
+repository under the
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;redhat-cop&#x2F;rhel-bootc-examples&#x2F;tree&#x2F;main&#x2F;sealing&quot;&gt;sealing&lt;&#x2F;a&gt;
+directory.  This post walks through the key concepts behind that
+example and explains why the build is structured the way it is.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-chicken-and-egg-problem&quot;&gt;The chicken-and-egg problem&lt;&#x2F;h2&gt;
+&lt;p&gt;Building a sealed image has a complication that isn&#x27;t immediately
+obvious.  Recall from the first post that the composefs digest is
+embedded in the UKI&#x27;s kernel command line, and the UKI lives in the
+image under &lt;code&gt;&#x2F;boot&lt;&#x2F;code&gt;.  So we have a dependency cycle: we need the
+filesystem to compute the composefs digest, but we need the digest
+to produce the UKI, and we need the UKI to finalize the filesystem.&lt;&#x2F;p&gt;
+&lt;p&gt;The solution is a multi-stage container build.  We build the base
+filesystem first, without any UKI.  Then in a separate stage, we
+compute the composefs digest from that filesystem, generate and
+sign the UKI, and finally layer the UKI back on top of the base.
+The UKI lives under &lt;code&gt;&#x2F;boot&lt;&#x2F;code&gt;, which is not part of the composefs-
+managed root filesystem, so adding it doesn&#x27;t change the digest.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-containerfile&quot;&gt;The Containerfile&lt;&#x2F;h2&gt;
+&lt;p&gt;The
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;redhat-cop&#x2F;rhel-bootc-examples&#x2F;blob&#x2F;main&#x2F;sealing&#x2F;Containerfile&quot;&gt;Containerfile&lt;&#x2F;a&gt;
+in the examples repository uses four stages.  Let&#x27;s walk through
+each one.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;stage-1-rootfs-builder&quot;&gt;Stage 1: rootfs-builder&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;docker&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;FROM&lt;&#x2F;span&gt;&lt;span&gt; quay.io&#x2F;centos-bootc&#x2F;centos-bootc:stream10 &lt;&#x2F;span&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;AS&lt;&#x2F;span&gt;&lt;span&gt; rootfs-builder&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;RUN&lt;&#x2F;span&gt;&lt;span&gt; dnf install -y \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    epel-release \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    systemd-boot-unsigned \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    systemd-ukify \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    sbsigntools&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;RUN&lt;&#x2F;span&gt;&lt;span&gt; dnf remove -y bootupd&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This starts from a CentOS Stream 10 bootc base image and installs
+the tooling we need: &lt;code&gt;systemd-ukify&lt;&#x2F;code&gt; to build the UKI,
+&lt;code&gt;sbsigntools&lt;&#x2F;code&gt; to sign it, and &lt;code&gt;systemd-boot-unsigned&lt;&#x2F;code&gt; to provide
+the bootloader binary.  We remove &lt;code&gt;bootupd&lt;&#x2F;code&gt; because this example
+uses systemd-boot rather than bootupd + GRUB.&lt;&#x2F;p&gt;
+&lt;p&gt;This stage also signs systemd-boot with our db key:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;docker&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;RUN&lt;&#x2F;span&gt;&lt;span&gt; --mount=type=secret,id=secureboot_key \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --mount=type=secret,id=secureboot_cert &amp;lt;&amp;lt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;sbsign --key &#x2F;run&#x2F;secrets&#x2F;secureboot_key \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --cert &#x2F;run&#x2F;secrets&#x2F;secureboot_cert \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --output &#x2F;tmp&#x2F;systemd-bootx64.efi \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;boot&#x2F;efi&#x2F;systemd-bootx64.efi&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;install -m 0644 &#x2F;tmp&#x2F;systemd-bootx64.efi \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;boot&#x2F;efi&#x2F;systemd-bootx64.efi&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Note the use of &lt;code&gt;--mount=type=secret&lt;&#x2F;code&gt;.  The private key is mounted
+into the build step but is never copied into any image layer.  This
+is how we keep key material out of the final image.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;stage-2-flatten-to-a-single-layer&quot;&gt;Stage 2: flatten to a single layer&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;docker&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;FROM&lt;&#x2F;span&gt;&lt;span&gt; scratch &lt;&#x2F;span&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;AS&lt;&#x2F;span&gt;&lt;span&gt; base&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;COPY&lt;&#x2F;span&gt;&lt;span&gt; --from=rootfs-builder &#x2F; &#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;LABEL&lt;&#x2F;span&gt;&lt;span&gt; containers.bootc 1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;LABEL&lt;&#x2F;span&gt;&lt;span&gt; ostree.bootable 1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This stage copies the entire filesystem from stage 1 into a &lt;code&gt;FROM scratch&lt;&#x2F;code&gt; image, which flattens everything into a single layer.
+This is important because the composefs digest is computed over
+the complete filesystem tree.  If the image had multiple layers,
+the digest would depend on how those layers happened to be stacked,
+which could vary depending on the container runtime and storage
+driver.  (For more on why multi-layer images can produce
+non-deterministic results, see the earlier post on
+&lt;a href=&quot;https:&#x2F;&#x2F;bootc.dev&#x2F;blog&#x2F;2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives&#x2F;&quot;&gt;pitfalls of incomplete tar archives&lt;&#x2F;a&gt;.)
+Flattening eliminates that variable.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;stage-3-generate-and-sign-the-uki&quot;&gt;Stage 3: generate and sign the UKI&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;docker&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;FROM&lt;&#x2F;span&gt;&lt;span&gt; base &lt;&#x2F;span&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;AS&lt;&#x2F;span&gt;&lt;span&gt; kernel&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;RUN&lt;&#x2F;span&gt;&lt;span&gt; --mount=type=bind,from=base,target=&#x2F;target \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --mount=type=secret,id=secureboot_key \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --mount=type=secret,id=secureboot_cert &amp;lt;&amp;lt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;bootc container ukify --rootfs &#x2F;target \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    -- \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --signtool sbsign \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --secureboot-private-key &#x2F;run&#x2F;secrets&#x2F;secureboot_key \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --secureboot-certificate &#x2F;run&#x2F;secrets&#x2F;secureboot_cert \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --output &#x2F;out&#x2F;uki.efi&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EOF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;RUN&lt;&#x2F;span&gt;&lt;span&gt; kver=$(bootc container inspect --json | jq -r &lt;&#x2F;span&gt;&lt;span style=&quot;color: #032F62;&quot;&gt;&amp;#39;.kernel.version&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;) &amp;amp;&amp;amp; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    mkdir -p &#x2F;boot&#x2F;EFI&#x2F;Linux &amp;amp;&amp;amp; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    mv &#x2F;out&#x2F;uki.efi &lt;&#x2F;span&gt;&lt;span style=&quot;color: #032F62;&quot;&gt;&amp;quot;&#x2F;boot&#x2F;EFI&#x2F;Linux&#x2F;${kver}.efi&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This is where the magic happens.  &lt;code&gt;bootc container ukify&lt;&#x2F;code&gt; does
+several things in one step:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Reads the filesystem at &lt;code&gt;&#x2F;target&lt;&#x2F;code&gt; (the flattened base from
+stage 2, mounted via &lt;code&gt;--mount=type=bind&lt;&#x2F;code&gt;).&lt;&#x2F;li&gt;
+&lt;li&gt;Computes the composefs digest (a SHA-512 hash of the EROFS
+image that describes the complete filesystem).&lt;&#x2F;li&gt;
+&lt;li&gt;Discovers the kernel and initramfs from the filesystem.&lt;&#x2F;li&gt;
+&lt;li&gt;Assembles a UKI containing the kernel, initramfs, and a
+command line that includes &lt;code&gt;composefs=&amp;lt;digest&amp;gt;&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Signs the UKI with the db key via &lt;code&gt;sbsign&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;The result is a single &lt;code&gt;.efi&lt;&#x2F;code&gt; file that embeds a cryptographic
+commitment to the exact filesystem it was built from, signed by
+a key we control.&lt;&#x2F;p&gt;
+&lt;p&gt;A second &lt;code&gt;RUN&lt;&#x2F;code&gt; step then discovers the kernel version and places
+the UKI at the expected path under &lt;code&gt;&#x2F;boot&#x2F;EFI&#x2F;Linux&#x2F;&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;stage-4-the-final-image&quot;&gt;Stage 4: the final image&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;docker&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;FROM&lt;&#x2F;span&gt;&lt;span&gt; base&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D73A49;&quot;&gt;COPY&lt;&#x2F;span&gt;&lt;span&gt; --from=kernel &#x2F;boot &#x2F;boot&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The final image takes the flattened base and overlays the &lt;code&gt;&#x2F;boot&lt;&#x2F;code&gt;
+directory from the kernel stage.  This gives us a complete image:
+the sealed root filesystem plus the signed UKI that references it.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;building-the-image&quot;&gt;Building the image&lt;&#x2F;h2&gt;
+&lt;p&gt;With the Containerfile and keys in place, building the image is a
+single &lt;code&gt;podman build&lt;&#x2F;code&gt; command:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ podman build \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --secret id=secureboot_key,src=target&#x2F;keys&#x2F;sb-db.key \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --secret id=secureboot_cert,src=target&#x2F;keys&#x2F;sb-db.crt \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    -t localhost&#x2F;sealed-host:latest \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    .&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The two &lt;code&gt;--secret&lt;&#x2F;code&gt; flags make the db private key and certificate
+available to the build stages that need them, without ever
+persisting them in the image.&lt;&#x2F;p&gt;
+&lt;p&gt;If you&#x27;re using the examples repository, the
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;redhat-cop&#x2F;rhel-bootc-examples&#x2F;blob&#x2F;main&#x2F;sealing&#x2F;Justfile&quot;&gt;Justfile&lt;&#x2F;a&gt;
+wraps this for convenience:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ just keygen   # generate keys (one-time)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ just build    # build the sealed image&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;secret-handling-in-ci&quot;&gt;Secret handling in CI&lt;&#x2F;h2&gt;
+&lt;p&gt;The examples repository includes a GitHub Actions workflow
+that demonstrates how to handle key material in CI.  The db private
+key is stored as a GitHub Actions secret and written to a temporary
+file during the build.&lt;&#x2F;p&gt;
+&lt;p&gt;For pull request builds, where the secret is not available, the
+workflow generates an ephemeral key pair on the fly.  This allows
+PRs to validate that the build works without requiring access to
+production key material.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-s-next&quot;&gt;What&#x27;s next&lt;&#x2F;h2&gt;
+&lt;p&gt;At this point we have a sealed, signed container image.  The UKI
+inside is signed with our Secure Boot key and embeds a composefs
+digest that covers every file in the operating system.  In the
+next post, we&#x27;ll deploy this image to a system and verify the
+seal is active.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sealed images: key management for Secure Boot</title>
+          <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc.dev/blog/2026-may-05-sealed-images-key-management/</link>
+          <guid>https://bootc.dev/blog/2026-may-05-sealed-images-key-management/</guid>
+          <description xml:base="https://bootc.dev/blog/2026-may-05-sealed-images-key-management/">&lt;h1 id=&quot;sealed-images-key-management-for-secure-boot&quot;&gt;Sealed images: key management for Secure Boot&lt;&#x2F;h1&gt;
+&lt;p&gt;In the &lt;a href=&quot;https:&#x2F;&#x2F;bootc.dev&#x2F;blog&#x2F;2026-may-04-sealed-images-security-chain&#x2F;&quot;&gt;previous post&lt;&#x2F;a&gt;,
+we walked through the security chain that sealed images provide, from
+firmware through runtime file verification.  That chain depends on
+cryptographic keys at every step.  In this post, we&#x27;ll cover the keys
+involved, how to generate them, and how they get enrolled into your
+system&#x27;s firmware.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-uefi-secure-boot-key-hierarchy&quot;&gt;The UEFI Secure Boot key hierarchy&lt;&#x2F;h2&gt;
+&lt;p&gt;UEFI Secure Boot uses a hierarchy of three key types, each serving a
+distinct role:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Platform Key (PK)&lt;&#x2F;strong&gt; -- The root of the Secure Boot trust hierarchy.
+There is exactly one PK.  The PK controls who can modify the Secure
+Boot key databases.  It is used to sign updates to the KEK database.
+When the PK is enrolled, the firmware transitions from Setup Mode to
+User Mode, enabling Secure Boot enforcement.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Key Exchange Key (KEK)&lt;&#x2F;strong&gt; -- One or more KEKs can be enrolled.  A KEK
+is authorized to sign updates to the signature database (db).  The
+KEK exists to allow delegation: the PK owner can authorize other
+parties to manage the set of trusted signing keys without giving them
+full control over the Secure Boot configuration.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Signature Database (db)&lt;&#x2F;strong&gt; -- The db contains the keys or hashes
+that the firmware uses to verify boot binaries.  When the firmware
+loads a bootloader or UKI, it checks the binary&#x27;s signature against
+the keys in the db.  If the signature matches a db entry, the binary
+is allowed to execute.&lt;&#x2F;p&gt;
+&lt;p&gt;In practice, many organizations will only need to generate a single
+set of these keys.  The db key is the one that does the day-to-day
+work: it signs your UKIs and bootloader.  The PK and KEK exist
+primarily to control who can modify the db.&lt;&#x2F;p&gt;
+&lt;p&gt;If you already have Secure Boot keys provisioned in your
+infrastructure, you don&#x27;t need to generate new ones.  You only need
+access to a db key (or the ability to add your signing key to the
+existing db) in order to sign your UKIs.  The rest of this post
+assumes you&#x27;re starting from scratch, but the signing steps apply
+regardless of where your keys came from.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;generating-keys&quot;&gt;Generating keys&lt;&#x2F;h2&gt;
+&lt;p&gt;The following commands generate a complete set of Secure Boot keys.
+These examples use &lt;code&gt;openssl&lt;&#x2F;code&gt; directly, but you should use whatever
+key management practices are appropriate for your organization.
+Hardware security modules (HSMs), vault systems, or other key
+management infrastructure may be more appropriate for production
+use.&lt;&#x2F;p&gt;
+&lt;p&gt;First, generate a GUID to identify the key owner.  This is embedded
+in the key enrollment data and can be any unique identifier:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ uuidgen --random &amp;gt; GUID.txt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Generate the Platform Key:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ openssl req -newkey rsa:2048 -nodes -keyout PK.key \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    -new -x509 -sha256 -days 3650 \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    -subj &amp;#39;&#x2F;CN=My Platform Key&#x2F;&amp;#39; -out PK.crt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ openssl x509 -outform DER -in PK.crt -out PK.cer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Generate the Key Exchange Key:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ openssl req -newkey rsa:2048 -nodes -keyout KEK.key \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    -new -x509 -sha256 -days 3650 \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    -subj &amp;#39;&#x2F;CN=My Key Exchange Key&#x2F;&amp;#39; -out KEK.crt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ openssl x509 -outform DER -in KEK.crt -out KEK.cer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Generate the Signature Database key:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ openssl req -newkey rsa:2048 -nodes -keyout db.key \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    -new -x509 -sha256 -days 3650 \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    -subj &amp;#39;&#x2F;CN=My Signature Database Key&#x2F;&amp;#39; -out db.crt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ openssl x509 -outform DER -in db.crt -out db.cer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Each command produces three files: a private key (&lt;code&gt;.key&lt;&#x2F;code&gt;), a PEM
+certificate (&lt;code&gt;.crt&lt;&#x2F;code&gt;), and a DER-encoded certificate (&lt;code&gt;.cer&lt;&#x2F;code&gt;).  The
+private keys are what you need to protect.  The certificates are
+public and are what gets enrolled into the firmware.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;signing-boot-artifacts&quot;&gt;Signing boot artifacts&lt;&#x2F;h2&gt;
+&lt;p&gt;With a db key in hand, you can sign the two boot binaries that need
+Secure Boot verification: the bootloader (systemd-boot) and the
+Unified Kernel Image.&lt;&#x2F;p&gt;
+&lt;p&gt;Signing systemd-boot:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ sbsign --key db.key --cert db.crt \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --output systemd-bootx64.efi.signed \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;boot&#x2F;efi&#x2F;systemd-bootx64.efi&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The UKI signing process is more involved because the UKI embeds the
+composefs digest, which must be computed from the filesystem first.
+We&#x27;ll cover building sealed images (including UKI generation and
+signing) in detail in the next post.  For now, the important thing
+to know is that &lt;code&gt;ukify&lt;&#x2F;code&gt; (the tool that assembles UKIs) accepts the
+same &lt;code&gt;--secureboot-private-key&lt;&#x2F;code&gt; and &lt;code&gt;--secureboot-certificate&lt;&#x2F;code&gt;
+options and uses &lt;code&gt;sbsign&lt;&#x2F;code&gt; under the hood to sign the final EFI
+binary.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;enrolling-keys-into-firmware&quot;&gt;Enrolling keys into firmware&lt;&#x2F;h2&gt;
+&lt;p&gt;The keys need to be enrolled into the UEFI firmware&#x27;s Secure Boot
+database before the firmware will use them for verification.  There
+are several ways to do this depending on your environment.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;manual-enrollment-via-firmware-setup&quot;&gt;Manual enrollment via firmware setup&lt;&#x2F;h3&gt;
+&lt;p&gt;Most UEFI firmware implementations provide a setup menu (accessed
+during early boot, typically via a key like F2 or Del) where Secure
+Boot keys can be managed.  The DER-encoded certificates (&lt;code&gt;.cer&lt;&#x2F;code&gt;
+files) can be enrolled from a USB drive or the EFI System Partition.
+This is straightforward for individual systems but does not scale
+well.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;programmatic-enrollment-for-virtual-machines&quot;&gt;Programmatic enrollment for virtual machines&lt;&#x2F;h3&gt;
+&lt;p&gt;For virtual machines using OVMF (the open source UEFI firmware for
+QEMU&#x2F;KVM), keys can be enrolled directly into the firmware variable
+store using the &lt;code&gt;virt-fw-vars&lt;&#x2F;code&gt; tool from the
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;gitlab.com&#x2F;kraxel&#x2F;virt-firmware&quot;&gt;virt-firmware&lt;&#x2F;a&gt; project:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ GUID=$(cat GUID.txt)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ virt-fw-vars \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --input &#x2F;usr&#x2F;share&#x2F;edk2&#x2F;ovmf&#x2F;OVMF_VARS.fd \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --secure-boot \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --set-pk  $GUID PK.crt \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --add-kek $GUID KEK.crt \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    --add-db  $GUID db.crt \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    -o OVMF_VARS_ENROLLED.fd&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This produces a firmware variable store with your keys pre-enrolled.
+When QEMU starts with this variable store, Secure Boot is active and
+will only accept binaries signed with your db key.  This is
+particularly useful for testing and for VM-based deployments where
+you control the firmware image.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;auto-enrollment-via-systemd-boot&quot;&gt;Auto-enrollment via systemd-boot&lt;&#x2F;h3&gt;
+&lt;p&gt;systemd-boot supports automatic key enrollment when the firmware is
+in Setup Mode (no Platform Key enrolled).  This works by placing
+signed UEFI authenticated variable files (&lt;code&gt;.auth&lt;&#x2F;code&gt; files) on the EFI
+System Partition.&lt;&#x2F;p&gt;
+&lt;p&gt;Creating &lt;code&gt;.auth&lt;&#x2F;code&gt; files requires converting your certificates into
+UEFI signature lists and signing them with the appropriate parent
+key:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ GUID=$(cat GUID.txt)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ attr=NON_VOLATILE,RUNTIME_ACCESS,BOOTSERVICE_ACCESS,TIME_BASED_AUTHENTICATED_WRITE_ACCESS&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;# Create EFI signature lists&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ sbsiglist --owner $GUID --type x509 --output PK.esl PK.cer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ sbsiglist --owner $GUID --type x509 --output KEK.esl KEK.cer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ sbsiglist --owner $GUID --type x509 --output db.esl db.cer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;# Sign the variables (PK and KEK signed by PK, db signed by KEK)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ sbvarsign --attr $attr --key PK.key --cert PK.crt --output PK.auth PK PK.esl&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ sbvarsign --attr $attr --key PK.key --cert PK.crt --output KEK.auth KEK KEK.esl&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ sbvarsign --attr $attr --key KEK.key --cert KEK.crt --output db.auth db db.esl&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;These &lt;code&gt;.auth&lt;&#x2F;code&gt; files can then be placed on the ESP where systemd-boot
+expects them.  bootc can automate this: if you place the &lt;code&gt;.auth&lt;&#x2F;code&gt;
+files in your container image at
+&lt;code&gt;&#x2F;usr&#x2F;lib&#x2F;bootc&#x2F;install&#x2F;secureboot-keys&#x2F;&amp;lt;name&amp;gt;&#x2F;&lt;&#x2F;code&gt;, bootc will copy
+them to the ESP during installation.  On the next boot, systemd-boot
+can enroll them into the firmware.&lt;&#x2F;p&gt;
+&lt;p&gt;The enrollment behavior is controlled by the &lt;code&gt;secure-boot-enroll&lt;&#x2F;code&gt;
+setting in &lt;code&gt;loader.conf&lt;&#x2F;code&gt;.  See the
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.freedesktop.org&#x2F;software&#x2F;systemd&#x2F;man&#x2F;latest&#x2F;loader.conf.html&quot;&gt;systemd-boot documentation&lt;&#x2F;a&gt;
+for details on the available modes.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;key-security-considerations&quot;&gt;Key security considerations&lt;&#x2F;h2&gt;
+&lt;p&gt;A few things worth keeping in mind:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Protect your private keys.&lt;&#x2F;strong&gt;  The &lt;code&gt;.key&lt;&#x2F;code&gt; files are what allow
+signing boot artifacts.  Anyone with access to your db private key
+can sign binaries that your firmware will trust.  Store private keys
+with appropriate access controls, and consider using an HSM or key
+management system for production deployments.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Key rotation.&lt;&#x2F;strong&gt;  The examples above use 10-year expiry (&lt;code&gt;-days 3650&lt;&#x2F;code&gt;), which is generous.  Plan for key rotation before your
+certificates expire.  The UEFI key hierarchy makes this manageable:
+you can use your KEK to authorize a new db key without needing to
+re-enroll the PK.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Separation of concerns.&lt;&#x2F;strong&gt;  In a CI&#x2F;CD pipeline, the signing step
+should ideally be isolated from the build step.  The build process
+produces an unsigned UKI, and a separate signing service (with access
+to the private key) signs it.  This limits the blast radius if the
+build environment is compromised.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-s-next&quot;&gt;What&#x27;s next&lt;&#x2F;h2&gt;
+&lt;p&gt;With keys generated and an understanding of how they fit into the
+trust chain, the next post will walk through building a sealed image
+end-to-end: writing a Containerfile, computing the composefs digest,
+generating and signing the UKI, and producing a deployable container
+image.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Sealed images: the security chain from firmware to filesystem</title>
+          <pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/</link>
+          <guid>https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/</guid>
+          <description xml:base="https://bootc.dev/blog/2026-may-04-sealed-images-security-chain/">&lt;h1 id=&quot;sealed-images-the-security-chain-from-firmware-to-filesystem&quot;&gt;Sealed images: the security chain from firmware to filesystem&lt;&#x2F;h1&gt;
+&lt;p&gt;This is the first in a series of posts about bootc sealed images.  In
+this post we&#x27;ll take a tour through the full security chain that makes
+sealed images work, from the moment your system powers on through
+every file read at runtime.  Future posts will cover key management,
+building sealed images, and deploying them to various environments.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-gap&quot;&gt;The gap&lt;&#x2F;h2&gt;
+&lt;p&gt;Typically a default Linux install comes &quot;unlocked&quot;, allowing you to be
+root and make persistent changes.  While many distributions support
+Secure Boot, it&#x27;s typically only the kernel that&#x27;s signed.  The
+cryptographic chain of trust from firmware doesn&#x27;t cover the root
+filesystem or applications - i.e. effectively everything you care
+about.&lt;&#x2F;p&gt;
+&lt;p&gt;Sealed images help close this gap by extending cryptographic
+verification from the firmware all the way through every file in the
+operating system.  Not as a one-time check at boot, but continuously,
+at every file read, for the entire lifetime of the system.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s walk through how each piece fits together.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;secure-boot&quot;&gt;Secure Boot&lt;&#x2F;h2&gt;
+&lt;p&gt;Secure Boot is the foundation of the chain.  It&#x27;s a UEFI firmware
+feature that ensures only signed code runs during the boot process.&lt;&#x2F;p&gt;
+&lt;p&gt;The firmware maintains a database of trusted keys.  When the system
+powers on, the firmware loads the bootloader and checks its signature
+against those keys.  If the signature is valid, the bootloader runs.
+If not, the system refuses to boot.&lt;&#x2F;p&gt;
+&lt;p&gt;This is well-established technology and not new to sealed images.
+What matters for our purposes is that Secure Boot gives us a root of
+trust: a guarantee that the first piece of software to execute after
+the firmware is something we explicitly chose to trust.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;unified-kernel-images&quot;&gt;Unified Kernel Images&lt;&#x2F;h2&gt;
+&lt;p&gt;Traditionally, the boot chain after Secure Boot looks something like
+this: the signed bootloader loads a kernel, an initramfs, and a kernel
+command line, often from separate files on a boot partition.  The
+bootloader may verify the kernel&#x27;s signature, but the initramfs and
+command line are typically not covered by any signature.&lt;&#x2F;p&gt;
+&lt;p&gt;A &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;uapi-group.org&#x2F;specifications&#x2F;specs&#x2F;unified_kernel_image&#x2F;&quot;&gt;Unified Kernel Image (UKI)&lt;&#x2F;a&gt;
+changes this by bundling the kernel, the initramfs, and the kernel
+command line into a single EFI binary.  The entire bundle is signed
+as one unit.  This means the firmware (or a signed bootloader like
+systemd-boot) can verify the whole thing in one step.&lt;&#x2F;p&gt;
+&lt;p&gt;This is important for sealed images because the kernel command line
+is no longer an unverified input.  Anything embedded in the command
+line is covered by the same signature that covers the kernel itself.
+As we&#x27;ll see next, this is where the composefs digest lives.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;composefs-erofs-overlayfs-fs-verity&quot;&gt;composefs: EROFS + overlayfs + fs-verity&lt;&#x2F;h2&gt;
+&lt;p&gt;Here&#x27;s where things get interesting.  composefs brings together
+three kernel technologies to provide cryptographic verification of
+the entire filesystem.&lt;&#x2F;p&gt;
+&lt;p&gt;When a sealed image is built, the operating system filesystem is
+processed into an
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.kernel.org&#x2F;filesystems&#x2F;erofs.html&quot;&gt;EROFS&lt;&#x2F;a&gt; metadata
+image.  This image describes every file, directory, symlink, and
+permission in the tree, but it does not contain the actual file
+contents.  Instead, each file entry in the EROFS image records the
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.kernel.org&#x2F;filesystems&#x2F;fsverity.html&quot;&gt;fs-verity&lt;&#x2F;a&gt;
+digest of that file&#x27;s contents.  The actual file data is stored
+separately in a content-addressed object store, where each file has
+fs-verity enabled by the kernel.&lt;&#x2F;p&gt;
+&lt;p&gt;At mount time, the kernel stitches these pieces together using
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.kernel.org&#x2F;filesystems&#x2F;overlayfs.html&quot;&gt;overlayfs&lt;&#x2F;a&gt;.
+The EROFS image serves as a metadata layer, and the object store
+provides the file data.  The overlayfs &lt;code&gt;verity=require&lt;&#x2F;code&gt; mount option
+tells the kernel to enforce that every file served through the mount
+has an fs-verity digest matching what the EROFS metadata expects.&lt;&#x2F;p&gt;
+&lt;p&gt;fs-verity itself is a kernel feature that provides per-file integrity
+verification.  When fs-verity is enabled on a file, the kernel
+computes a cryptographic hash of the file&#x27;s contents and stores a
+hash tree alongside the file on disk.  From that point on, every
+read is verified at the block level -- the kernel checks only the
+blocks being read, not the entire file, and caches the results so
+repeated reads don&#x27;t pay the cost again.&lt;&#x2F;p&gt;
+&lt;p&gt;A key behavior to understand is what happens when verification
+fails: the kernel returns an I&#x2F;O error.  The corrupted or tampered
+data is never served to any process.  The &lt;code&gt;open()&lt;&#x2F;code&gt; call on the file
+succeeds (the file exists, after all), but &lt;code&gt;read()&lt;&#x2F;code&gt; on the corrupted
+portion returns &lt;code&gt;EIO&lt;&#x2F;code&gt;.  The data is simply unreadable.&lt;&#x2F;p&gt;
+&lt;p&gt;The EROFS metadata image itself also has an fs-verity digest: a
+single cryptographic hash that covers the complete filesystem
+description.  This is the composefs digest.  It is embedded in the
+UKI&#x27;s kernel command line:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;composefs=abc123def456...  (128-character SHA-512 hex digest)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Because the UKI is signed, this digest is now part of the verified
+boot chain.  The firmware verifies the UKI signature, and the UKI
+carries within it a cryptographic commitment to the exact filesystem
+that should be mounted as the operating system.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;putting-it-all-together&quot;&gt;Putting it all together&lt;&#x2F;h2&gt;
+&lt;p&gt;The full chain looks like this.  Each step must succeed before the
+next can proceed:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;The firmware verifies the signed bootloader.&lt;&#x2F;li&gt;
+&lt;li&gt;The bootloader verifies the signed Unified Kernel Image (UKI).&lt;&#x2F;li&gt;
+&lt;li&gt;The initramfs (inside the verified UKI) reads the composefs
+digest from the kernel command line (also inside the verified UKI).&lt;&#x2F;li&gt;
+&lt;li&gt;The initramfs mounts the composefs image and verifies the EROFS
+image&#x27;s fs-verity digest matches the digest from the command line.&lt;&#x2F;li&gt;
+&lt;li&gt;Every subsequent file read from the operating system is
+individually verified by the kernel against the fs-verity digest
+recorded in the EROFS metadata.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;There is no point after firmware where unverified code executes or
+unverified data is served.  The chain is continuous.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-sealed-images-cover&quot;&gt;What sealed images cover&lt;&#x2F;h2&gt;
+&lt;p&gt;It&#x27;s worth being precise about scope.  The seal covers every file in
+the immutable operating system image: the base OS, any packages you
+added, your monitoring agents, security tools, application binaries.
+Everything that was part of the image when it was built is sealed.&lt;&#x2F;p&gt;
+&lt;p&gt;By default, &lt;code&gt;&#x2F;etc&lt;&#x2F;code&gt; and &lt;code&gt;&#x2F;var&lt;&#x2F;code&gt; are mutable and persistent.  It is
+possible to make &lt;code&gt;&#x2F;etc&lt;&#x2F;code&gt; transient today, and this is a good idea if
+it matches your use case.  More suggestions on this will be in the
+documentation.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-s-next&quot;&gt;What&#x27;s next&lt;&#x2F;h2&gt;
+&lt;p&gt;This post covered the architecture.  In the next posts, we&#x27;ll get
+hands-on:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Key management&lt;&#x2F;strong&gt;: generating Secure Boot keys, enrolling them,
+and understanding the signing chain&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Building sealed images&lt;&#x2F;strong&gt;: writing a Containerfile, producing a
+signed UKI, and verifying the result&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Deploying sealed images&lt;&#x2F;strong&gt;: installing to bare metal, virtual
+machines, and cloud environments&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The signing chain is fully under your control.  You generate the keys,
+you sign the images, you decide what your systems trust.  The next
+post will show you how.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Containers: pitfalls of incomplete tar archives</title>
+          <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc.dev/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/</link>
+          <guid>https://bootc.dev/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/</guid>
+          <description xml:base="https://bootc.dev/blog/2025-dec-15-blog-containers-pitfalls-of-incomplete-tar-archives/">&lt;h1 id=&quot;containers-pitfalls-of-incomplete-tar-archives&quot;&gt;Containers: pitfalls of incomplete tar archives&lt;&#x2F;h1&gt;
+&lt;p&gt;As &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;blog.verbum.org&#x2F;&quot;&gt;Colin Walters&lt;&#x2F;a&gt; likes to say, containers
+are just tarballs wrapped in JSON.  We&#x27;ll mostly ignore the JSON part
+here, but there&#x27;s a lot to unpack (pun and foreshadowing intended)
+with regards to tar and how it interacts with the various pieces that
+work in conjunction to make containers a reality.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;a-refresher-on-tar&quot;&gt;A refresher on &lt;code&gt;tar&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Let&#x27;s explore a key quirk of tar from which everything else we&#x27;ll
+discuss follows.&lt;&#x2F;p&gt;
+&lt;p&gt;First, let&#x27;s create a basic tar archive, which contains a directory
+with a file inside of the directory:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ mkdir foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ touch foo&#x2F;bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ tar cf foo.tar foo&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now let&#x27;s list the contents of the tar archive:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ tar tvf foo.tar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;drwxr-xr-x jeckersb&#x2F;jeckersb 0 2025-12-10 11:09 foo&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;-rw-r--r-- jeckersb&#x2F;jeckersb 0 2025-12-10 11:09 foo&#x2F;bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ok, that makes sense.  We see the directory and the file we added to
+the archive.&lt;&#x2F;p&gt;
+&lt;p&gt;But here&#x27;s the key bit:  What happens if you add &lt;em&gt;only&lt;&#x2F;em&gt; the file to the archive?&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ tar cf incomplete.tar foo&#x2F;bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ tar tvf incomplete.tar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;-rw-r--r-- jeckersb&#x2F;jeckersb 0 2025-12-10 11:09 foo&#x2F;bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now the archive has metadata &lt;em&gt;only&lt;&#x2F;em&gt; for the file.  You can deduce from
+the path &lt;code&gt;foo&#x2F;bar&lt;&#x2F;code&gt; that there is a directory &lt;code&gt;foo&lt;&#x2F;code&gt; involved, but you
+can&#x27;t definitively know how &lt;code&gt;foo&lt;&#x2F;code&gt; is supposed to look.  What are the
+permissions, owner, group, mtime?  We don&#x27;t know.  So what happens if
+you extract this tar archive?&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ mkdir incomplete-unpacked &amp;amp;&amp;amp; tar xf incomplete.tar -C incomplete-unpacked&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;total 0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;drwxr-xr-x. 2 jeckersb jeckersb 60 Dec 10 11:19 foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked&#x2F;foo&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;total 0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;-rw-r--r--. 1 jeckersb jeckersb 0 Dec 10 11:09 bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It implicitly creates the directory &lt;code&gt;foo&lt;&#x2F;code&gt; in order to put &lt;code&gt;bar&lt;&#x2F;code&gt; at the
+correct path.  This makes sense.  But notice &lt;code&gt;foo&lt;&#x2F;code&gt; gets created with
+metadata that is dependent on the environment in which the unpacking
+of the archive happened.  In the above example, you can see that the
+timestamp on the directory is 10 minutes later than the timestamp of
+the &lt;code&gt;bar&lt;&#x2F;code&gt; file inside.  This is because it took me 10 minutes of
+writing and editing this post before I did the unpack operation.  I
+can set my umask to something else and extract it a second time, and
+now we&#x27;ll see a different timestamp &lt;em&gt;and&lt;&#x2F;em&gt; different permissions:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ umask 0077&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ mkdir incomplete-unpacked-with-umask &amp;amp;&amp;amp; tar xf incomplete.tar -C incomplete-unpacked-with-umask&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked-with-umask&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;total 0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;drwx------. 2 jeckersb jeckersb 60 Dec 10 11:25 foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx tmp]$ ls -l incomplete-unpacked-with-umask&#x2F;foo&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;total 0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;-rw-------. 1 jeckersb jeckersb 0 Dec 10 11:09 bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;oci-image-spec&quot;&gt;OCI image spec&lt;&#x2F;h2&gt;
+&lt;p&gt;OCI container images are serialized as a &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;opencontainers&#x2F;image-spec&#x2F;blob&#x2F;main&#x2F;layer.md&quot;&gt;series of
+tarballs&lt;&#x2F;a&gt;
+that are applied on top of each other to create the complete
+filesystem.  We&#x27;ll get back to the specifics of that operation a bit
+later.&lt;&#x2F;p&gt;
+&lt;p&gt;The entire layer specification is worth reading, but we&#x27;ll focus on
+two parts.  First, how to determine changes:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;When two directories are compared, the relative root is the top-level directory.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;The directories are compared, looking for files that have been [added, modified, or removed](#change-types).&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;For this example, `rootfs-c9d-v1&#x2F;` and `rootfs-c9d-v1.s1&#x2F;` are recursively compared, each as relative root path.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;The following changeset is found:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Added:      &#x2F;etc&#x2F;my-app.d&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Added:      &#x2F;etc&#x2F;my-app.d&#x2F;default.cfg&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Modified:   &#x2F;bin&#x2F;my-app-tools&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Deleted:    &#x2F;etc&#x2F;my-app-config&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;This reflects the removal of `&#x2F;etc&#x2F;my-app-config` and creation of a file and directory at `&#x2F;etc&#x2F;my-app.d&#x2F;default.cfg`.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;`&#x2F;bin&#x2F;my-app-tools` has also been replaced with an updated version.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And then the following section on representing changes:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;A [tar archive][tar-archive] is then created which contains _only_ this changeset:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;- Added and modified files and directories in their entirety&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;- Deleted files or directories marked with a [whiteout file](#whiteouts)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;The resulting tar archive for `rootfs-c9d-v1.s1` has the following entries:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;.&#x2F;etc&#x2F;my-app.d&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;.&#x2F;etc&#x2F;my-app.d&#x2F;default.cfg&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;.&#x2F;bin&#x2F;my-app-tools&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;.&#x2F;etc&#x2F;.wh.my-app-config&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;To signify that the resource `.&#x2F;etc&#x2F;my-app-config` MUST be removed when the changeset is applied, the basename of the entry is prefixed with `.wh.`.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But note that the changeset says nothing about the directories higher
+in the filesystem.  So in the above example, it would be perfectly
+valid (and more correct) to generate changeset tar archives which are
+incomplete in the same manner we described above.  Most notably, these
+changesets would &lt;em&gt;not&lt;&#x2F;em&gt; contain tar entries for the directories &lt;code&gt;&#x2F;etc&lt;&#x2F;code&gt;
+and &lt;code&gt;&#x2F;bin&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;This oversight in the specification is not new or surprising.  There
+is an &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;opencontainers&#x2F;image-spec&#x2F;issues&#x2F;737&quot;&gt;open issue from
+2017&lt;&#x2F;a&gt; which
+describes exactly this problem.  There is a linked &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;opencontainers&#x2F;image-spec&#x2F;pull&#x2F;970&quot;&gt;pull
+request&lt;&#x2F;a&gt; which
+has been open since late 2022 with intermittent discussion, but no
+consensus or resolution has been reached yet.&lt;&#x2F;p&gt;
+&lt;p&gt;This has led to some projects implementing their own workarounds to
+deal with this behavior.  The &lt;code&gt;containerd&lt;&#x2F;code&gt; project as an example
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;containerd&#x2F;containerd&#x2F;issues&#x2F;1723&quot;&gt;noted this
+issue&lt;&#x2F;a&gt; in 2017
+and &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;containerd&#x2F;containerd&#x2F;pull&#x2F;1925&quot;&gt;worked around
+it&lt;&#x2F;a&gt; by creating
+explicit archive directory entries for parents.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;rechunking-in-bootc-rpm-ostree&quot;&gt;Rechunking in bootc &#x2F; rpm-ostree&lt;&#x2F;h2&gt;
+&lt;p&gt;Base images used via &lt;code&gt;bootc&lt;&#x2F;code&gt; are typically post-processed and
+finalized via the &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;coreos.github.io&#x2F;rpm-ostree&#x2F;build-chunked-oci&#x2F;&quot;&gt;rpm-ostree
+rechunker&lt;&#x2F;a&gt;.
+The general idea (oversimplifying a bit for brevity) is that the tool
+can inspect the RPM database and map each file in the container to its
+associated RPM.  It then &quot;rechunks&quot; the container by creating a new
+layer for each RPM, where the layer contains the files for that RPM
+and only that RPM.  This ensures that when a new version of an RPM is
+released in the future, when it is integrated into a new base image,
+only the layer associated with that RPM will need to be re-downloaded
+by the end user.&lt;&#x2F;p&gt;
+&lt;p&gt;However, consider a directory like &lt;code&gt;&#x2F;usr&lt;&#x2F;code&gt;.  This is owned by the
+&lt;code&gt;filesystem&lt;&#x2F;code&gt; package which contains all of the shared base directories
+in the system.  This directory will be included in the layer
+associated with the &lt;code&gt;filesystem&lt;&#x2F;code&gt; package with all of its related
+metadata.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, almost every other package in the system is going to have some
+amount of content that is shipped under the &lt;code&gt;&#x2F;usr&lt;&#x2F;code&gt; hierarchy.
+Originally, the &lt;code&gt;rpm-ostree&lt;&#x2F;code&gt; rechunker would omit the archive entry
+for &lt;code&gt;&#x2F;usr&lt;&#x2F;code&gt; in each package layer.&lt;&#x2F;p&gt;
+&lt;p&gt;This however would cause the behavior of indeterminate tar archives
+discussed above to be manifest in the final container.  For example,
+it was noted in &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;containers&#x2F;composefs-rs&#x2F;issues&#x2F;132&quot;&gt;this composefs-rs
+issue&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;We worked around this issue by &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;coreos&#x2F;rpm-ostree&#x2F;pull&#x2F;5421&quot;&gt;creating a new
+format-version&lt;&#x2F;a&gt; for
+the &lt;code&gt;rpm-ostree&lt;&#x2F;code&gt; rechunker, which creates all of the parent
+directories in each tar layer.  This is similar to the fix implemented
+as noted above by the &lt;code&gt;containerd&lt;&#x2F;code&gt; project.  This works, but it&#x27;s not
+ideal.  It means that all of the parent directories and their
+respective metadata have to be duplicated across every layer in the
+image.  This is an unnecessary waste of disk space and bandwidth.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;why-isn-t-this-a-more-widespread-problem&quot;&gt;Why isn&#x27;t this a more widespread problem?&lt;&#x2F;h2&gt;
+&lt;p&gt;When I first realized what was going on here, I thought I could
+trigger this behavior with a &lt;code&gt;Containerfile&lt;&#x2F;code&gt; like this:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;FROM quay.io&#x2F;fedora&#x2F;fedora:43&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;RUN &amp;lt;&amp;lt;EORUN&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;# Create two levels of directories, because adding a file to a&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;# directory alters the directory mtime.  This means adding a file&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;# under &#x2F;foo&#x2F;bar in the next layer will cause the mtime for &#x2F;foo&#x2F;bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;# to change, but &#x2F;foo will remain unchanged.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;mkdir -p &#x2F;foo&#x2F;bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;# zero the mtime on foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;touch -d @0 &#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;EORUN&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;# Add a file in a derived layer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;# In theory, this layer would not contain an entry for &#x2F;foo, since it&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;# is unchanged.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;# In practice... not so much.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;RUN touch &#x2F;foo&#x2F;bar&#x2F;baz&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But alas:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx example]$ podman build -f Containerfile -t localhost&#x2F;example&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;STEP 1&#x2F;3: FROM quay.io&#x2F;fedora&#x2F;fedora:43&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;STEP 2&#x2F;3: RUN &amp;lt;&amp;lt;EORUN (# Create two levels of directories, because adding a file to a...)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;--&amp;gt; d3f72d4d7b90&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;STEP 3&#x2F;3: RUN touch &#x2F;foo&#x2F;bar&#x2F;baz&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;COMMIT localhost&#x2F;example&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;--&amp;gt; b730a7409a5a&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Successfully tagged localhost&#x2F;example:latest&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;b730a7409a5a5b5450f4f1d142415043aeac48f6ac0d1ac2a632d75071668a60&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx example]$ podman run --rm -it localhost&#x2F;example stat &#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  File: &#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  Size: 6               Blocks: 0          IO Block: 4096   directory&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Device: 0,93    Inode: 64851509    Links: 1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: 2025-12-10 21:31:11.973931592 +0000&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Modify: 1970-01-01 00:00:00.000000000 +0000&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Change: 2025-12-10 21:31:11.973678196 +0000&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt; Birth: 2025-12-10 21:31:11.973031361 +0000&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But wait... the directory mtime is (correctly) still zeroed from the
+first layer.  So... everything up until now is a lie?&lt;&#x2F;p&gt;
+&lt;p&gt;No!  If we pull apart the last tar layer, we&#x27;ll see that it actually
+&lt;em&gt;does&lt;&#x2F;em&gt; contain a directory entry for &#x2F;foo, even though it&#x27;s not
+modified in any way during the last &lt;code&gt;RUN&lt;&#x2F;code&gt; invocation.  I&#x27;ll skip the
+part where I re-exported the image to an oci-dir just to make it
+easier to look through the layers.  Just trust me when I say this is
+the tarball that gets generated for the last layer:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;⬢ [jeckersb@toolbx sha256]$ tar tvf 9402e1d4a1daea10ff057116f7fc6858be340fd82204eb17db566bfec547a911.tar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;drwxr-xr-x 0&#x2F;0               0 1969-12-31 19:00 foo&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;drwxr-xr-x 0&#x2F;0               0 2025-12-10 16:31 foo&#x2F;bar&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;-rw-r--r-- 0&#x2F;0               0 2025-12-10 16:31 foo&#x2F;bar&#x2F;baz&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ok, so &lt;code&gt;&#x2F;foo&lt;&#x2F;code&gt; is there.  But... why?  We didn&#x27;t modify it.  Deeper
+down the rabbit hole we go.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;overlayfs&quot;&gt;Overlayfs&lt;&#x2F;h2&gt;
+&lt;p&gt;Spoiler: the answer is
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.kernel.org&#x2F;filesystems&#x2F;overlayfs.html&quot;&gt;overlayfs&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The OCI spec defines the image format, but notably it does &lt;em&gt;not&lt;&#x2F;em&gt;
+specify any particular implementation details on how to store, manage,
+and stitch together the final container image from its individual
+layers.&lt;&#x2F;p&gt;
+&lt;p&gt;In reality, container runtimes such as podman (via
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;containers&#x2F;container-libs&#x2F;tree&#x2F;main&#x2F;storage&quot;&gt;containers-libs&lt;&#x2F;a&gt;,
+formerly containers-storage) use the kernel filesystem overlayfs to
+stitch together the layers into the final realized view of the world.&lt;&#x2F;p&gt;
+&lt;p&gt;A &lt;code&gt;RUN&lt;&#x2F;code&gt; invocation in a &lt;code&gt;Containerfile&lt;&#x2F;code&gt; is in a nutshell this series
+of steps:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Mount the previous layer (and recursively, layers prior to that)
+as a &lt;code&gt;lowerdir&lt;&#x2F;code&gt; in an overlayfs filesystem.&lt;&#x2F;li&gt;
+&lt;li&gt;Perform the &lt;code&gt;RUN&lt;&#x2F;code&gt; invocation in the mounted filesystem.&lt;&#x2F;li&gt;
+&lt;li&gt;Collect the contents of the resulting &lt;code&gt;upperdir&lt;&#x2F;code&gt; directory.  This
+becomes the tarball for that layer.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;This process is how we end up with our &lt;code&gt;&#x2F;foo&lt;&#x2F;code&gt; directory duplicated
+into the final layer, even though we did not modify it.  We can mock
+this out just using an overlay mount and basic commands.&lt;&#x2F;p&gt;
+&lt;p&gt;First, mock our lower layer, and set the mtime:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd tmp]# mkdir lower upper work merged&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd tmp]# mkdir -p lower&#x2F;foo&#x2F;bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd tmp]# touch -d @0 lower&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd tmp]# stat lower&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  File: lower&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  Size: 60        	Blocks: 0          IO Block: 4096   directory&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Device: 0,45	Inode: 46858       Links: 3&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Context: unconfined_u:object_r:user_tmp_t:s0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: 1969-12-31 19:00:00.000000000 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Modify: 1969-12-31 19:00:00.000000000 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Change: 2025-12-10 16:53:27.174443520 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt; Birth: 2025-12-10 16:53:20.544455919 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Next, mount it via overlayfs:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd tmp]# mount -t overlay overlay -o lowerdir=lower,upperdir=upper,workdir=work merged&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd tmp]# cd merged&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd merged]# stat foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  File: foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  Size: 60        	Blocks: 0          IO Block: 4096   directory&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Device: 0,90	Inode: 46858       Links: 3&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Context: unconfined_u:object_r:user_tmp_t:s0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: 1969-12-31 19:00:00.000000000 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Modify: 1969-12-31 19:00:00.000000000 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Change: 2025-12-10 16:53:27.174443520 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt; Birth: 2025-12-10 16:53:20.544455919 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now we simulate creating the new layer:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd merged]# touch foo&#x2F;bar&#x2F;baz&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally we can unmount the overlayfs mount and observe the contents of
+the &lt;code&gt;upper&lt;&#x2F;code&gt; dir:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd merged]# cd ..&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd tmp]# umount merged&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd tmp]# find upper&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;upper&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;upper&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;upper&#x2F;foo&#x2F;bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;upper&#x2F;foo&#x2F;bar&#x2F;baz&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@burd tmp]# stat upper&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  File: upper&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  Size: 60        	Blocks: 0          IO Block: 4096   directory&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Device: 0,45	Inode: 46870       Links: 3&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Context: unconfined_u:object_r:user_tmp_t:s0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: 2025-12-10 16:57:20.828001765 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Modify: 1969-12-31 19:00:00.000000000 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Change: 2025-12-10 16:56:16.746593313 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt; Birth: 2025-12-10 16:56:16.745126092 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So that&#x27;s where our &lt;code&gt;&#x2F;foo&lt;&#x2F;code&gt; entry comes from.  This behavior is
+explained in the &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.kernel.org&#x2F;filesystems&#x2F;overlayfs.html#non-directories&quot;&gt;overlayfs
+documentation&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Objects that are not directories (files, symlinks, device-special&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;files etc.) are presented either from the upper or lower filesystem as&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;appropriate. When a file in the lower filesystem is accessed in a way&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;that requires write-access, such as opening for write access, changing&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;some metadata etc., the file is first copied from the lower filesystem&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;to the upper filesystem (copy_up). Note that creating a hard-link also&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;requires copy_up, though of course creation of a symlink does not.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;The copy_up may turn out to be unnecessary, for example if the file is&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;opened for read-write but the data is not modified.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;The copy_up process first makes sure that the containing directory&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;exists in the upper filesystem - creating it and any parents as&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;necessary. It then creates the object with the same metadata (owner,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;mode, mtime, symlink-target etc.) and then if the object is a file,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;the data is copied from the lower to the upper filesystem. Finally any&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;extended attributes are copied up.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Since the content of the layer tarball is taken directly from the
+&lt;code&gt;upper&lt;&#x2F;code&gt;, we end up getting a copy of &lt;code&gt;&#x2F;foo&lt;&#x2F;code&gt; via this process.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;where-do-we-go-from-here&quot;&gt;Where do we go from here?&lt;&#x2F;h2&gt;
+&lt;p&gt;Hopefully I have explained the situation adequately and this all makes
+sense.  I have achieved some amount of inner peace that comes with
+reaching understanding.&lt;&#x2F;p&gt;
+&lt;p&gt;However... I still don&#x27;t like it.  I think we can do better.&lt;&#x2F;p&gt;
+&lt;p&gt;Here&#x27;s the thing for &lt;code&gt;bootc&lt;&#x2F;code&gt;: in our rechunked images, I don&#x27;t want to
+include the same directories over and over again in every single
+layer.  It shouldn&#x27;t be necessary, and by strict reading of the OCI
+spec we &lt;em&gt;shouldn&#x27;t&lt;&#x2F;em&gt; do that if the directories are unchanged (which
+they aren&#x27;t).&lt;&#x2F;p&gt;
+&lt;p&gt;But in the current state of the world, if we &lt;em&gt;don&#x27;t&lt;&#x2F;em&gt; duplicate those
+entries into every layer, we end up with non-deterministic directory
+metadata when our OCI image is mounted and viewed through the lens of
+overlayfs.  This is fundamentally broken as we move bootc into a
+future where
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc&#x2F;issues&#x2F;1190&quot;&gt;composefs&lt;&#x2F;a&gt; and
+&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.kernel.org&#x2F;filesystems&#x2F;fsverity.html&quot;&gt;fsverity&lt;&#x2F;a&gt; are used
+to harden and validate images.  Ideally a container image should be
+able to measure its own fsverity hash in a reproducible manner.  Today
+that is not possible.&lt;&#x2F;p&gt;
+&lt;p&gt;So the following is what I&#x27;ve done as a proof-of-concept (a huge
+motivation for writing this post in the first place was to
+exhaustively explain my justification for why this is needed).  I&#x27;ve
+written and tested a patch (still needs refining before submitting)
+for overlayfs which does the following:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Adds a new feature &lt;code&gt;passthrough&lt;&#x2F;code&gt; (naming bikeshedable) which
+functions similarly to the &lt;code&gt;metacopy&lt;&#x2F;code&gt; feature.&lt;&#x2F;li&gt;
+&lt;li&gt;Uses the &lt;code&gt;trusted.overlay.passthrough&lt;&#x2F;code&gt; to flag directories as
+&quot;structural-only&quot;.&lt;&#x2F;li&gt;
+&lt;li&gt;When encountering a directory with the xattr, searches through the
+lowerdirs until it finds a directory which does not have the xattr
+set.  The metadata for this layer is used.  (If no unflagged
+lowerdir is found, it falls back to the current behavior of using
+non-deterministic local metadata)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Here&#x27;s an example.  This is similar to our manual overlayfs example
+above, except this uses two lower layers to show how unpacking a tar
+layer with incomplete directory information might look.&lt;&#x2F;p&gt;
+&lt;p&gt;First, create our base layer again:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@fedora ~]# mkdir upper merged work&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@fedora ~]# mkdir -p base_layer&#x2F;foo&#x2F;bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@fedora ~]# touch -d @0 base_layer&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then, in our second layer we create the &lt;code&gt;baz&lt;&#x2F;code&gt; file.  This time we set
+the &lt;code&gt;passthrough&lt;&#x2F;code&gt; xattr on &lt;code&gt;&#x2F;foo&lt;&#x2F;code&gt;, which is how I envision this all
+working when a container storage engine unpacks a &lt;code&gt;tar&lt;&#x2F;code&gt; archive with
+incomplete parent directory information.  Ideally this layer should
+include a tar entry for &lt;code&gt;foo&#x2F;bar&#x2F;baz&lt;&#x2F;code&gt; and (arguably) &lt;code&gt;foo&#x2F;bar&lt;&#x2F;code&gt; since
+the directory metadata for &lt;code&gt;bar&lt;&#x2F;code&gt; should be updated to reflect the
+addition of &lt;code&gt;bar&lt;&#x2F;code&gt;.  But it definitely should &lt;em&gt;not&lt;&#x2F;em&gt; include an entry
+for &lt;code&gt;foo&#x2F;&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@fedora ~]# mkdir -p second_layer&#x2F;foo&#x2F;bar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@fedora ~]# touch second_layer&#x2F;foo&#x2F;bar&#x2F;baz&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@fedora ~]# setfattr -n trusted.overlay.passthrough second_layer&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now let&#x27;s mount it with the patched overlayfs.  First, we&#x27;ll specify
+&lt;code&gt;passthrough=off&lt;&#x2F;code&gt; to show the existing behavior:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@fedora ~]# mount -t overlay overlay -o upperdir=upper,lowerdir=second_layer:base_layer,workdir=work,passthrough=off merged&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@fedora ~]# stat merged&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  File: merged&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  Size: 6               Blocks: 0          IO Block: 4096   directory&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Device: 0,59    Inode: 365132      Links: 1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Context: unconfined_u:object_r:admin_home_t:s0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: 2025-12-10 17:33:32.787147889 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Modify: 2025-12-10 17:33:32.787147889 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Change: 2025-12-10 17:34:01.701054010 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt; Birth: 2025-12-10 17:33:32.787147889 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here the &lt;code&gt;foo&lt;&#x2F;code&gt; directory has whatever metadata we created for it when
+we &quot;unpacked&quot; it with the command &lt;code&gt;mkdir -p second_layer&#x2F;foo&#x2F;bar&lt;&#x2F;code&gt;
+above.  This is what we&#x27;re trying to avoid.&lt;&#x2F;p&gt;
+&lt;p&gt;Now let&#x27;s unmount and remount with &lt;code&gt;passthrough=on&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #24292E; background-color: #FFFFFF;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@fedora ~]# umount merged&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@fedora ~]# mount -t overlay overlay -o upperdir=upper,lowerdir=second_layer:base_layer,workdir=work,passthrough=on merged&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[root@fedora ~]# stat merged&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  File: merged&#x2F;foo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  Size: 6               Blocks: 0          IO Block: 4096   directory&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Device: 0,59    Inode: 365129      Links: 1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: (0755&#x2F;drwxr-xr-x)  Uid: (    0&#x2F;    root)   Gid: (    0&#x2F;    root)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Context: unconfined_u:object_r:admin_home_t:s0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Access: 1969-12-31 19:00:00.000000000 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Modify: 1969-12-31 19:00:00.000000000 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Change: 2025-12-10 17:28:12.268740241 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt; Birth: 2025-12-10 17:27:39.158847877 -0500&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now we have the metadata for &lt;code&gt;foo&lt;&#x2F;code&gt; being passed through the second
+layer and retrieved from the base layer, which is the behavior we
+want.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;Ensuring that OCI image layers are able to only ship content that
+they&#x27;ve modified will aid reproducibility and help unlock
+optimizations by avoiding having derived layers always need to inherit
+metadata from their parent. At the current time, however, tooling
+creating OCI images should include their parent information in order
+to maximize compatibility. We are looking forward to a future where
+that&#x27;s not necessary though!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Bootc Community Meeting Notes - 18 July 2025</title>
+          <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc.dev/blog/2025-july-18-community-meeting/</link>
+          <guid>https://bootc.dev/blog/2025-july-18-community-meeting/</guid>
+          <description xml:base="https://bootc.dev/blog/2025-july-18-community-meeting/">&lt;h3 id=&quot;attendees&quot;&gt;Attendees:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Laura Santamaria (she&#x2F;her; Red Hat)&lt;&#x2F;li&gt;
+&lt;li&gt;Hristo Marinov&lt;&#x2F;li&gt;
+&lt;li&gt;Fernando Lozano&lt;&#x2F;li&gt;
+&lt;li&gt;Colin Walters (he&#x2F;him; Red Hat)&lt;&#x2F;li&gt;
+&lt;li&gt;Joseph Marrero Corchado (Red Hat, Inc.)&lt;&#x2F;li&gt;
+&lt;li&gt;Matteo Piccinini (n&#x2F;a)&lt;&#x2F;li&gt;
+&lt;li&gt;Robert Sturla (Tesco Bank)&lt;&#x2F;li&gt;
+&lt;li&gt;Dusty Mabe&lt;&#x2F;li&gt;
+&lt;li&gt;Chris Kyrouac&lt;&#x2F;li&gt;
+&lt;li&gt;Gursewak Mangat&lt;&#x2F;li&gt;
+&lt;li&gt;John Eckersberg (Red Hat, Inc.)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;agenda&quot;&gt;Agenda:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc&#x2F;pull&#x2F;1422&quot;&gt;Release 1.5.1&lt;&#x2F;a&gt;
+&lt;ul&gt;
+&lt;li&gt;Thanks @robert!&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Laura] project pavilion update?
+&lt;ul&gt;
+&lt;li&gt;Request form due Monday, shouldn&#x27;t block on travel&lt;&#x2F;li&gt;
+&lt;li&gt;Let&#x27;s do it live&lt;&#x2F;li&gt;
+&lt;li&gt;✅&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Laura] Static site generation for landing page
+&lt;ul&gt;
+&lt;li&gt;Review!&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc-dev.github.io&#x2F;pull&#x2F;3&quot;&gt;bootc-dev&#x2F;bootc-dev.github.io#3&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;adding logos as examples: &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fedoraproject.org&#x2F;coreos&#x2F;&quot;&gt;CoreOS site&lt;&#x2F;a&gt;; &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;projectbluefin.io&#x2F;&quot;&gt;BluefinOS&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Colin] QMU banned contributions from AI. Want to talk about it. Contribution policy?
+&lt;ul&gt;
+&lt;li&gt;Thoughts?&lt;&#x2F;li&gt;
+&lt;li&gt;Require use of &lt;code&gt;&amp;lt;Assisted-by&amp;gt;&lt;&#x2F;code&gt; tag to identify model&#x2F;tool&lt;&#x2F;li&gt;
+&lt;li&gt;Errant AI comment contributed to recent bug&lt;&#x2F;li&gt;
+&lt;li&gt;[John] +1 on attribution&lt;&#x2F;li&gt;
+&lt;li&gt;[Dusty] do we want to limit, or allow?
+&lt;ul&gt;
+&lt;li&gt;[Colin] has a pretty big impact, so want to know what folks think&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Joseph] note in readme or contributing section makes sense. Maybe have a bot that highlights that on PR? People probably won&#x27;t say anything because part of workflow&lt;&#x2F;li&gt;
+&lt;li&gt;[Dusty] Can&#x27;t prevent, but policy. Any examples of wasted time on clearly generated by AI PR
+&lt;ul&gt;
+&lt;li&gt;[Colin] Can tell 90% of the time. Most modern foundational models love bulleted lists, so it&#x27;s obvious. Kinda wacky to put md doc in top level of repo for PR&lt;&#x2F;li&gt;
+&lt;li&gt;[Laura] gave overview from OSPO and the other container group discussion&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Colin] Will open a discussion&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;todo&quot;&gt;TODO:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Laura to explore adding logos to PR.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Laura to add GitHub Actions for publication&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Look for info on domain handling for static site&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Colin to open a discussion about the AI assisted PRs&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Laura to find and share the public Containers Cabal recording&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+      <item>
+          <title>Bootc Community Meeting Notes - 11 July 2025</title>
+          <pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bootc.dev/blog/2025-july-11-community-meeting/</link>
+          <guid>https://bootc.dev/blog/2025-july-11-community-meeting/</guid>
+          <description xml:base="https://bootc.dev/blog/2025-july-11-community-meeting/">&lt;h3 id=&quot;attendees&quot;&gt;Attendees:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Joseph Marrero Corchado (Red Hat, Inc.)&lt;&#x2F;li&gt;
+&lt;li&gt;Colin Walters&lt;&#x2F;li&gt;
+&lt;li&gt;Robert Sturla (Tesco Bank&#x2F;Universal Blue)&lt;&#x2F;li&gt;
+&lt;li&gt;Laura Santamaria (she&#x2F;her)&lt;&#x2F;li&gt;
+&lt;li&gt;Hristo Marinov&lt;&#x2F;li&gt;
+&lt;li&gt;John Eckersberg (Red Hat, Inc.)&lt;&#x2F;li&gt;
+&lt;li&gt;Dusty (he&#x2F;him)&lt;&#x2F;li&gt;
+&lt;li&gt;Antheas Kapenekakis (Bazzite)&lt;&#x2F;li&gt;
+&lt;li&gt;Mohan&lt;&#x2F;li&gt;
+&lt;li&gt;Chris Kyrouac&lt;&#x2F;li&gt;
+&lt;li&gt;Gursewak Mangat&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;agenda&quot;&gt;Agenda:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;New release status: &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc&#x2F;issues&#x2F;1390&quot;&gt;bootc-dev&#x2F;bootc#1390&lt;&#x2F;a&gt;
+&lt;ul&gt;
+&lt;li&gt;folks agreed on this&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;[Laura] &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;events.linuxfoundation.org&#x2F;kubecon-cloudnativecon-north-america&#x2F;&quot;&gt;KubeCon NA 2025&lt;&#x2F;a&gt; &lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;events.linuxfoundation.org&#x2F;kubecon-cloudnativecon-north-america&#x2F;features-add-ons&#x2F;project-opportunities&#x2F;#description-of-opportunities&quot;&gt;Project Pavilion application&lt;&#x2F;a&gt;
+&lt;ul&gt;
+&lt;li&gt;November 10-13 - Atlanta, Georgia&lt;&#x2F;li&gt;
+&lt;li&gt;Who is going to KubeCon NA 2025 already?
+&lt;ul&gt;
+&lt;li&gt;Laura&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;We&#x27;ll get a project pavilion submission scheduled (probably from Joseph or Colin who already submitted a talk)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Ublue - Collaboration
+&lt;ul&gt;
+&lt;li&gt;Folks are joining :)&lt;&#x2F;li&gt;
+&lt;li&gt;Robert, Antheas from the Ublue community&lt;&#x2F;li&gt;
+&lt;li&gt;Colin would like to do 1:1s
+&lt;ul&gt;
+&lt;li&gt;dustymabe: an office hours like set time could help facilitate this (+1 - Laura)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;hhd-dev&#x2F;rechunk&quot;&gt;rechunker alignment&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc&#x2F;issues&#x2F;1016&quot;&gt;progress-fd&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a class=&quot;external&quot; rel=&quot;noopener noreferrer external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bootc-dev&#x2F;bootc&#x2F;issues&#x2F;7&quot;&gt;systemd-sysext frontend&lt;&#x2F;a&gt;
+&lt;ul&gt;
+&lt;li&gt;Motivated by combinatorial explosion of gnome|kde * nvidia|amd * surface|framework|lenovo&lt;&#x2F;li&gt;
+&lt;li&gt;discussion of downsides of systemd-sysext as defined today, vs&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;todo&quot;&gt;TODO:&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Put project pavilion application&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Keep smaller, more focused meetings&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+    </channel>
+</rss>
