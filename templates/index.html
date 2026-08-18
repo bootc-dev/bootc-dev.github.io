@@ -52,7 +52,7 @@
 <div class="heading-text">Latest from the Blog</div>
 <ul>
     {% set blog = get_section(path="blog/_index.md") %}
-    {% for post in blog.pages | slice(end=3) %}
+    {% for post in blog.pages[:3] %}
     <li>
         <a href="{{ post.permalink | safe }}">
             <strong class="title article-title">{{ post.title }}</strong>

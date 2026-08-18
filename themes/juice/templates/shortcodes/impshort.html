@@ -1,4 +1,0 @@
-{% set response = load_data(url="https://raw.githubusercontent.com/bootc-dev/bootc/refs/heads/main/" ~ page.extra.fileimport ~ ".md") %}
-{% set toc = get_random(end=5) %}
-{{ response | markdown | safe }}
-

@@ -1,5 +1,5 @@
 {# render author information, including schema information #}
-{% macro author(id) %}
+{% component author(id, config) %}
 
 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
 {% if config.extra.authors[id] -%}
@@ -9,30 +9,30 @@
 {%- endif %}
 </span>
 
-{% endmacro author %}
+{% endcomponent author %}
 
 {# return the description of the page #}
 
-{% macro description(page) -%}
+{% component description(page) -%}
 {% if page.description -%}
 {{ page.description }}
 {%- elif page.summary -%}
 {{ page.summary | striptags }}
 {%- endif %}
-{%- endmacro description %}
+{%- endcomponent description %}
 
 {# generate absolute URL for image #}
-{% macro abs_url(page, url) -%}
-{% if ( url is starting_with("http://") ) or (url is starting_with("https://")) -%}
+{% component abs_url(page, url) -%}
+{% if ( url is starting_with(pat="http://") ) or (url is starting_with(pat="https://")) -%}
 {{ url | safe }}
-{%- elif url is starting_with("/") -%}
+{%- elif url is starting_with(pat="/") -%}
 {{ get_url(path=url) | safe }}
 {%- else -%}
 {{ get_url(path=page.path ~ url) | safe }}
 {%- endif %}
-{%- endmacro abs_url %}
+{%- endcomponent abs_url %}
 
 {# generate a link list item #}
-{% macro link_list_item(label,href) -%}
+{% component link_list_item(label, href) -%}
 <a href="{{href}}" target="_blank">{{label}}</a>
-{%- endmacro link_list_item %}
+{%- endcomponent link_list_item %}
