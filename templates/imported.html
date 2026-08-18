@@ -1,9 +1,8 @@
-{% import "_macros.html" as macros %}
 {% extends "page.html" %}
 
 {% block header %}
 <header class="box-shadow">
-    {{ macros::render_header() }}
+    {% include "_macros.html" %}
 </header>
 {% endblock header %}
 
@@ -20,20 +19,20 @@
 
 {% block toc %}
 {% set response = load_data(url="https://raw.githubusercontent.com/bootc-dev/bootc/refs/heads/main/" ~ page.extra.fileimport ~ ".md") %}
-{% set toc = response | markdown | linebreaksbr | split(pat="<br>") %}
+{% set toc = response | markdown | newlines_to_br | split(pat="<br>") %}
 {% set mapset = [] %}
 {%- for elem in toc %}
-    {%- if elem is starting_with("<h") %}
-        {%- set mapset1 = elem | regex_replace(pattern=`<h(?P<level>\d) id="(?P<anchor>.*)">(?P<heading>.*)</h\d>`, rep=`$level,$anchor,$heading`) %}
-        {% set_global mapset = mapset | concat(with=mapset1) %}
+    {%- if elem is starting_with(pat="<h") %}
+        {%- set mapset1 = elem | regex_replace(pattern='<h(?P<level>\\d) id="(?P<anchor>.*)">(?P<heading>.*)</h\\d>', rep="$level,$anchor,$heading") %}
+        {% set_global mapset = [...mapset, mapset1] %}
     {%- endif %}
 {%- endfor %}
 <div class="toc">
     <div class="toc-sticky">
         {%- for elem in mapset %}
-            {%- set id_val = elem | regex_replace(pattern=`(?P<id>\d*),(?P<anchor>.*),(?P<heading>.*)`, rep=`$id`) %}
-            {%- set anchor = elem | regex_replace(pattern=`(?P<id>\d*),(?P<anchor>.*),(?P<heading>.*)`, rep=`$anchor`) %}
-            {%- set heading = elem | regex_replace(pattern=`(?P<id>\d*),(?P<anchor>.*),(?P<heading>.*)`, rep=`$heading`) %}
+            {%- set id_val = elem | regex_replace(pattern='(?P<id>\\d*),(?P<anchor>.*),(?P<heading>.*)', rep="$id") %}
+            {%- set anchor = elem | regex_replace(pattern='(?P<id>\\d*),(?P<anchor>.*),(?P<heading>.*)', rep="$anchor") %}
+            {%- set heading = elem | regex_replace(pattern='(?P<id>\\d*),(?P<anchor>.*),(?P<heading>.*)', rep="$heading") %}
             {%- if id_val == "1" -%}
                 <div class="toc-item">
                     <a href="#{{ anchor }}" class="subtext">{{ heading }}</a>

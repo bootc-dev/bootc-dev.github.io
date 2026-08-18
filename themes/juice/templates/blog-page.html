@@ -1,10 +1,8 @@
-{% import "_macros.html" as macros %}
-{% import "common.html" as common %}
 {% extends "base.html" %}
 
 {% block header %}
 <header class="box-shadow">
-    {{ macros::render_header() }}
+    {% include "_macros.html" %}
 </header>
 {% endblock header %}
 
@@ -13,7 +11,7 @@
 <div class="blog-meta">
     <span class="blog-date">{{ page.date | date(format="%B %d, %Y") }}</span>
     {% if page.extra.author %}
-    <span class="blog-author"> by {{ common::author(id=page.extra.author) }}</span>
+    <span class="blog-author"> by {{<author id={page.extra.author} config={config} />}}</span>
     {% endif %}
 </div>
 {{ page.content | safe }}
