@@ -37,6 +37,7 @@ skip_prefixes = [
     "https://www.freedesktop.org/",
     "https://www.youtube.com/",
     "https://youtu.be/",
+    "https://cloud-native.slack.com/",
 ]
 #slugify
 #search
